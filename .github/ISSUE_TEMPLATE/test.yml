@@ -1,0 +1,33 @@
+name: Autopilot Bug Report
+description: Report a Q4XP autopilot bug
+title: "[Bug]: "
+labels: ["q4xp-integration", "autopilot", "bug"]
+assignees:
+  - amyinorbit
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of the Q4XP UNS-1 plugin are you using?
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: >
+        Tell us what happened: what the autopilot did, what you expected it to do instead,
+        and any information you think might be relevant or help us reproduce the bug.
+        *PLEASE ATTACH YOUR LOG FILE* 
+      placeholder:
+      value: "# What happened
+        
+        
+        # Expected behaviour
+        
+        
+        # Attach your log file here"
+        
+    validations:
+      required: true
