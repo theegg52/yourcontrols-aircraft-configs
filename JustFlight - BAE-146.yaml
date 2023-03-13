@@ -1,0 +1,3181 @@
+# JustFlight BAE-146 v0.1.2 3rd May 2022
+
+include:
+  - definitions/modules/radios.yaml
+  - definitions/modules/navigation.yaml
+  - definitions/modules/trim.yaml
+  - definitions/modules/general.yaml
+  
+shared:
+# Upper Overhead Misc Panel
+  - # Yaw Damp Master 1
+    type: var
+    var_name: L:OVHD_MISC_YD_MASTER_1
+  - # Yaw Damp Master 2
+    type: var
+    var_name: L:OVHD_MISC_YD_MASTER_2
+  - # AP Mstr
+    type: var
+    var_name: L:OVHD_MISC_AP_MASTER
+  - # Avionics Master A
+    type: var
+    var_name: L:OVHD_MISC_AVIONICS_MASTER_A
+  - # Avionics Master B
+    type: var
+    var_name: L:OVHD_MISC_AVIONICS_MASTER_B
+  - # Grnd IGN
+    type: var
+    var_name: L:OVHD_MISC_Grdnign
+  - # Brk Fans
+    type: var
+    var_name: L:OVHD_MISC_BrkFans
+  - # Console Light X
+    type: var
+    var_name: L:OVHD_MISC_Console_lt_posX
+  - # Console Light Y
+    type: var
+    var_name: L:OVHD_MISC_Console_lt_posY
+# Upper Overhead Anti Skid & Lift Spoilers Panel
+  - # Anti Skid Guard
+    type: var
+    var_name: L:OVHD_MISC_AntiSkid_Guard
+  - # Anti Skid 
+    type: var
+    var_name: L:OVHD_MISC_AntiSkid
+  - # Auto Splr Guard
+    type: var
+    var_name: L:OVHD_MISC_AutoSplr_Guard
+  - # Anti Skid 
+    type: var
+    var_name: L:OVHD_MISC_AutoSplr
+  - # Lift Splrs Yel
+    type: var
+    var_name: L:OVHD_MISC_LiftSplrs_yel
+  - # Lift Splrs Grn
+    type: var
+    var_name: L:OVHD_MISC_LiftSplrs_grn
+# Upper Overhead Hydraulic Panel
+  - # Eng 2 Pump
+    type: var
+    var_name: L:OVHD_HYD_Eng2_pump
+  - # DC Pump Guard
+    type: var
+    var_name: L:OVHD_HYD_DC_pump_guard
+  - # DC Pump
+    type: var
+    var_name: L:OVHD_HYD_DC_pump
+  - # AC Pump
+    type: var
+    var_name: L:OVHD_HYD_AC_pump
+  - # PTU
+    type: var
+    var_name: L:OVHD_HYD_PTU
+  - # Eng 3 Pump
+    type: var
+    var_name: L:OVHD_HYD_Eng3_pump
+# Upper Overhead Fire Handle Panel
+  - # Eng 1 Fire Handle Pull
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng1_pull
+  - # Eng 1 Fire Handle Turn
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng1
+  - # Eng 2 Fire Handle Pull
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng2_pull
+  - # Eng 2 Fire Handle Turn
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng2
+  - # Eng 3 Fire Handle Pull
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng3_pull
+  - # Eng 3 Fire Handle Turn
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng3
+  - # Eng 4 Fire Handle Pull
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng4_pull
+  - # Eng 4 Fire Handle Turn
+    type: var
+    var_name: L:OVHD_FIREHANDLES_Eng4
+# Upper Overhead GRND Test Panel
+  - # Eng 1 Ovspd Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG1
+  - # Eng 1 Ovspd Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG1_ISDOWN
+  - # Eng 1 Ovspd Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG1_LEFTLEAVETORUN
+  - # Eng 1 Ovspd Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG1_MINRELEASETIME
+  - # Eng 2 Ovspd Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG2
+  - # Eng 2 Ovspd Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG2_ISDOWN
+  - # Eng 2 Ovspd Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG2_LEFTLEAVETORUN
+  - # Eng 2 Ovspd Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG2_MINRELEASETIME
+  - # Eng 3 Ovspd Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG3
+  - # Eng 3 Ovspd Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG3_ISDOWN
+  - # Eng 3 Ovspd Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG3_LEFTLEAVETORUN
+  - # Eng 3 Ovspd Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG3_MINRELEASETIME
+  - # Eng 4 Ovspd Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG4
+  - # Eng 4 Ovspd Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG4_ISDOWN
+  - # Eng 4 Ovspd Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG4_LEFTLEAVETORUN
+  - # Eng 4 Ovspd Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_OVSPD_ENG4_MINRELEASETIME
+  - # Eng 1 fire Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng1
+  - # Eng 1 fire Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng1_ISDOWN
+  - # Eng 1 fire Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng1_LEFTLEAVETORUN
+  - # Eng 1 fire Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng1_MINRELEASETIME
+  - # Eng 2 fire Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng2
+  - # Eng 2 fire Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng2_ISDOWN
+  - # Eng 2 fire Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng2_LEFTLEAVETORUN
+  - # Eng 2 fire Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng2_MINRELEASETIME
+  - # Eng 3 fire Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng3
+  - # Eng 3 fire Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng3_ISDOWN
+  - # Eng 3 fire Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng3_LEFTLEAVETORUN
+  - # Eng 3 fire Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng3_MINRELEASETIME
+  - # Eng 4 fire Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng4
+  - # Eng 4 fire Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng4_ISDOWN
+  - # Eng 4 fire Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng4_LEFTLEAVETORUN
+  - # Eng 4 fire Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_fire_eng4_MINRELEASETIME
+  - # APU fire Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_fire
+  - # APU fire Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_fire_ISDOWN
+  - # APU fire Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_fire_LEFTLEAVETORUN
+  - # APU fire Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_fire_MINRELEASETIME
+  - # APU ovspd Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_ovspd
+  - # APU ovspd Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_ovspd_ISDOWN
+  - # APU ovspd Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_ovspd_LEFTLEAVETORUN
+  - # APU ovspd Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_APU_ovspd_MINRELEASETIME
+  - # ENG + APU Exting Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_Exting
+  - # ENG + APU Exting Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_Exting_ISDOWN
+  - # ENG + APU Exting Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_Exting_LEFTLEAVETORUN
+  - # ENG + APU Exting Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_Exting_MINRELEASETIME
+  - # Smoke Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_Smoke
+  - # Smoke Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_Smoke_ISDOWN
+  - # Smoke Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_Smoke_LEFTLEAVETORUN
+  - # Smoke Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_Smoke_MINRELEASETIME
+  - # Stall Warn 1 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_1
+  - # Stall Warn 1 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_1_ISDOWN
+  - # Stall Warn 1 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_1_LEFTLEAVETORUN
+  - # Stall Warn 1 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_1_MINRELEASETIME
+  - # Stall Warn 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_2
+  - # Stall Warn 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_2_ISDOWN
+  - # Stall Warn 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_2_LEFTLEAVETORUN
+  - # Stall Warn 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallWarn_2_MINRELEASETIME
+  - # Zone Loop A Warn 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_A
+  - # Zone Loop A Warn 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_A_ISDOWN
+  - # Zone Loop A Warn 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_A_LEFTLEAVETORUN
+  - # Zone Loop A Warn 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_A_MINRELEASETIME
+  - # Zone Loop B Warn 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_B
+  - # Zone Loop B Warn 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_B_ISDOWN
+  - # Zone Loop B Warn 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_B_LEFTLEAVETORUN
+  - # Zone Loop B Warn 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_ZoneLoops_B_MINRELEASETIME
+  - # Stall Ident 1 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_1
+  - # Stall Ident 1 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_1_ISDOWN
+  - # Stall Ident 1 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_1_LEFTLEAVETORUN
+  - # Stall Ident 1 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_1_MINRELEASETIME
+  - # Stall Ident 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_2
+  - # Stall Ident 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_2_ISDOWN
+  - # Stall Ident 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_2_LEFTLEAVETORUN
+  - # Stall Ident 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_StallIdent_2_MINRELEASETIME
+  - # Nose Squat 1 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_1
+  - # Nose Squat 1 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_1_ISDOWN
+  - # Nose Squat 1 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_1_LEFTLEAVETORUN
+  - # Nose Squat 1 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_1_MINRELEASETIME
+  - # Nose Squat 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_2
+  - # Nose Squat 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_2_ISDOWN
+  - # Nose Squat 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_2_LEFTLEAVETORUN
+  - # Nose Squat 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_NoseSquat_2_MINRELEASETIME
+  - # Speed Warn 1 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_1
+  - # Speed Warn 1 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_1_ISDOWN
+  - # Speed Warn 1 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_1_LEFTLEAVETORUN
+  - # Speed Warn 1 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_1_MINRELEASETIME
+  - # Speed Warn 2 Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_2
+  - # Speed Warn 2 Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_2_ISDOWN
+  - # Speed Warn 2 Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_2_LEFTLEAVETORUN
+  - # Speed Warn 2 Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_SpeedWarn_2_MINRELEASETIME
+  - # Anti Skid Fault Yel Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_yel
+  - # Anti Skid Fault Yel Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_yel_ISDOWN
+  - # Anti Skid Fault Yel Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_yel_LEFTLEAVETORUN
+  - # Anti Skid Fault Yel Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_yel_MINRELEASETIME
+  - # Anti Skid Fault Grn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_grn
+  - # Anti Skid Fault Grn Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_grn_ISDOWN
+  - # Anti Skid Fault Grn Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_grn_LEFTLEAVETORUN
+  - # Anti Skid Fault Grn Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_AntiSkid_grn_MINRELEASETIME
+  - # Rear Bay Hi Temp Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_RearBay
+  - # Rear Bay Hi Temp Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_RearBay_ISDOWN
+  - # Rear Bay Hi Temp Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_RearBay_LEFTLEAVETORUN
+  - # Rear Bay Hi Temp Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_RearBay_MINRELEASETIME
+  - # Flap Safety Hi Temp Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapSafety
+  - # Flap Safety Hi Temp Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapSafety_ISDOWN
+  - # Flap Safety Hi Temp Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapSafety_LEFTLEAVETORUN
+  - # Flap Safety Hi Temp Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapSafety_MINRELEASETIME
+  - # Flap Ctrl Fault Yel Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_yel
+  - # Flap Ctrl Fault Yel Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_yel_ISDOWN
+  - # Flap Ctrl Fault Yel Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_yel_LEFTLEAVETORUN
+  - # Flap Ctrl Fault Yel Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_yel_MINRELEASETIME
+  - # Flap Ctrl Fault Grn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_grn
+  - # Flap Ctrl Fault Grn Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_grn_ISDOWN
+  - # Flap Ctrl Fault Grn Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_grn_LEFTLEAVETORUN
+  - # Flap Ctrl Fault Grn Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_FlapCtrl_grn_MINRELEASETIME
+  - # Grnd Pressn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_GrndPressn
+  - # Horn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_Horn
+  - # Horn Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_Horn_ISDOWN
+  - # Horn Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_Horn_LEFTLEAVETORUN
+  - # Horn Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_Horn_MINRELEASETIME
+  - # Squat Switch L Grn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_L
+  - # Squat Switch L Grn Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_L_ISDOWN
+  - # Squat Switch L Grn Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_L_LEFTLEAVETORUN
+  - # Squat Switch L Grn Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_L_MINRELEASETIME
+  - # Squat Switch R Grn Test
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_R
+  - # Squat Switch R Grn Test IsDown
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_R_ISDOWN
+  - # Squat Switch R Grn Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_R_LEFTLEAVETORUN
+  - # Squat Switch R Grn Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_GRNDTEST_SquatSw_R_MINRELEASETIME
+# Upper Overhead Light & Notices Panel
+  - # Entry
+    type: var
+    var_name: L:OVHD_LTS_Entry
+  - # Wing Lts
+    type: var
+    var_name: L:OVHD_LTS_WingLts
+  - # Logo
+    type: var
+    var_name: L:OVHD_LTS_Logo
+  - # On Smkg
+    type: var
+    var_name: L:OVHD_LTS_NoSmkg
+  - # Cabin Emerg Guard
+    type: var
+    var_name: L:OVHD_LTS_CabinEmer_guard
+  - # Cabin Emerg
+    type: var
+    var_name: L:OVHD_LTS_CabinEmer
+  - # Beacon
+    type: var
+    var_name: L:OVHD_LTS_Beacon
+  - # Strobe
+    type: var
+    var_name: L:OVHD_LTS_Strobe
+  - # Nav
+    type: var
+    var_name: L:OVHD_LTS_Nav
+# Upper Overhead Air Conditioning Panel
+  - # Flt Deck Temp Ctrl Mode
+    type: var
+    var_name: L:OVHD_AIRCOND_FltDeck_mode
+  - # Flt Deck Temp Sel
+    type: var
+    var_name: L:OVHD_AIRCOND_FltDeck_temp_sel
+  - # Flt Deck Fan
+    type: var
+    var_name: L:OVHD_AIRCOND_FltDeck_fan
+  - # Cabin Temp Ctrl Mode
+    type: var
+    var_name: L:OVHD_AIRCOND_Cabin_mode
+  - # Cabin Temp Sel
+    type: var
+    var_name: L:OVHD_AIRCOND_Cabin_temp_sel
+  - # Cabin Fan
+    type: var
+    var_name: L:OVHD_AIRCOND_Cabin_fan
+  - # L Duct
+    type: var
+    var_name: L:OVHD_AIRCOND_L_duct_sel
+  - # R Duct
+    type: var
+    var_name: L:OVHD_AIRCOND_R_duct_sel
+# Lower Overhead Fuel Panel
+  - # CTR Tank Transfer
+    type: var
+    var_name: L:OVHD_FUEL_CtrXfr
+  - # X Feed
+    type: var
+    var_name: L:OVHD_FUEL_Xfeed
+  - # L Stby Pump
+    type: var
+    var_name: L:OVHD_FUEL_L_stby
+  - # Common Feed L
+    type: var
+    var_name: L:OVHD_FUEL_ComFeed_L
+  - # Common Feed R
+    type: var
+    var_name: L:OVHD_FUEL_ComFeed_R
+  - # R Stby Pump
+    type: var
+    var_name: L:OVHD_FUEL_R_stby
+  - # L Outer Pump
+    type: var
+    var_name: L:OVHD_FUEL_Pump_L_outer
+  - # L Inner Pump
+    type: var
+    var_name: L:OVHD_FUEL_Pump_L_inner
+  - # R Outer Pump
+    type: var
+    var_name: L:OVHD_FUEL_Pump_R_outer
+  - # R Inner Pump
+    type: var
+    var_name: L:OVHD_FUEL_Pump_R_inner
+# Lower Overhead Call Panel
+  - # Stby Comp & Eye Locator Light
+    type: var
+    var_name: L:OVHD_L_LWR_StbyComp
+  - # Stby Comp & Eye Locator Light IsDown
+    type: var
+    var_name: L:OVHD_L_LWR_StbyComp_ISDOWN
+  - # Stby Comp & Eye Locator Light LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_L_LWR_StbyComp_LEFTLEAVETORUN
+  - # Stby Comp & Eye Locator Light MinReleaseTime
+    type: var
+    var_name: L:OVHD_L_LWR_StbyComp_MINRELEASETIME
+  - # Cncl Call
+    type: var
+    var_name: L:OVHD_L_LWR_CnclCall
+  - # Cncl Call IsDown
+    type: var
+    var_name: L:OVHD_L_LWR_CnclCall_ISDOWN
+  - # Cncl Call LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_L_LWR_CnclCall_LEFTLEAVETORUN
+  - # Cncl Call MinReleaseTime
+    type: var
+    var_name: L:OVHD_L_LWR_CnclCall_MINRELEASETIME
+  - # Emerg Call
+    type: var
+    var_name: L:OVHD_L_LWR_EmerCall
+  - # Emerg Call IsDown
+    type: var
+    var_name: L:OVHD_L_LWR_EmerCall_ISDOWN
+  - # Emerg Call LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_L_LWR_EmerCall_LEFTLEAVETORUN
+  - # Emerg Call MinReleaseTime
+    type: var
+    var_name: L:OVHD_L_LWR_EmerCall_MINRELEASETIME
+  - # Cabin Call
+    type: var
+    var_name: L:OVHD_L_LWR_CabCall
+  - # Cabin Call IsDown
+    type: var
+    var_name: L:OVHD_L_LWR_CabCall_ISDOWN
+  - # Cabin Call LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_L_LWR_CabCall_LEFTLEAVETORUN
+  - # Cabin Call MinReleaseTime
+    type: var
+    var_name: L:OVHD_L_LWR_CabCall_MINRELEASETIME
+  - # Ground Call
+    type: var
+    var_name: L:OVHD_L_LWR_GrndCall
+  - # Ground Call IsDown
+    type: var
+    var_name: L:OVHD_L_LWR_GrndCall_ISDOWN
+  - # Ground Call LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_L_LWR_GrndCall_LEFTLEAVETORUN
+  - # Ground Call MinReleaseTime
+    type: var
+    var_name: L:OVHD_L_LWR_GrndCall_MINRELEASETIME
+  - # Glareshield Dimmer
+    type: var
+    var_name: L:OVHD_L_LWR_DimGlare
+# Lower Overhead Electric Panel
+  - # DC Gauge Selector
+    type: var
+    var_name: L:OVHD_ELEC_DC_sel
+  - # AC Gauge Selector
+    type: var
+    var_name: L:OVHD_ELEC_AC_sel
+  - # Batt 1
+    type: var
+    var_name: L:OVHD_ELEC_BATT1_ON
+  - # Batt 2
+    type: var
+    var_name: L:OVHD_ELEC_BATT2_ON
+  - # Ext AC
+    type: var
+    var_name: L:OVHD_ELEC_EXTAC
+  - # AC Bus Tie
+    type: var
+    var_name: L:OVHD_ELEC_BusTie_AC
+  - # DC Bus Tie
+    type: var
+    var_name: L:OVHD_ELEC_BusTie_DC
+  - # Stby Inverter
+    type: var
+    var_name: L:OVHD_ELEC_StbyInv
+  - # Stby Gen
+    type: var
+    var_name: L:OVHD_ELEC_StbyGen
+  - # Gen 1
+    type: var
+    var_name: L:OVHD_ELEC_Gen1
+  - # Galley
+    type: var
+    var_name: L:OVHD_ELEC_Galley
+  - # Apu Gen
+    type: var
+    var_name: L:OVHD_ELEC_APU_gen
+  - # Gen 4
+    type: var
+    var_name: L:OVHD_ELEC_Gen4
+# Lower Overhead APU Panel
+  - # Fire Ext Guard
+    type: var
+    var_name: L:OVHD_APU_FireExt_cover
+  - # Fire Ext
+    type: var
+    var_name: L:OVHD_APU_FireExt_button
+  - # Fire Ext IsDown
+    type: var
+    var_name: L:OVHD_APU_FireExt_button_ISDOWN
+  - # Fire Ext LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_APU_FireExt_button_LEFTLEAVETORUN
+  - # Fire Ext MinReleaseTime
+    type: var
+    var_name: L:OVHD_APU_FireExt_button_MINRELEASETIME
+  - # Start Switch Guard
+    type: var
+    var_name: L:OVHD_APU_StartStop_guard
+  - # Start Switch
+    type: var
+    var_name: L:OVHD_APU_StartStop
+# Lower Overhead Engines Panel
+  - # Start Pwr Switch Guard
+    type: var
+    var_name: L:OVHD_ENG_StartPwr_guard
+  - # Start Pwr Switch
+    type: var
+    var_name: L:OVHD_ENG_StartPwr
+  - # Start Select Knob
+    type: var
+    var_name: L:OVHD_ENG_StartSel
+  - # Start Master
+    type: var
+    var_name: L:OVHD_ENG_StartMaster
+  - # Flight Start
+    type: var
+    var_name: L:OVHD_ENG_FltStart
+  - # Cont Ign A
+    type: var
+    var_name: L:OVHD_ENG_ContIgn_A
+  - # Cont Ign B
+    type: var
+    var_name: L:OVHD_ENG_ContIgn_B
+  - # Start Mode
+    type: var
+    var_name: L:OVHD_ENG_StartMode
+# Lower Overhead Engine Ice Protection Panel
+  - # Eng 1 Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Eng1
+  - # Eng 2 Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Eng2
+  - # Eng 3 Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Eng3
+  - # Eng 4 Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Eng4
+# Lower Overhead Pressurization Panel
+  - # Disch Valves
+    type: var
+    var_name: L:OVHD_PRESS_Valves_mode
+  - # Man Sel
+    type: var
+    var_name: L:OVHD_PRESS_Man_Sel
+  - # Man Mode
+    type: var
+    var_name: L:OVHD_PRESS_Man_mode
+  - # Man Mode IsDown
+    type: var
+    var_name: L:OVHD_PRESS_Man_mode_ISDOWN
+  - # Man Mode LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_PRESS_Man_mode_LEFTLEAVETORUN
+  - # Man Mode MinReleaseTime
+    type: var
+    var_name: L:OVHD_PRESS_Man_mode_MINRELEASETIME
+  - # Auto Rate
+    type: var
+    var_name: L:OVHD_PRESS_Auto_rate
+  - # Auto Set
+    type: var
+    var_name: L:OVHD_PRESS_Auto_set
+  - # Cabin Alt
+    type: var
+    var_name: L:OVHD_PRESS_cab_alt
+  - # Auto Set Pull
+    type: var
+    var_name: L:OVHD_PRESS_Auto_set_pull
+  - # Auto Baro
+    type: var
+    var_name: L:OVHD_PRESS_Auto_baro
+# Lower Overhead Ice Protection Panel
+  - # Screen Heat L
+    type: var
+    var_name: L:OVHD_ICE_L_ScreenHeat
+  - # Screen Heat R
+    type: var
+    var_name: L:OVHD_ICE_R_ScreenHeat
+  - # Aux & L Vane
+    type: var
+    var_name: L:OVHD_ICE_AuxVane
+  - # L Pitot Heat
+    type: var
+    var_name: L:OVHD_ICE_L_Pitot
+  - # R Pitot Heat
+    type: var
+    var_name: L:OVHD_ICE_R_Pitot
+  - # Outer Wing Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Outer_wing
+  - # Inner Wing De Ice
+    type: var
+    var_name: L:OVHD_ICE_Inner_wing
+  - # Ice Detect Cover
+    type: var
+    var_name: L:OVHD_ICE_Detect_cover
+  - # Ice Detect
+    type: var
+    var_name: L:OVHD_ICE_Detect
+  - # Tail Anti Ice
+    type: var
+    var_name: L:OVHD_ICE_Tail
+# Lower Overhead Air Panel
+  - # Cabin Air
+    type: var
+    var_name: L:OVHD_AIRCOND_Cabin_air
+  - # Pack 1
+    type: var
+    var_name: L:OVHD_AIRCOND_Pack1
+  - # Pack 2
+    type: var
+    var_name: L:OVHD_AIRCOND_Pack2
+  - # Ram Air
+    type: var
+    var_name: L:OVHD_AIRCOND_Ram_air
+# Lower Overhead Air Supply Panel
+  - # APU Air
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_Apu
+  - # Zone Temp Det Left Wing
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_L_wing
+  - # Zone Temp Det Right Wing
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_R_wing
+  - # Eng 1 Air
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_Eng1
+  - # Eng 2 Air
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_Eng2
+  - # Eng 3 Air
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_Eng3
+  - # Eng 4 Air
+    type: var
+    var_name: L:OVHD_AIRSUPPLY_Eng4
+# Lower Overhead Light & Annun Dimming Panel
+  - # Dim Inst
+    type: var
+    var_name: L:OVHD_R_LWR_DimInsts
+  - # Dim Panel
+    type: var
+    var_name: L:OVHD_R_LWR_DimPanel
+  - # Dim Annun
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_dim
+  - # Annun Ctrl
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_ctrl
+  - # Annun Test
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_test
+  - # Annun Test IsDown
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_test_ISDOWN
+  - # Annun Test LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_test_LEFTLEAVETORUN
+  - # Annun Test MinReleaseTime
+    type: var
+    var_name: L:OVHD_R_LWR_Annun_test_MINRELEASETIME
+# Lower Overhead Lower Center Panel
+  - # L Screen Wash 
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_wash
+  - # L Screen Wash IsDown
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_wash_ISDOWN
+  - # L Screen Wash LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_wash_LEFTLEAVETORUN
+  - # L Screen Wash MinReleaseTime
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_wash_MINRELEASETIME
+  - # L Rain Rep 
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_rain
+  - # L Rain Rep IsDown
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_rain_ISDOWN
+  - # L Rain Rep LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_rain_LEFTLEAVETORUN
+  - # L Rain Rep MinReleaseTime
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_rain_MINRELEASETIME
+  - # Flt Deck Emerg Lts
+    type: var
+    var_name: L:OVHD_CTR_LWR_EmerLts
+  - # Rwy Exit Lts
+    type: var
+    var_name: L:OVHD_CTR_LWR_RwyExitLts
+  - # L Landing Lts
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_LdgLts
+  - # R Landing Lts
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_LdgLts
+  - # L Screen Wipers
+    type: var
+    var_name: L:OVHD_CTR_LWR_L_wipers
+  - # R Screen Wipers
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_wipers
+  - # Fasten Belts
+    type: var
+    var_name: L:OVHD_CTR_LWR_FastenBelts
+  - # Fasten Belts Old
+    type: var
+    var_name: L:OVHD_CTR_LWR_FastenBelts_old
+  - # R Screen Wash 
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_wash
+  - # R Screen Wash IsDown
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_wash_ISDOWN
+  - # R Screen Wash LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_wash_LEFTLEAVETORUN
+  - # R Screen Wash MinReleaseTime
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_wash_MINRELEASETIME
+  - # R Rain Rep 
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_rain
+  - # R Rain Rep IsDown
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_rain_ISDOWN
+  - # R Rain Rep LeftLeaveToRun
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_rain_LEFTLEAVETORUN
+  - # R Rain Rep MinReleaseTime
+    type: var
+    var_name: L:OVHD_CTR_LWR_R_rain_MINRELEASETIME
+# Glaresheild Panel
+  - # Cpt Lift Splr 
+    type: var
+    var_name: L:L_COAMING_LiftSplr_push
+  - # Cpt Lift Splr IsDown
+    type: var
+    var_name: L:L_COAMING_LiftSplr_push_ISDOWN
+  - # Cpt Lift Splr LeftLeaveToRun
+    type: var
+    var_name: L:L_COAMING_LiftSplr_push_LEFTLEAVETORUN
+  - # Cpt Lift Splr MinReleaseTime
+    type: var
+    var_name: L:L_COAMING_LiftSplr_push_MINRELEASETIME
+  - # Cpt GPWS Pull Up 
+    type: var
+    var_name: L:L_COAMING_GPWS_push
+  - # Cpt GPWS Pull Up IsDown
+    type: var
+    var_name: L:L_COAMING_GPWS_push_ISDOWN
+  - # Cpt GPWS Pull Up LeftLeaveToRun
+    type: var
+    var_name: L:L_COAMING_GPWS_push_LEFTLEAVETORUN
+  - # Cpt GPWS Pull Up MinReleaseTime
+    type: var
+    var_name: L:L_COAMING_GPWS_push_MINRELEASETIME
+  - # Cpt FD Bars
+    type: var
+    var_name: L:L_COAMING_FD_bars
+  - # Cpt MWS Red 
+    type: var
+    var_name: L:L_COAMING_MWS_Red
+  - # Cpt MWS Red IsDown
+    type: var
+    var_name: L:L_COAMING_MWS_Red_ISDOWN
+  - # Cpt MWS Red LeftLeaveToRun
+    type: var
+    var_name: L:L_COAMING_MWS_Red_LEFTLEAVETORUN
+  - # Cpt MWS Red MinReleaseTime
+    type: var
+    var_name: L:L_COAMING_MWS_Red_MINRELEASETIME
+  - # Cpt MWS Amber 
+    type: var
+    var_name: L:L_COAMING_MWS_Amber
+  - # Cpt MWS Amber IsDown
+    type: var
+    var_name: L:L_COAMING_MWS_Amber_ISDOWN
+  - # Cpt MWS Amber LeftLeaveToRun
+    type: var
+    var_name: L:L_COAMING_MWS_Amber_LEFTLEAVETORUN
+  - # Cpt MWS Amber MinReleaseTime
+    type: var
+    var_name: L:L_COAMING_MWS_Amber_MINRELEASETIME
+  - # VHF1 DME Mode
+    type: var
+    var_name: L:L_VHFNAV_Mode
+  - # VHF1 Act Pre
+    type: var
+    var_name: L:L_VHFNAV_ActPre
+  - # VHF1 On
+    type: var
+    var_name: L:L_VHFNAV_Knob_on
+  - # VHF1 Nav DME Test 
+    type: var
+    var_name: L:L_VHFNAV_DME_test
+  - # VHF1 Nav DME Test IsDown
+    type: var
+    var_name: L:L_VHFNAV_DME_test_ISDOWN
+  - # VHF1 Nav DME Test LeftLeaveToRun
+    type: var
+    var_name: L:L_VHFNAV_DME_test_LEFTLEAVETORUN
+  - # VHF1 Nav DME Test MinReleaseTime
+    type: var
+    var_name: L:L_VHFNAV_DME_test_MINRELEASETIME
+  - # VHF1 ILS Test
+    type: var
+    var_name: L:L_VHFNAV_ILS_test
+  - # MCP Mode GSL
+    type: CustomCalculator
+    get: (L:MCP_MODE_GSL_IL)
+    set: 1 (>L:MCP_MODE_GSL)
+  # - # MCP Mode GSL 
+    # type: var
+    # var_name: L:MCP_Mode_GSL
+  # - # MCP Mode GSL IsDown
+    # type: var
+    # var_name: L:MCP_Mode_GSL_ISDOWN
+  # - # MCP Mode GSL LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_GSL_LEFTLEAVETORUN
+  # - # MCP Mode GSL MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_GSL_MINRELEASETIME
+  - # MCP Mode ALT
+    type: CustomCalculator
+    get: (L:MCP_MODE_ALT_IL)
+    set: 1 (>L:MCP_MODE_ALT)
+  # - # MCP Mode ALT 
+    # type: var
+    # var_name: L:MCP_Mode_ALT
+  # - # MCP Mode ALT IsDown
+    # type: var
+    # var_name: L:MCP_Mode_ALT_ISDOWN
+  # - # MCP Mode ALT LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_ALT_LEFTLEAVETORUN
+  # - # MCP Mode ALT MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_ALT_MINRELEASETIME
+  - # MCP Mode VS
+    type: CustomCalculator
+    get: (L:MCP_MODE_VS_IL)
+    set: 1 (>L:MCP_MODE_VS)
+  # - # MCP Mode VS 
+    # type: var
+    # var_name: L:MCP_Mode_VS
+  # - # MCP Mode VS IsDown
+    # type: var
+    # var_name: L:MCP_Mode_VS_ISDOWN
+  # - # MCP Mode VS LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_VS_LEFTLEAVETORUN
+  # - # MCP Mode VS MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_VS_MINRELEASETIME
+  - # MCP Mode MACH
+    type: CustomCalculator
+    get: (L:MCP_MODE_MACH_IL)
+    set: 1 (>L:MCP_MODE_MACH)
+  # - # MCP Mode MACH 
+    # type: var
+    # var_name: L:MCP_Mode_MACH
+  # - # MCP Mode MACH IsDown
+    # type: var
+    # var_name: L:MCP_Mode_MACH_ISDOWN
+  # - # MCP Mode MACH LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_MACH_LEFTLEAVETORUN
+  # - # MCP Mode MACH MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_MACH_MINRELEASETIME
+  - # MCP Mode VNAV
+    type: CustomCalculator
+    get: (L:MCP_MODE_VNAV_IL)
+    set: 1 (>L:MCP_MODE_VNAV)
+  # - # MCP Mode VNAV 
+    # type: var
+    # var_name: L:MCP_Mode_VNAV
+  # - # MCP Mode VNAV IsDown
+    # type: var
+    # var_name: L:MCP_Mode_VNAV_ISDOWN
+  # - # MCP Mode VNAV LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_VNAV_LEFTLEAVETORUN
+  # - # MCP Mode VNAV MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_VNAV_MINRELEASETIME
+  - # MCP Mode IAS
+    type: CustomCalculator
+    get: (L:MCP_MODE_IAS_IL)
+    set: 1 (>L:MCP_MODE_IAS)
+  # - # MCP Mode IAS 
+    # type: var
+    # var_name: L:MCP_Mode_IAS
+  # - # MCP Mode IAS IsDown
+    # type: var
+    # var_name: L:MCP_Mode_IAS_ISDOWN
+  # - # MCP Mode IAS LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_IAS_LEFTLEAVETORUN
+  # - # MCP Mode IAS MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_IAS_MINRELEASETIME
+  - # MCP Mode VL
+    type: CustomCalculator
+    get: (L:MCP_MODE_VL_IL)
+    set: 1 (>L:MCP_MODE_VL)
+  # - # MCP Mode VL 
+    # type: var
+    # var_name: L:MCP_Mode_VL
+  # - # MCP Mode VL IsDown
+    # type: var
+    # var_name: L:MCP_Mode_VL_ISDOWN
+  # - # MCP Mode VL LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_VL_LEFTLEAVETORUN
+  # - # MCP Mode VL MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_VL_MINRELEASETIME
+  - # MCP Mode B LOC
+    type: CustomCalculator
+    get: (L:MCP_MODE_BLOC_IL)
+    set: 1 (>L:MCP_MODE_BLOC)
+  # - # MCP Mode BLOC 
+    # type: var
+    # var_name: L:MCP_Mode_BLOC
+  # - # MCP Mode BLOC IsDown
+    # type: var
+    # var_name: L:MCP_Mode_BLOC_ISDOWN
+  # - # MCP Mode BLOC LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_BLOC_LEFTLEAVETORUN
+  # - # MCP Mode BLOC MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_BLOC_MINRELEASETIME
+  - # MCP Mode TURB
+    type: CustomCalculator
+    get: (L:MCP_MODE_TURB_IL)
+    set: 1 (>L:MCP_MODE_TURB)
+  # - # MCP Mode TURB 
+    # type: var
+    # var_name: L:MCP_Mode_TURB
+  # - # MCP Mode TURB IsDown
+    # type: var
+    # var_name: L:MCP_Mode_TURB_ISDOWN
+  # - # MCP Mode TURB LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_TURB_LEFTLEAVETORUN
+  # - # MCP Mode TURB MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_TURB_MINRELEASETIME
+  - # MCP Mode LNAV
+    type: CustomCalculator
+    get: (L:MCP_MODE_LNAV_IL)
+    set: 1 (>L:MCP_MODE_LNAV)
+  # - # MCP Mode LNAV 
+    # type: var
+    # var_name: L:MCP_Mode_LNAV
+  # - # MCP Mode LNAV IsDown
+    # type: var
+    # var_name: L:MCP_Mode_LNAV_ISDOWN
+  # - # MCP Mode LNAV LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_LNAV_LEFTLEAVETORUN
+  # - # MCP Mode LNAV MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_LNAV_MINRELEASETIME
+  - # MCP Mode HDG
+    type: CustomCalculator
+    get: (L:MCP_MODE_HDG_IL)
+    set: 1 (>L:MCP_MODE_HDG)
+  # - # MCP Mode HDG 
+    # type: var
+    # var_name: L:MCP_Mode_HDG
+  # - # MCP Mode HDG IsDown
+    # type: var
+    # var_name: L:MCP_Mode_HDG_ISDOWN
+  # - # MCP Mode HDG LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Mode_HDG_LEFTLEAVETORUN
+  # - # MCP Mode HDG MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Mode_HDG_MINRELEASETIME
+  # - # MCP Nav Split
+    # type: var
+    # var_name: L:MCP_NAV_split
+  # - # MCP HDG Sel
+    # type: var
+    # var_name: L:MCP_HDG_SEL
+  - # MCP ALT Test 
+    type: var
+    var_name: L:MCP_Alt_test
+  - # MCP ALT Test 
+    type: var
+    var_name: L:MCP_Alt_DIG3
+  - # MCP ALT Test IsDown
+    type: var
+    var_name: L:MCP_Alt_test_ISDOWN
+  - # MCP ALT Test LeftLeaveToRun
+    type: var
+    var_name: L:MCP_Alt_test_LEFTLEAVETORUN
+  - # MCP ALT Test MinReleaseTime
+    type: var
+    var_name: L:MCP_Alt_test_MINRELEASETIME
+  - # MCP ALT Arm
+    type: CustomCalculator
+    get: (L:MCP_ALT_arm_IL)
+    set: 1 (>L:MCP_ALT_arm)
+  # - # MCP ALT Arm 
+    # type: var
+    # var_name: L:MCP_Alt_arm
+  # - # MCP ALT Arm IsDown
+    # type: var
+    # var_name: L:MCP_Alt_arm_ISDOWN
+  # - # MCP ALT Arm LeftLeaveToRun
+    # type: var
+    # var_name: L:MCP_Alt_arm_LEFTLEAVETORUN
+  # - # MCP ALT Arm MinReleaseTime
+    # type: var
+    # var_name: L:MCP_Alt_arm_MINRELEASETIME
+  - # MCP ALT Arm Sel Knob
+    type: var
+    var_name: L:MCP_Alt_SEL_KNOB
+  - # VNF2 Nav Knob Outer
+    type: var
+    var_name: L:R_VHFNAV_knob_outer
+  - # VNF2 Nav Knob Middle
+    type: var
+    var_name: L:R_VHFNAV_knob_middle
+  - # VNF2 Nav Knob Inner
+    type: var
+    var_name: L:R_VHFNAV_knob_inner
+  - # VHF1 Nav VOR Test 
+    type: var
+    var_name: L:R_VHFNAV_VOR_test
+  - # VHF1 Nav VOR Test IsDown
+    type: var
+    var_name: L:R_VHFNAV_VOR_test_ISDOWN
+  - # VHF1 Nav VOR Test LeftLeaveToRun
+    type: var
+    var_name: L:R_VHFNAV_VOR_test_LEFTLEAVETORUN
+  - # VHF1 Nav VOR Test MinReleaseTime
+    type: var
+    var_name: L:R_VHFNAV_VOR_test_MINRELEASETIME
+  - # VHF2 ILS Test
+    type: var
+    var_name: L:R_VHFNAV_ILS_test
+  - # Fo Lift Splr 
+    type: var
+    var_name: L:R_COAMING_LiftSplr_push
+  - # Fo Lift Splr IsDown
+    type: var
+    var_name: L:R_COAMING_LiftSplr_push_ISDOWN
+  - # Fo Lift Splr LeftLeaveToRun
+    type: var
+    var_name: L:R_COAMING_LiftSplr_push_LEFTLEAVETORUN
+  - # Fo Lift Splr MinReleaseTime
+    type: var
+    var_name: L:R_COAMING_LiftSplr_push_MINRELEASETIME
+  - # Fo GPWS Pull Up 
+    type: var
+    var_name: L:R_COAMING_GPWS_push
+  - # Fo GPWS Pull Up IsDown
+    type: var
+    var_name: L:R_COAMING_GPWS_push_ISDOWN
+  - # Fo GPWS Pull Up LeftLeaveToRun
+    type: var
+    var_name: L:R_COAMING_GPWS_push_LEFTLEAVETORUN
+  - # Fo GPWS Pull Up MinReleaseTime
+    type: var
+    var_name: L:R_COAMING_GPWS_push_MINRELEASETIME
+  - # Fo FD Bars
+    type: var
+    var_name: L:R_COAMING_FD_bars
+  - # Fo MWS Red 
+    type: var
+    var_name: L:R_COAMING_MWS_Red
+  - # Fo MWS Red IsDown
+    type: var
+    var_name: L:R_COAMING_MWS_Red_ISDOWN
+  - # Fo MWS Red LeftLeaveToRun
+    type: var
+    var_name: L:R_COAMING_MWS_Red_LEFTLEAVETORUN
+  - # Fo MWS Red MinReleaseTime
+    type: var
+    var_name: L:R_COAMING_MWS_Red_MINRELEASETIME
+  - # Fo MWS Amber 
+    type: var
+    var_name: L:R_COAMING_MWS_Amber
+  - # Fo MWS Amber IsDown
+    type: var
+    var_name: L:R_COAMING_MWS_Amber_ISDOWN
+  - # Fo MWS Amber LeftLeaveToRun
+    type: var
+    var_name: L:R_COAMING_MWS_Amber_LEFTLEAVETORUN
+  - # Fo MWS Amber MinReleaseTime
+    type: var
+    var_name: L:R_COAMING_MWS_Amber_MINRELEASETIME
+# Cpt Instrument Panel
+  - # Marker Sense
+    type: var
+    var_name: L:L_MISC_Mkr_sense
+  - # Alerts
+    type: var
+    var_name: L:L_MISC_Alerts
+  - # Flt Annun Test 
+    type: var
+    var_name: L:L_MISC_Annun_test
+  - # Flt Annun Test IsDown
+    type: var
+    var_name: L:L_MISC_Annun_test_ISDOWN
+  - # Flt Annun Test LeftLeaveToRun
+    type: var
+    var_name: L:L_MISC_Annun_test_LEFTLEAVETORUN
+  - # Flt Annun Test MinReleaseTime
+    type: var
+    var_name: L:L_MISC_Annun_test_MINRELEASETIME
+  - # Annun Dimmer
+    type: var
+    var_name: L:L_MISC_Annun_Dim
+  - # HSI Nav
+    type: var
+    var_name: L:L_MISC_HSI_mode
+  - # Push Inhib Stall Idnt 1 
+    type: var
+    var_name: L:L_ANNUNS_idnt1
+  - # Push Inhib Stall Idnt 1 IsDown
+    type: var
+    var_name: L:L_ANNUNS_idnt1_ISDOWN
+  - # Push Inhib Stall Idnt 1 LeftLeaveToRun
+    type: var
+    var_name: L:L_ANNUNS_idnt1_LEFTLEAVETORUN
+  - # Push Inhib Stall Idnt 1 MinReleaseTime
+    type: var
+    var_name: L:L_ANNUNS_idnt1_MINRELEASETIME
+  - # Push Inhib Stall Idnt 2 
+    type: var
+    var_name: L:L_ANNUNS_idnt2
+  - # Push Inhib Stall Idnt 2 IsDown
+    type: var
+    var_name: L:L_ANNUNS_idnt2_ISDOWN
+  - # Push Inhib Stall Idnt 2 LeftLeaveToRun
+    type: var
+    var_name: L:L_ANNUNS_idnt2_LEFTLEAVETORUN
+  - # Push Inhib Stall Idnt 2 MinReleaseTime
+    type: var
+    var_name: L:L_ANNUNS_idnt2_MINRELEASETIME
+  - # ASI Bug
+    type: var
+    var_name: L:L_ASI_BUG_SEL
+  - # ASI Amber Bug
+    type: var
+    var_name: L:L_ASI_BUG_AMBER
+  - # ASI ORANGE Bug
+    type: var
+    var_name: L:L_ASI_BUG_ORANGE
+  - # ASI WHITE Bug
+    type: var
+    var_name: L:L_ASI_BUG_WHITE
+  - # ADI Test 
+    type: var
+    var_name: L:L_ADI_test
+  - # ADI Test IsDown
+    type: var
+    var_name: L:L_ADI_test_ISDOWN
+  - # ADI Test LeftLeaveToRun
+    type: var
+    var_name: L:L_ADI_test_LEFTLEAVETORUN
+  - # ADI Test MinReleaseTime
+    type: var
+    var_name: L:L_ADI_test_MINRELEASETIME
+  - # Stby Adi Knob
+    type: var
+    var_name: L:L_STBY_ADI_Knob
+  - # Rad Alt Knob Test
+    type: var
+    var_name: L:L_RADALT_DH_knob_test
+  - # Rad Alt Knob
+    type: var
+    var_name: L:L_RADALT_DH_knob
+  - # Rad Alt Dimmer
+    type: var
+    var_name: L:L_MISC_RA_dim
+  - # L Clock Wind
+    type: var
+    var_name: L:L_CLOCK_Wind
+  - # L Clock Stop Go
+    type: var
+    var_name: L:L_CLOCK_StopGo
+  - # L Clock Push Top
+    type: var
+    var_name: L:L_CLOCK_Push_top
+  - # L Clock Push Top old
+    type: var
+    var_name: L:L_CLOCK_Push_top_old
+  - # Left RMI Nav1 Mode 
+    type: var
+    var_name: L:L_RMI_NAV1_mode_button
+  - # Left RMI Nav1 Mode IsDown
+    type: var
+    var_name: L:L_RMI_NAV1_mode_button_ISDOWN
+  - # Left RMI Nav1 Mode LeftLeaveToRun
+    type: var
+    var_name: L:L_RMI_NAV1_mode_button_LEFTLEAVETORUN
+  - # Left RMI Nav1 Mode MinReleaseTime
+    type: var
+    var_name: L:L_RMI_NAV1_mode_button_MINRELEASETIME
+  - # Left RMI Nav2 Mode 
+    type: var
+    var_name: L:L_RMI_NAV2_mode_button
+  - # Left RMI Nav2 Mode IsDown
+    type: var
+    var_name: L:L_RMI_NAV2_mode_button_ISDOWN
+  - # Left RMI Nav2 Mode LeftLeaveToRun
+    type: var
+    var_name: L:L_RMI_NAV2_mode_button_LEFTLEAVETORUN
+  - # Left RMI Nav2 Mode MinReleaseTime
+    type: var
+    var_name: L:L_RMI_NAV2_mode_button_MINRELEASETIME
+  - # Compass Cover
+    type: var
+    var_name: L:L_MISC_Compass_cover
+  - # Compass Switch
+    type: var
+    var_name: L:L_MISC_Compass_switch
+  - # Compass Slew
+    type: var
+    var_name: L:L_MISC_Compass_slew
+  - # Comp Cover
+    type: var
+    var_name: L:L_MISC_Comp_cover
+  - # Comp Switch
+    type: var
+    var_name: L:L_MISC_Comp_switch
+  - # Att Cover
+    type: var
+    var_name: L:L_MISC_Att_cover
+  - # Att Switch
+    type: var
+    var_name: L:L_MISC_Att_switch
+# Center Instrument Panel
+  - # VIBN Test 
+    type: var
+    var_name: L:CTR_MISC_Vibn_test
+  - # VIBN Test IsDown
+    type: var
+    var_name: L:CTR_MISC_Vibn_test_ISDOWN
+  - # VIBN Test LeftLeaveToRun
+    type: var
+    var_name: L:CTR_MISC_Vibn_test_LEFTLEAVETORUN
+  - # VIBN Test MinReleaseTime
+    type: var
+    var_name: L:CTR_MISC_Vibn_test_MINRELEASETIME
+  - # Eng 1 N1 Bug
+    type: var
+    var_name: L:CTR_ENG1_N1_bug_knob
+  - # Eng 2 N1 Bug
+    type: var
+    var_name: L:CTR_ENG2_N1_bug_knob
+  - # Eng 3 N1 Bug
+    type: var
+    var_name: L:CTR_ENG3_N1_bug_knob
+  - # Eng 4 N1 Bug
+    type: var
+    var_name: L:CTR_ENG4_N1_bug_knob
+  - # Eng 1 TGT Bug
+    type: var
+    var_name: L:CTR_ENG1_TGT_bug_knob
+  - # Eng 2 TGT Bug
+    type: var
+    var_name: L:CTR_ENG2_TGT_bug_knob
+  - # Eng 3 TGT Bug
+    type: var
+    var_name: L:CTR_ENG3_TGT_bug_knob
+  - # Eng 4 TGT Bug
+    type: var
+    var_name: L:CTR_ENG4_TGT_bug_knob
+  - # Eng1 FF Reset 
+    type: var
+    var_name: L:CTR_ENG1_FF_KNOB
+  - # Eng1 FF Reset IsDown
+    type: var
+    var_name: L:CTR_ENG1_FF_KNOB_ISDOWN
+  - # Eng1 FF Reset LeftLeaveToRun
+    type: var
+    var_name: L:CTR_ENG1_FF_KNOB_LEFTLEAVETORUN
+  - # Eng1 FF Reset MinReleaseTime
+    type: var
+    var_name: L:CTR_ENG1_FF_KNOB_MINRELEASETIME
+  - # Eng2 FF Reset 
+    type: var
+    var_name: L:CTR_ENG2_FF_KNOB
+  - # Eng2 FF Reset IsDown
+    type: var
+    var_name: L:CTR_ENG2_FF_KNOB_ISDOWN
+  - # Eng2 FF Reset LeftLeaveToRun
+    type: var
+    var_name: L:CTR_ENG2_FF_KNOB_LEFTLEAVETORUN
+  - # Eng2 FF Reset MinReleaseTime
+    type: var
+    var_name: L:CTR_ENG2_FF_KNOB_MINRELEASETIME
+  - # Eng3 FF Reset 
+    type: var
+    var_name: L:CTR_ENG3_FF_KNOB
+  - # Eng3 FF Reset IsDown
+    type: var
+    var_name: L:CTR_ENG3_FF_KNOB_ISDOWN
+  - # Eng3 FF Reset LeftLeaveToRun
+    type: var
+    var_name: L:CTR_ENG3_FF_KNOB_LEFTLEAVETORUN
+  - # Eng3 FF Reset MinReleaseTime
+    type: var
+    var_name: L:CTR_ENG3_FF_KNOB_MINRELEASETIME
+  - # Eng4 FF Reset 
+    type: var
+    var_name: L:CTR_ENG4_FF_KNOB
+  - # Eng4 FF Reset IsDown
+    type: var
+    var_name: L:CTR_ENG4_FF_KNOB_ISDOWN
+  - # Eng4 FF Reset LeftLeaveToRun
+    type: var
+    var_name: L:CTR_ENG4_FF_KNOB_LEFTLEAVETORUN
+  - # Eng4 FF Reset MinReleaseTime
+    type: var
+    var_name: L:CTR_ENG4_FF_KNOB_MINRELEASETIME
+  - # Gear Override
+    type: var
+    var_name: L:CTR_MISC_GEAR_OVERRIDE
+  - # Gear Handle
+    type: var
+    var_name: L:CTR_MISC_GEAR_HANDLE
+# FO Instrument Panel
+  - # TMS DIMMER
+    type: var
+    var_name: L:R_MISC_TMS_DIM
+  - # MWS DIMMER
+    type: var
+    var_name: L:R_MISC_MWS_DIM
+  - # MWS Ctrl
+    type: var
+    var_name: L:R_MISC_MWS_CTRL
+  - # MWS Test
+    type: var
+    var_name: L:R_MISC_MWS_TEST
+  - # Flap Warn Cover
+    type: var
+    var_name: L:R_ANNUNS_FLAPWARNOVRD_COVER
+  - # GPWS Flap Warn Ovrd 
+    type: var
+    var_name: L:R_ANNUNS_FLAPWARNOVRD_BUTTON
+  - # GPWS Flap Warn Ovrd IsDown
+    type: var
+    var_name: L:R_ANNUNS_FLAPWARNOVRD_BUTTON_ISDOWN
+  - # GPWS Flap Warn Ovrd LeftLeaveToRun
+    type: var
+    var_name: L:R_ANNUNS_FLAPWARNOVRD_BUTTON_LEFTLEAVETORUN
+  - # GPWS Flap Warn Ovrd MinReleaseTime
+    type: var
+    var_name: L:R_ANNUNS_FLAPWARNOVRD_BUTTON_MINRELEASETIME
+  - # Steep App 
+    type: var
+    var_name: L:R_ANNUNS_STEEPAPP
+  - # Steep App IsDown
+    type: var
+    var_name: L:R_ANNUNS_STEEPAPP_ISDOWN
+  - # Steep App LeftLeaveToRun
+    type: var
+    var_name: L:R_ANNUNS_STEEPAPP_LEFTLEAVETORUN
+  - # Steep App MinReleaseTime
+    type: var
+    var_name: L:R_ANNUNS_STEEPAPP_MINRELEASETIME
+  - # TMS Ref Dig1
+    type: var
+    var_name: L:R_TMS_REF_DIG1
+  - # TMS Ref Dig2
+    type: var
+    var_name: L:R_TMS_REF_DIG2
+  - # TMS Ref Dig3
+    type: var
+    var_name: L:R_TMS_REF_DIG3
+  - # TMS Eng1 
+    type: var
+    var_name: L:R_TMS_ENG1
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS Eng1 IsDown
+    # type: var
+    # var_name: L:R_TMS_ENG1_ISDOWN
+  # - # TMS Eng1 LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_ENG1_LEFTLEAVETORUN
+  # - # TMS Eng1 MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_ENG1_MINRELEASETIME
+  - # TMS Eng2 
+    type: var
+    var_name: L:R_TMS_ENG2
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS Eng2 IsDown
+    # type: var
+    # var_name: L:R_TMS_ENG2_ISDOWN
+  # - # TMS Eng2 LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_ENG2_LEFTLEAVETORUN
+  # - # TMS Eng2 MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_ENG2_MINRELEASETIME
+  - # TMS Eng3 
+    type: var
+    var_name: L:R_TMS_ENG3
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS Eng3 IsDown
+    # type: var
+    # var_name: L:R_TMS_ENG3_ISDOWN
+  # - # TMS Eng3 LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_ENG3_LEFTLEAVETORUN
+  # - # TMS Eng3 MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_ENG3_MINRELEASETIME
+  - # TMS Eng4 
+    type: var
+    var_name: L:R_TMS_ENG4
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS Eng4 IsDown
+    # type: var
+    # var_name: L:R_TMS_ENG4_ISDOWN
+  # - # TMS Eng4 LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_ENG4_LEFTLEAVETORUN
+  # - # TMS Eng4 MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_ENG4_MINRELEASETIME
+  - # TMS TO 
+    type: var
+    var_name: L:R_TMS_TO
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS TO IsDown
+    # type: var
+    # var_name: L:R_TMS_TO_ISDOWN
+  # - # TMS TO LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_TO_LEFTLEAVETORUN
+  # - # TMS TO MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_TO_MINRELEASETIME
+  - # TMS MCT 
+    type: var
+    var_name: L:R_TMS_MCT
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS MCT IsDown
+    # type: var
+    # var_name: L:R_TMS_MCT_ISDOWN
+  # - # TMS MCT LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_MCT_LEFTLEAVETORUN
+  # - # TMS MCT MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_MCT_MINRELEASETIME
+  - # TMS TGT 
+    type: var
+    var_name: L:R_TMS_TGT
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS TGT IsDown
+    # type: var
+    # var_name: L:R_TMS_TGT_ISDOWN
+  # - # TMS TGT LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_TGT_LEFTLEAVETORUN
+  # - # TMS TGT MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_TGT_MINRELEASETIME
+  - # TMS DESC 
+    type: var
+    var_name: L:R_TMS_DESC
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS DESC IsDown
+    # type: var
+    # var_name: L:R_TMS_DESC_ISDOWN
+  # - # TMS DESC LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_DESC_LEFTLEAVETORUN
+  # - # TMS DESC MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_DESC_MINRELEASETIME
+  - # TMS SYNC 
+    type: var
+    var_name: L:R_TMS_SYNC
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS SYNC IsDown
+    # type: var
+    # var_name: L:R_TMS_SYNC_ISDOWN
+  # - # TMS SYNC LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_SYNC_LEFTLEAVETORUN
+  # - # TMS SYNC MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_SYNC_MINRELEASETIME
+  - # TMS CTRL 
+    type: var
+    var_name: L:R_TMS_CTRL
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS CTRL IsDown
+    # type: var
+    # var_name: L:R_TMS_CTRL_ISDOWN
+  # - # TMS CTRL LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_CTRL_LEFTLEAVETORUN
+  # - # TMS CTRL MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_CTRL_MINRELEASETIME
+  - # TMS MSTR 
+    type: var
+    var_name: L:R_TMS_MSTR
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS MSTR IsDown
+    # type: var
+    # var_name: L:R_TMS_MSTR_ISDOWN
+  # - # TMS MSTR LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_MSTR_LEFTLEAVETORUN
+  # - # TMS MSTR MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_MSTR_MINRELEASETIME
+  - # TMS PWR 
+    type: var
+    var_name: L:R_TMS_PWR
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS PWR IsDown
+    # type: var
+    # var_name: L:R_TMS_PWR_ISDOWN
+  # - # TMS PWR LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_PWR_LEFTLEAVETORUN
+  # - # TMS PWR MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_PWR_MINRELEASETIME
+  - # TMS TEST 
+    type: var
+    var_name: L:R_TMS_TEST
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # TMS TEST IsDown
+    # type: var
+    # var_name: L:R_TMS_TEST_ISDOWN
+  # - # TMS TEST LeftLeaveToRun
+    # type: var
+    # var_name: L:R_TMS_TEST_LEFTLEAVETORUN
+  # - # TMS TEST MinReleaseTime
+    # type: var
+    # var_name: L:R_TMS_TEST_MINRELEASETIME
+  - # TMS Dim
+    type: var
+    var_name: L:R_TMS_DIM
+  - # TMS TGT Dig1
+    type: var
+    var_name: L:R_TMS_TGT_DIG1
+  - # TMS TGT Dig2
+    type: var
+    var_name: L:R_TMS_TGT_DIG2
+  - # TMS TGT Dig3
+    type: var
+    var_name: L:R_TMS_TGT_DIG3
+  - # HSI Nav
+    type: var
+    var_name: L:R_MISC_HSI_mode
+  - # Push Inhib Stall Idnt 1 
+    type: var
+    var_name: L:R_ANNUNS_idnt1
+  - # Push Inhib Stall Idnt 1 IsDown
+    type: var
+    var_name: L:R_ANNUNS_idnt1_ISDOWN
+  - # Push Inhib Stall Idnt 1 LeftLeaveToRun
+    type: var
+    var_name: L:R_ANNUNS_idnt1_LEFTLEAVETORUN
+  - # Push Inhib Stall Idnt 1 MinReleaseTime
+    type: var
+    var_name: L:R_ANNUNS_idnt1_MINRELEASETIME
+  - # Push Inhib Stall Idnt 2 
+    type: var
+    var_name: L:R_ANNUNS_idnt2
+  - # Push Inhib Stall Idnt 2 IsDown
+    type: var
+    var_name: L:R_ANNUNS_idnt2_ISDOWN
+  - # Push Inhib Stall Idnt 2 LeftLeaveToRun
+    type: var
+    var_name: L:R_ANNUNS_idnt2_LEFTLEAVETORUN
+  - # Push Inhib Stall Idnt 2 MinReleaseTime
+    type: var
+    var_name: L:R_ANNUNS_idnt2_MINRELEASETIME
+  - # ASI Bug
+    type: var
+    var_name: L:R_ASI_BUG_SEL
+  - # ASI Amber Bug
+    type: var
+    var_name: L:R_ASI_BUG_AMBER
+  - # ASI ORANGE Bug
+    type: var
+    var_name: L:R_ASI_BUG_ORANGE
+  - # ASI WHITE Bug
+    type: var
+    var_name: L:R_ASI_BUG_WHITE
+  - # ADI Test 
+    type: var
+    var_name: L:R_ADI_test
+  - # ADI Test IsDown
+    type: var
+    var_name: L:R_ADI_test_ISDOWN
+  - # ADI Test LeftLeaveToRun
+    type: var
+    var_name: L:R_ADI_test_LEFTLEAVETORUN
+  - # ADI Test MinReleaseTime
+    type: var
+    var_name: L:R_ADI_test_MINRELEASETIME
+  - # Rad Alt Knob Test
+    type: var
+    var_name: L:R_RADALT_DH_knob_test
+  - # Rad Alt Knob
+    type: var
+    var_name: L:R_RADALT_DH_knob
+  - # Rad Alt Dimmer
+    type: var
+    var_name: L:R_MISC_RA_dim
+  - # L Clock Wind
+    type: var
+    var_name: L:R_CLOCK_Wind
+  - # L Clock Stop Go
+    type: var
+    var_name: L:R_CLOCK_StopGo
+  - # L Clock Push Top
+    type: var
+    var_name: L:R_CLOCK_Push_top
+  - # L Clock Push Top old
+    type: var
+    var_name: L:R_CLOCK_Push_top_old
+  - # Left RMI Nav1 Mode 
+    type: var
+    var_name: L:R_RMI_NAV1_mode_button
+  - # Left RMI Nav1 Mode IsDown
+    type: var
+    var_name: L:R_RMI_NAV1_mode_button_ISDOWN
+  - # Left RMI Nav1 Mode LeftLeaveToRun
+    type: var
+    var_name: L:R_RMI_NAV1_mode_button_LEFTLEAVETORUN
+  - # Left RMI Nav1 Mode MinReleaseTime
+    type: var
+    var_name: L:R_RMI_NAV1_mode_button_MINRELEASETIME
+  - # Left RMI Nav2 Mode 
+    type: var
+    var_name: L:R_RMI_NAV2_mode_button
+  - # Left RMI Nav2 Mode IsDown
+    type: var
+    var_name: L:R_RMI_NAV2_mode_button_ISDOWN
+  - # Left RMI Nav2 Mode LeftLeaveToRun
+    type: var
+    var_name: L:R_RMI_NAV2_mode_button_LEFTLEAVETORUN
+  - # Left RMI Nav2 Mode MinReleaseTime
+    type: var
+    var_name: L:R_RMI_NAV2_mode_button_MINRELEASETIME
+  - # Compass Cover
+    type: var
+    var_name: L:R_MISC_Compass_cover
+  - # Compass Switch
+    type: var
+    var_name: L:R_MISC_Compass_switch
+  - # Compass Slew
+    type: var
+    var_name: L:R_MISC_Compass_slew
+# Forward Pedestal Panel
+  - # Wx Range
+    type: var
+    var_name: L:PED_FWD_WX_RANGE
+  - # Wx Off
+    type: var
+    var_name: L:PED_FWD_WX_OFF
+  - # Wx Stby
+    type: var
+    var_name: L:PED_FWD_WX_STBY
+  - # Wx Wx
+    type: var
+    var_name: L:PED_FWD_WX_WX
+  - # Wx CYC
+    type: var
+    var_name: L:PED_FWD_WX_CYC
+  - # Wx Map
+    type: var
+    var_name: L:PED_FWD_WX_MAP
+  - # Wx Tilt
+    type: var
+    var_name: L:PED_FWD_WX_TILT
+  - # Wx Gain
+    type: var
+    var_name: L:PED_FWD_WX_GAIN
+  - # Wx Stab
+    type: var
+    var_name: L:PED_FWD_WX_STAB
+  - # Wx Int
+    type: var
+    var_name: L:PED_FWD_WX_INT
+  - # Wx Azim 
+    type: var
+    var_name: L:PED_FWD_WX_AZIM
+  - # Wx Azim IsDown
+    type: var
+    var_name: L:PED_FWD_WX_AZIM_ISDOWN
+  - # Wx Azim LeftLeaveToRun
+    type: var
+    var_name: L:PED_FWD_WX_AZIM_LEFTLEAVETORUN
+  - # Wx Azim MinReleaseTime
+    type: var
+    var_name: L:PED_FWD_WX_AZIM_MINRELEASETIME
+  - # Wx SCAN 
+    type: var
+    var_name: L:PED_FWD_WX_SCAN
+  - # Wx SCAN IsDown
+    type: var
+    var_name: L:PED_FWD_WX_SCAN_ISDOWN
+  - # Wx SCAN LeftLeaveToRun
+    type: var
+    var_name: L:PED_FWD_WX_SCAN_LEFTLEAVETORUN
+  - # Wx SCAN MinReleaseTime
+    type: var
+    var_name: L:PED_FWD_WX_SCAN_MINRELEASETIME
+  - # Wx FRZ 
+    type: var
+    var_name: L:PED_FWD_WX_FRZ
+  - # Wx FRZ IsDown
+    type: var
+    var_name: L:PED_FWD_WX_FRZ_ISDOWN
+  - # Wx FRZ LeftLeaveToRun
+    type: var
+    var_name: L:PED_FWD_WX_FRZ_LEFTLEAVETORUN
+  - # Wx FRZ MinReleaseTime
+    type: var
+    var_name: L:PED_FWD_WX_FRZ_MINRELEASETIME
+  - # Wx TGT 
+    type: var
+    var_name: L:PED_FWD_WX_TGT
+  - # Wx TGT IsDown
+    type: var
+    var_name: L:PED_FWD_WX_TGT_ISDOWN
+  - # Wx TGT LeftLeaveToRun
+    type: var
+    var_name: L:PED_FWD_WX_TGT_LEFTLEAVETORUN
+  - # Wx TGT MinReleaseTime
+    type: var
+    var_name: L:PED_FWD_WX_TGT_MINRELEASETIME
+  - # Terrain Disp 
+    type: var
+    var_name: L:PED_FWD_CTR_TERRAINDISP
+  - # Terrain Disp IsDown
+    type: var
+    var_name: L:PED_FWD_CTR_TERRAINDISP_ISDOWN
+  - # Terrain Disp LeftLeaveToRun
+    type: var
+    var_name: L:PED_FWD_CTR_TERRAINDISP_LEFTLEAVETORUN
+  - # Terrain Disp MinReleaseTime
+    type: var
+    var_name: L:PED_FWD_CTR_TERRAINDISP_MINRELEASETIME
+  - # Terrain Split
+    type: var
+    var_name: L:PED_FWD_CTR_SPLIT
+  - # VHF1 TFR
+    type: var
+    var_name: L:PED_FWD_L_VHF_TFR
+  - # VHF1 Mode
+    type: var
+    var_name: L:PED_FWD_L_VHF_MODE
+  - # VHF2 TFR
+    type: var
+    var_name: L:PED_FWD_R_VHF_TFR
+  - # VHF2 Mode
+    type: var
+    var_name: L:PED_FWD_R_VHF_MODE
+# Middle Pedestal Panel
+  - # Airbrake Handle
+    type: var
+    var_name: L:PED_MID_AIRBRAKE
+  - # Eng1 Latch
+    type: NumSet
+    var_name: L:PED_MID_ENG1_LATCH
+    var_units: number
+    var_type: f64
+    event_name: TOGGLE_FUEL_VALVE_ENG1
+    event_param: 1
+  - # Eng2 Latch
+    type: NumSet
+    var_name: L:PED_MID_ENG2_LATCH
+    var_units: number
+    var_type: f64
+    event_name: TOGGLE_FUEL_VALVE_ENG2
+    event_param: 1
+  - # Eng3 Latch
+    type: NumSet
+    var_name: L:PED_MID_ENG3_LATCH
+    var_units: number
+    var_type: f64
+    event_name: TOGGLE_FUEL_VALVE_ENG3
+    event_param: 1
+  - # Eng4 Latch
+    type: NumSet
+    var_name: L:PED_MID_ENG4_LATCH
+    var_units: number
+    var_type: f64
+    event_name: TOGGLE_FUEL_VALVE_ENG4
+    event_param: 1
+  - # Eng1 THROTTLE
+    type: var
+    var_name: L:PED_MID_ENG1_THROTTLE_SHAFT_VC
+  - # Eng2 THROTTLE
+    type: var
+    var_name: L:PED_MID_ENG2_THROTTLE_SHAFT_VC
+  - # Eng3 THROTTLE
+    type: var
+    var_name: L:PED_MID_ENG3_THROTTLE_SHAFT_VC
+  - # Eng4 THROTTLE
+    type: var
+    var_name: L:PED_MID_ENG4_THROTTLE_SHAFT_VC
+  - # Flap Baulk Override
+    type: var
+    var_name: L:PED_MID_FLAPBAULKOVRD
+  - # Flap Lever 
+    type: var
+    var_name: L:PED_MID_FLAP_LEVER
+  - # Flap Lever Old
+    type: var
+    var_name: L:PED_MID_FLAP_LEVER_OLD
+  - # Rudder Trim
+    type: var
+    var_name: L:PED_MID_RUDDER_TRIM_WHEEL
+  - # Panel Lights 
+    type: var
+    var_name: L:PED_MID_PANEL_LIGHTS
+  - # Panel Lights IsDown
+    type: var
+    var_name: L:PED_MID_PANEL_LIGHTS_ISDOWN
+  - # Panel Lights LeftLeaveToRun
+    type: var
+    var_name: L:PED_MID_PANEL_LIGHTS_LEFTLEAVETORUN
+  - # Panel Lights MinReleaseTime
+    type: var
+    var_name: L:PED_MID_PANEL_LIGHTS_MINRELEASETIME
+  - # Config Check 
+    type: var
+    var_name: L:PED_MID_CONFIG
+  - # Config Check IsDown
+    type: var
+    var_name: L:PED_MID_CONFIG_ISDOWN
+  - # Config Check LeftLeaveToRun
+    type: var
+    var_name: L:PED_MID_CONFIG_LEFTLEAVETORUN
+  - # Config Check MinReleaseTime
+    type: var
+    var_name: L:PED_MID_CONFIG_MINRELEASETIME
+  - # HORN Check 
+    type: var
+    var_name: L:PED_MID_HORN
+  - # HORN Check IsDown
+    type: var
+    var_name: L:PED_MID_HORN_ISDOWN
+  - # HORN Check LeftLeaveToRun
+    type: var
+    var_name: L:PED_MID_HORN_LEFTLEAVETORUN
+  - # HORN Check MinReleaseTime
+    type: var
+    var_name: L:PED_MID_HORN_MINRELEASETIME
+  - # Elv Disc
+    type: var
+    var_name: L:PED_MID_ELV_DISC
+  - # Ail Disc
+    type: var
+    var_name: L:PED_MID_AIL_DISC
+  - # Park Brake
+    type: var
+    var_name: L:PED_MID_BRAKES_PUSH
+  - # Park Brake Rotate
+    type: var
+    var_name: L:PED_MID_BRAKES_ROTATE
+  - # Aileron Trim
+    type: var
+    var_name: L:PED_MID_AIL_TRIM_WHEEL
+# Aft Pedestal Panel
+  - # YD 
+    type: var
+    var_name: L:PED_AFT_AP_YD
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # YD IsDown
+    # type: var
+    # var_name: L:PED_AFT_AP_YD_ISDOWN
+  # - # YD LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_AP_YD_LEFTLEAVETORUN
+  # - # YD MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_AP_YD_MINRELEASETIME
+  - # AP 
+    type: var
+    var_name: L:PED_AFT_AP_IN
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # AP IsDown
+    # type: var
+    # var_name: L:PED_AFT_AP_IN_ISDOWN
+  # - # AP LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_AP_IN_LEFTLEAVETORUN
+  # - # AP MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_AP_IN_MINRELEASETIME
+  - # AP Pitch
+    type: var
+    var_name: L:PED_AFT_AP_PITCH
+  - # AP Roll
+    type: var
+    var_name: L:PED_AFT_AP_ROLL
+  - # ADF1 Mode
+    type: var
+    var_name: L:PED_FWD_R_ADF1_MODE
+  # - # ADF1 Outer
+    # type: var
+    # var_name: L:PED_FWD_R_ADF1_OUTER
+  # - # ADF1 Middle
+    # type: var
+    # var_name: L:PED_FWD_R_ADF1_MIDDLE
+  # - # ADF1 Inner
+    # type: var
+    # var_name: L:PED_FWD_R_ADF1_INNER
+  - # ADF1 BFO
+    type: var
+    var_name: L:PED_FWD_R_ADF1_BFO
+  - # ADF2 Mode
+    type: var
+    var_name: L:PED_FWD_R_ADF2_MODE
+  # - # ADF2 Outer
+    # type: var
+    # var_name: L:PED_FWD_R_ADF2_OUTER
+  # - # ADF2 Middle
+    # type: var
+    # var_name: L:PED_FWD_R_ADF2_MIDDLE
+  # - # ADF2 Inner
+    # type: var
+    # var_name: L:PED_FWD_R_ADF2_INNER
+  - # ADF2 BFO
+    type: var
+    var_name: L:PED_FWD_R_ADF2_BFO
+  - # XPDR Ident 
+    type: var
+    var_name: L:PED_AFT_XPDR_IDENT
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR Ident IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_IDENT_ISDOWN
+  # - # XPDR Ident LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_IDENT_LEFTLEAVETORUN
+  # - # XPDR Ident MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_IDENT_MINRELEASETIME
+  - # XPDR 1 
+    type: var
+    var_name: L:PED_AFT_XPDR_1
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 1 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_1_ISDOWN
+  # - # XPDR 1 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_1_LEFTLEAVETORUN
+  # - # XPDR 1 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_1_MINRELEASETIME
+  - # XPDR 2 
+    type: var
+    var_name: L:PED_AFT_XPDR_2
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 2 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_2_ISDOWN
+  # - # XPDR 2 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_2_LEFTLEAVETORUN
+  # - # XPDR 2 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_2_MINRELEASETIME
+  - # XPDR 3 
+    type: var
+    var_name: L:PED_AFT_XPDR_3
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 3 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_3_ISDOWN
+  # - # XPDR 3 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_3_LEFTLEAVETORUN
+  # - # XPDR 3 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_3_MINRELEASETIME
+  - # XPDR 4 
+    type: var
+    var_name: L:PED_AFT_XPDR_4
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 4 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_4_ISDOWN
+  # - # XPDR 4 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_4_LEFTLEAVETORUN
+  # - # XPDR 4 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_4_MINRELEASETIME
+  - # XPDR 5 
+    type: var
+    var_name: L:PED_AFT_XPDR_5
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 5 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_5_ISDOWN
+  # - # XPDR 5 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_5_LEFTLEAVETORUN
+  # - # XPDR 5 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_5_MINRELEASETIME
+  - # XPDR 6 
+    type: var
+    var_name: L:PED_AFT_XPDR_6
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 6 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_6_ISDOWN
+  # - # XPDR 6 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_6_LEFTLEAVETORUN
+  # - # XPDR 6 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_6_MINRELEASETIME
+  - # XPDR 7 
+    type: var
+    var_name: L:PED_AFT_XPDR_7
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 7 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_7_ISDOWN
+  # - # XPDR 7 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_7_LEFTLEAVETORUN
+  # - # XPDR 7 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_7_MINRELEASETIME
+  - # XPDR 8 
+    type: var
+    var_name: L:PED_AFT_XPDR_8
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 8 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_8_ISDOWN
+  # - # XPDR 8 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_8_LEFTLEAVETORUN
+  # - # XPDR 8 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_8_MINRELEASETIME
+  - # XPDR 9 
+    type: var
+    var_name: L:PED_AFT_XPDR_9
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 9 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_9_ISDOWN
+  # - # XPDR 9 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_9_LEFTLEAVETORUN
+  # - # XPDR 9 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_9_MINRELEASETIME
+  - # XPDR 0 
+    type: var
+    var_name: L:PED_AFT_XPDR_0
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR 0 IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_0_ISDOWN
+  # - # XPDR 0 LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_0_LEFTLEAVETORUN
+  # - # XPDR 0 MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_0_MINRELEASETIME
+  - # XPDR CLR 
+    type: var
+    var_name: L:PED_AFT_XPDR_CLR
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR CLR IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_CLR_ISDOWN
+  # - # XPDR CLR LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_CLR_LEFTLEAVETORUN
+  # - # XPDR CLR MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_CLR_MINRELEASETIME
+  - # XPDR ENT 
+    type: var
+    var_name: L:PED_AFT_XPDR_ENT
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR ENT IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ENT_ISDOWN
+  # - # XPDR ENT LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ENT_LEFTLEAVETORUN
+  # - # XPDR ENT MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ENT_MINRELEASETIME
+  - # XPDR ATC 
+    type: var
+    var_name: L:PED_AFT_XPDR_ATC
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR ATC IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ATC_ISDOWN
+  # - # XPDR ATC LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ATC_LEFTLEAVETORUN
+  # - # XPDR ATC MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ATC_MINRELEASETIME
+  - # XPDR ALT 
+    type: var
+    var_name: L:PED_AFT_XPDR_ALT
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR ALT IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ALT_ISDOWN
+  # - # XPDR ALT LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ALT_LEFTLEAVETORUN
+  # - # XPDR ALT MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_ALT_MINRELEASETIME
+  - # XPDR RNG_UP 
+    type: var
+    var_name: L:PED_AFT_XPDR_RNG_UP
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR RNG_UP IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_UP_ISDOWN
+  # - # XPDR RNG_UP LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_UP_LEFTLEAVETORUN
+  # - # XPDR RNG_UP MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_UP_MINRELEASETIME
+  - # XPDR RNG_DN 
+    type: var
+    var_name: L:PED_AFT_XPDR_RNG_DN
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR RNG_DN IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_DN_ISDOWN
+  # - # XPDR RNG_DN LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_DN_LEFTLEAVETORUN
+  # - # XPDR RNG_DN MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_RNG_DN_MINRELEASETIME
+  - # XPDR TEST 
+    type: var
+    var_name: L:PED_AFT_XPDR_TEST
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # XPDR TEST IsDown
+    # type: var
+    # var_name: L:PED_AFT_XPDR_TEST_ISDOWN
+  # - # XPDR TEST LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_XPDR_TEST_LEFTLEAVETORUN
+  # - # XPDR TEST MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_XPDR_TEST_MINRELEASETIME
+  - # XPDR TEST Old
+    type: var
+    var_name: L:PED_AFT_XPDR_TEST_OLD
+  - # XPDR Sel
+    type: var
+    var_name: L:PED_AFT_XPDR_Sel
+  - # XPDR Mode
+    type: var
+    var_name: L:PED_AFT_XPDR_MODE
+  - # Brake Panel
+    type: var
+    var_name: L:PED_AFT_BRAKE_ON
+  - # Brake Panel Dimmer
+    type: var
+    var_name: L:PED_AFT_BRAKE_DIM
+  - # Brake L Outer 
+    type: var
+    var_name: L:PED_AFT_BRAKE_L_OUTER
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # Brake L Outer IsDown
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_OUTER_ISDOWN
+  # - # Brake L Outer LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_OUTER_LEFTLEAVETORUN
+  # - # Brake L Outer MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_OUTER_MINRELEASETIME
+  - # Brake L INNER 
+    type: var
+    var_name: L:PED_AFT_BRAKE_L_INNER
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # Brake L INNER IsDown
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_INNER_ISDOWN
+  # - # Brake L INNER LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_INNER_LEFTLEAVETORUN
+  # - # Brake L INNER MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_L_INNER_MINRELEASETIME
+  - # Brake Max Outer 
+    type: var
+    var_name: L:PED_AFT_BRAKE_MAX
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # Brake Max Outer IsDown
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_MAX_ISDOWN
+  # - # Brake Max Outer LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_MAX_LEFTLEAVETORUN
+  # - # Brake Max Outer MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_MAX_MINRELEASETIME
+  - # Brake R Outer 
+    type: var
+    var_name: L:PED_AFT_BRAKE_R_OUTER
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # Brake R Outer IsDown
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_OUTER_ISDOWN
+  # - # Brake R Outer LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_OUTER_LEFTLEAVETORUN
+  # - # Brake R Outer MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_OUTER_MINRELEASETIME
+  - # Brake R INNER 
+    type: var
+    var_name: L:PED_AFT_BRAKE_R_INNER
+    conditions:
+      - equals:
+          F64: 1.0
+  # - # Brake R INNER IsDown
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_INNER_ISDOWN
+  # - # Brake R INNER LeftLeaveToRun
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_INNER_LEFTLEAVETORUN
+  # - # Brake R INNER MinReleaseTime
+    # type: var
+    # var_name: L:PED_AFT_BRAKE_R_INNER_MINRELEASETIME
+  - # Slider
+    type: var
+    var_name: L:PED_AFT_MISC_CABINSECURE
+  - # Fwd Console Dimmer
+    type: var
+    var_name: L:PED_AFT_MISC_FWDCONSOLE
+  - # AFT Console Dimmer
+    type: var
+    var_name: L:PED_AFT_MISC_AFTCONSOLE
+  - # Console Dimmer
+    type: var
+    var_name: L:PED_AFT_MISC_CONSOLEFLOOD
+# Cpt Side Panel
+  - # VHF1 Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF1_SEL
+  - # VHF2 Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF2_SEL
+  - # VHF3 Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF3_SEL
+  - # HF Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_HF_SEL
+  - # SER Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_INT_SEL
+  - # PA Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_PA_SEL
+  - # VHF1 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF1_VOL_PUSH
+  - # VHF1 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF1_VOL
+  - # VHF2 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF2_VOL_PUSH
+  - # VHF2 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF2_VOL
+  - # VHF3 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF3_VOL_PUSH
+  - # VHF3 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VHF3_VOL
+  - # HF Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_HF_VOL_PUSH
+  - # HF Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_HF_VOL
+  - # INT Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_INT_VOL_PUSH
+  - # INT Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_INT_VOL
+  - # MIC Selector
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_BOOM
+  - # R/T Sel
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_RT
+  - # MKR Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_MKR_PUSH
+  - # MKR Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_MKR
+  - # NAV1 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_NAV1_PUSH
+  - # NAV1 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_NAV1
+  - # NAV2 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_NAV2_PUSH
+  - # NAV2 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_NAV2
+  - # ADF1 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_ADF1_PUSH
+  - # ADF1 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_ADF1
+  - # ADF2 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_ADF2_PUSH
+  - # ADF2 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_ADF2
+  - # INT Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_INT_PUSH
+  - # INT Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_INT
+  - # DME1 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_DME1_PUSH
+  - # DME1 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_DME1
+  - # DME2 Volume Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_DME2_PUSH
+  - # DME2 Volume Knob
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_DME2
+  - # Voice Button
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_VOICE
+  - # Test
+    type: var
+    var_name: L:PED_FWD_L_AUDIO_TEST
+  - # CVR TEST 
+    type: var
+    var_name: L:L_SIDE_CVR_TEST
+  - # CVR TEST IsDown
+    type: var
+    var_name: L:L_SIDE_CVR_TEST_ISDOWN
+  - # CVR TEST LeftLeaveToRun
+    type: var
+    var_name: L:L_SIDE_CVR_TEST_LEFTLEAVETORUN
+  - # CVR TEST MinReleaseTime
+    type: var
+    var_name: L:L_SIDE_CVR_TEST_MINRELEASETIME
+  - # CVR ERASE 
+    type: var
+    var_name: L:L_SIDE_CVR_ERASE
+  - # CVR ERASE IsDown
+    type: var
+    var_name: L:L_SIDE_CVR_ERASE_ISDOWN
+  - # CVR ERASE LeftLeaveToRun
+    type: var
+    var_name: L:L_SIDE_CVR_ERASE_LEFTLEAVETORUN
+  - # CVR ERASE MinReleaseTime
+    type: var
+    var_name: L:L_SIDE_CVR_ERASE_MINRELEASETIME
+  - # FLT Kit Dimmer
+    type: var
+    var_name: L:L_SIDE_LIGHTS_FLTKIT
+  - # Push Dimmer
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_KNOB
+  - # Panel Flood Dimmer
+    type: var
+    var_name: L:L_SIDE_LIGHTS_FLOOD
+  - # Inst Panel Dimmer
+    type: var
+    var_name: L:L_SIDE_LIGHTS_INSTS
+  - # Sill Light Button 
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_SILL
+  - # Sill Light Button IsDown
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_SILL_ISDOWN
+  - # Sill Light Button LeftLeaveToRun
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_SILL_LEFTLEAVETORUN
+  - # Sill Light Button MinReleaseTime
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_SILL_MINRELEASETIME
+  - # LAP Light Button 
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_LAP
+  - # LAP Light Button IsDown
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_LAP_ISDOWN
+  - # LAP Light Button LeftLeaveToRun
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_LAP_LEFTLEAVETORUN
+  - # LAP Light Button MinReleaseTime
+    type: var
+    var_name: L:L_SIDE_LIGHTS_PUSH_LAP_MINRELEASETIME
+  - # OXY Test 
+    type: var
+    var_name: L:L_SIDE_OXY_TEST
+  - # OXY Test IsDown
+    type: var
+    var_name: L:L_SIDE_OXY_TEST_ISDOWN
+  - # OXY Test LeftLeaveToRun
+    type: var
+    var_name: L:L_SIDE_OXY_TEST_LEFTLEAVETORUN
+  - # OXY Test MinReleaseTime
+    type: var
+    var_name: L:L_SIDE_OXY_TEST_MINRELEASETIME
+  - # OXY Valve
+    type: var
+    var_name: L:L_SIDE_OXY_KNOB
+# Right Side Panel
+  - # Day Dig1
+    type: var
+    var_name: L:R_SIDE_DAY_DIG1
+  - # Day Dig2
+    type: var
+    var_name: L:R_SIDE_DAY_DIG2
+  - # Month Dig1
+    type: var
+    var_name: L:R_SIDE_MONTH_DIG1
+  - # Month Dig2
+    type: var
+    var_name: L:R_SIDE_MONTH_DIG2
+  - # Flight Leg
+    type: var
+    var_name: L:R_SIDE_FLTLEG
+  - # Flight Num Dig1
+    type: var
+    var_name: L:R_SIDE_FLIGHTHUM_DIG1
+  - # Flight Num Dig2
+    type: var
+    var_name: L:R_SIDE_FLIGHTHUM_DIG2
+  - # Flight Num Dig3
+    type: var
+    var_name: L:R_SIDE_FLIGHTHUM_DIG3
+  - # DDI 
+    type: var
+    var_name: L:R_SIDE_DDI
+  - # DDI IsDown
+    type: var
+    var_name: L:R_SIDE_DDI_ISDOWN
+  - # DDI LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_DDI_LEFTLEAVETORUN
+  - # DDI MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_DDI_MINRELEASETIME
+  - # EVENT 
+    type: var
+    var_name: L:R_SIDE_EVENT
+  - # EVENT IsDown
+    type: var
+    var_name: L:R_SIDE_EVENT_ISDOWN
+  - # EVENT LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_EVENT_LEFTLEAVETORUN
+  - # EVENT MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_EVENT_MINRELEASETIME
+  - # FAULT 
+    type: var
+    var_name: L:R_SIDE_FAULT
+  - # FAULT IsDown
+    type: var
+    var_name: L:R_SIDE_FAULT_ISDOWN
+  - # FAULT LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_FAULT_LEFTLEAVETORUN
+  - # FAULT MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_FAULT_MINRELEASETIME
+  - # GRNDCHECK 
+    type: var
+    var_name: L:R_SIDE_GRNDCHECK
+  - # GRNDCHECK IsDown
+    type: var
+    var_name: L:R_SIDE_GRNDCHECK_ISDOWN
+  - # GRNDCHECK LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_GRNDCHECK_LEFTLEAVETORUN
+  - # GRNDCHECK MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_GRNDCHECK_MINRELEASETIME
+  - # VHF1 Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF1_SEL
+  - # VHF2 Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF2_SEL
+  - # VHF3 Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF3_SEL
+  - # HF1 Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF1_SEL
+  - # HF2 Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF2_SEL
+  - # SER Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_INT_SEL
+  - # PA Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_PA_SEL
+  - # VHF1 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF1_VOL_PUSH
+  - # VHF1 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF1_VOL
+  - # VHF2 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF2_VOL_PUSH
+  - # VHF2 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF2_VOL
+  - # VHF3 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF3_VOL_PUSH
+  - # VHF3 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_VHF3_VOL
+  - # HF1 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF1_VOL_PUSH
+  - # HF1 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF1_VOL
+  - # HF2 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF2_VOL_PUSH
+  - # HF2 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_HF2_VOL
+  - # INT Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_INT_VOL_PUSH
+  - # INT Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_INT_VOL
+  - # MIC Selector
+    type: var
+    var_name: L:R_SIDE_AUDIO_BOOM
+  - # R/T Sel
+    type: var
+    var_name: L:R_SIDE_AUDIO_RT
+  - # MKR Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_MKR_PUSH
+  - # MKR Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_MKR
+  - # NAV1 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_NAV1_PUSH
+  - # NAV1 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_NAV1
+  - # NAV2 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_NAV2_PUSH
+  - # NAV2 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_NAV2
+  - # ADF1 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_ADF1_PUSH
+  - # ADF1 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_ADF1
+  - # ADF2 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_ADF2_PUSH
+  - # ADF2 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_ADF2
+  - # INT Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_INT_PUSH
+  - # INT Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_INT
+  - # DME1 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_DME1_PUSH
+  - # DME1 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_DME1
+  - # DME2 Volume Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_DME2_PUSH
+  - # DME2 Volume Knob
+    type: var
+    var_name: L:R_SIDE_AUDIO_DME2
+  - # Voice Button
+    type: var
+    var_name: L:R_SIDE_AUDIO_VOICE
+  - # Test
+    type: var
+    var_name: L:R_SIDE_AUDIO_TEST
+  - # FLT Kit Dimmer
+    type: var
+    var_name: L:R_SIDE_LIGHTS_FLTKIT
+  - # Push Dimmer
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_KNOB
+  - # Panel Flood Dimmer
+    type: var
+    var_name: L:R_SIDE_LIGHTS_FLOOD
+  - # Inst Panel Dimmer
+    type: var
+    var_name: L:R_SIDE_LIGHTS_INSTS
+  - # Sill Light Button 
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_SILL
+  - # Sill Light Button IsDown
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_SILL_ISDOWN
+  - # Sill Light Button LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_SILL_LEFTLEAVETORUN
+  - # Sill Light Button MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_SILL_MINRELEASETIME
+  - # LAP Light Button 
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_LAP
+  - # LAP Light Button IsDown
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_LAP_ISDOWN
+  - # LAP Light Button LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_LAP_LEFTLEAVETORUN
+  - # LAP Light Button MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_LIGHTS_PUSH_LAP_MINRELEASETIME
+  - # OXY Test 
+    type: var
+    var_name: L:R_SIDE_OXY_TEST
+  - # OXY Test IsDown
+    type: var
+    var_name: L:R_SIDE_OXY_TEST_ISDOWN
+  - # OXY Test LeftLeaveToRun
+    type: var
+    var_name: L:R_SIDE_OXY_TEST_LEFTLEAVETORUN
+  - # OXY Test MinReleaseTime
+    type: var
+    var_name: L:R_SIDE_OXY_TEST_MINRELEASETIME
+  - # OXY Valve
+    type: var
+    var_name: L:R_SIDE_OXY_KNOB
+  - # OXY Main
+    type: var
+    var_name: L:R_SIDE_OXY_MAIN_VLV
+# Yoke Commands
+  - # Left Yoke AP Disc Test 
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_L
+  - # Left Yoke AP Disc Test IsDown
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_L_ISDOWN
+  - # Left Yoke AP Disc Test LeftLeaveToRun
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_L_LEFTLEAVETORUN
+  - # Left Yoke AP Disc Test MinReleaseTime
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_L_MINRELEASETIME
+  -
+    type: CustomCalculator
+    get: (L:L_ANNUNS_SYNC_WHITE_IL)
+    set: 1 (>L:FLTCTRLS_RT_BUTTON_L)
+  # - # Left Yoke RT Test 
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_L
+  # - # Left Yoke RT Test IsDown
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_L_ISDOWN
+  # - # Left Yoke RT Test LeftLeaveToRun
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_L_LEFTLEAVETORUN
+  # - # Left Yoke RT Test MinReleaseTime
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_L_MINRELEASETIME
+  - # RIGHT Yoke AP Disc Test 
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_R
+  - # RIGHT Yoke AP Disc Test IsDown
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_R_ISDOWN
+  - # RIGHT Yoke AP Disc Test LeftLeaveToRun
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_R_LEFTLEAVETORUN
+  - # RIGHT Yoke AP Disc Test MinReleaseTime
+    type: var
+    var_name: L:FLTCTRLS_AP_BUTTON_R_MINRELEASETIME
+  # - # RIGHT Yoke RT Test 
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_R
+  # - # RIGHT Yoke RT Test IsDown
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_R_ISDOWN
+  # - # RIGHT Yoke RT Test LeftLeaveToRun
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_R_LEFTLEAVETORUN
+  # - # RIGHT Yoke RT Test MinReleaseTime
+    # type: var
+    # var_name: L:FLTCTRLS_RT_BUTTON_R_MINRELEASETIME
+# EFB Aircraft Doors and Ground Services
+  - # Chocks
+    type: var
+    var_name: L:EXT_CHOCK
+  - # FWD PAX Door
+    type: var
+    var_name: L:EXT_DOOR_PAX_1L
+  - # Stairs
+    type: var
+    var_name: L:EXT_DOOR_STAIRS
+  - # AFT PAX Door
+    type: var
+    var_name: L:EXT_DOOR_PAX_2L
+  - # FWD SERV Door
+    type: var
+    var_name: L:EXT_DOOR_PAX_1R
+  - # FWD CARGO Door
+    type: var
+    var_name: L:EXT_DOOR_CARGO_FWD
+  - # AFT CARGO Door
+    type: var
+    var_name: L:EXT_DOOR_CARGO_AFT
+  - # AFT SERV Door
+    type: var
+    var_name: L:EXT_DOOR_PAX_2R
+
+  -
+    type: NumSet
+    var_name: L:MCP_HDG_TOOLTIP
+    var_units: number
+    var_type: f64
+    event_name: HEADING_BUG_SET
+    cancel_h_events: true
+    event_param: 1
+
+  -
+    type: NumSet
+    var_name: A:KOHLSMAN SETTING MB:3
+    var_units: Millibars scaler 16
+    var_type: f64
+    event_name: KOHLSMAN_SET
+    cancel_h_events: true
+    event_param: 3
+    
+server:
+  -
+    type: var
+    var_name: A:FUEL TANK LEFT MAIN LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:FUEL TANK RIGHT MAIN LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:FUEL TANK LEFT AUX LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:FUEL TANK RIGHT AUX LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:FUEL TANK CENTER LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:1
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:2
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:3
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:4
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:5
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:6
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:7
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:8
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:9
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:10
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:11
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:12
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:13
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:14
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:15
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:16
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:17
+    var_units: Pounds
+    var_type: f64
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:18
+    var_units: Pounds
+    var_type: f64
