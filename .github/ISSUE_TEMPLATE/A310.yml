@@ -16,7 +16,7 @@ body:
     id: acversion
     attributes:
       label: A310 Version
-      description: What Version of the BAE-146 are you using?
+      description: What Version of the A310 are you using?
     validations:
       required: true
   - type: dropdown
