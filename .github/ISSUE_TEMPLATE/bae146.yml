@@ -49,4 +49,4 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output.
     validations:
-    required: false
+      required: false
