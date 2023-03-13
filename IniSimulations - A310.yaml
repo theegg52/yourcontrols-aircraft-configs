@@ -1,0 +1,2031 @@
+include:
+  - definitions/modules/physics.yaml
+  - definitions/modules/radios.yaml
+  - definitions/modules/service.yaml
+  - definitions/modules/slew.yaml
+  
+shared:
+  -
+    type: var
+    var_name: L:A310_IRS1_STATE
+  -
+    type: var
+    var_name: L:A310_IRS_MODE_KNOB
+  -
+    type: var
+    var_name: L:A310_IRS_SYS_KNOB
+  - 
+    type: var
+    var_name: L:A300_GNDCTL
+  -
+    type: var
+    var_name: L:A310_SPEEDBRAKE7
+  -
+    type: var
+    var_name: L:A310_SPEEDBRAKE6
+  -
+    type: var
+    var_name: L:A310_SPEEDBRAKE5
+  -
+    type: var
+    var_name: L:A310_SPEEDBRAKE4_1
+  -
+    type: var
+    var_name: L:A310_SPEEDBRAKE3_2
+  -
+    type: var
+    var_name: L:A310_PITCH_FEEL1
+  -
+    type: var
+    var_name: L:A310_PITCH_FEEL2
+  -
+    type: var
+    var_name: L:A310_RUDDER_TRAVEL1
+  -
+    type: var
+    var_name: L:A310_RUDDER_TRAVEL2
+  -
+    type: var
+    var_name: L:__GUARD_SERVO_B_STATE
+  -
+    type: var
+    var_name: L:A310_SERVO_BLUE_OFF_LIGHT
+  -
+    type: var
+    var_name: L:__GUARD_SERVO_G_STATE
+  -
+    type: var
+    var_name: L:A310_SERVO_GREEN_OFF_LIGHT
+  -
+    type: var
+    var_name: L:__GUARD_SERVO_Y_STATE
+  -
+    type: var
+    var_name: L:A310_SERVO_YELLOW_OFF_LIGHT
+  -
+    type: var
+    var_name: L:A310_HYD_PTU_BLUE_STATUS
+  -
+    type: var
+    var_name: L:A310_HYD_ELEC_STATUS
+  -
+    type: var
+    var_name: L:A310_HYD_PTU_YELLOW_STATUS
+  -
+    type: var
+    var_name: L:A310_HYD_ENG1_SWITCH_POS
+  -
+    type: var
+    var_name: L:A310_HYD_ENG1_A_SWITCH_POS
+  -
+    type: var
+    var_name: L:A310_HYD_ENG2_B_SWITCH_POS
+  -
+    type: var
+    var_name: L:A310_HYD_ENG2_SWITCH_POS
+  -
+    type: var
+    var_name: L:A310_STORM_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_DOME_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_DOME_LIGHT_BRT_SWITCH
+  -
+    type: var
+    var_name: L:A310_SEATBELTS_SWITCH
+  -
+    type: var
+    var_name: L:A310_NO_SMOKING_SWITCH
+  -
+    type: var
+    var_name: L:A310_ELEC_IND_AC_SELECTOR
+  -
+    type: var
+    var_name: L:A310_ELEC_IND_DC_SELECTOR
+  -
+    type: var
+    var_name: L:A310_ENG1_SQUIB_TEST
+  -
+    type: var
+    var_name: L:A300DR_ENGINE1_AGENT1_DISCH
+  -
+    type: var
+    var_name: L:A310_ENG1_LOOP_A_STATE
+  -
+    type: var
+    var_name: L:A310_ENGINE1_LOOP_TEST_SWITCH
+  -
+    type: var
+    var_name: L:A310_ENG1_LOOP_B_STATE
+  -
+    type: var
+    var_name: L:A300DR_ENGINE1_AGENT2_DISCH
+  -
+    type: var
+    var_name: L:A310_ENG1_FIRE_LATCH
+  -
+    type: var
+    var_name: L:A310_FIRE_HANDLE_ENG1
+  -
+    type: var
+    var_name: L:A310_ELEC_LAND_RECOVERY
+  -
+    type: var
+    var_name: L:__GUARD_BAT_OVRD_STATE
+  -
+    type: var
+    var_name: L:A310_ELEC_BATTERY_OVERRIDE
+  -
+    type: var
+    var_name: L:__GUARD_STBY_GEN_STATE
+  -
+    type: var
+    var_name: L:A310_ELEC_STANDBY_GEN
+  -
+    type: var
+    var_name: L:A310_BAT1_ON
+  -
+    type: var
+    var_name: L:A310_BAT2_ON
+  -
+    type: var
+    var_name: L:A310_BAT3_ON
+  -
+    type: var
+    var_name: L:__GUARD_OVR_SUP_1_STATE
+  -
+    type: var
+    var_name: L:A310_ELEC_OVERRIDE_SUPPLY1
+  -
+    type: var
+    var_name: L:__GUARD_OVR_SUP_2_STATE
+  -
+    type: var
+    var_name: L:A310_ELEC_OVERRIDE_SUPPLY2
+  -
+    type: var
+    var_name: L:A310_ENG1_GEN_ON
+  -
+    type: var
+    var_name: L:A310_APU_GEN_ON
+  -
+    type: ToggleSwitch
+    var_name: L:__EXT_PWRISPRESSED
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_EXTERNAL_POWER
+  -
+    type: var
+    var_name: L:A310_ENG2_GEN_ON
+  -
+    type: var
+    var_name: L:__IDG1_COVER_STATE
+  -
+    type: var
+    var_name: L:A310_IDG1_BUTTON
+  -
+    type: var
+    var_name: L:A310_GALLEY_SHED
+  -
+    type: var
+    var_name: L:__IDG2_COVER_STATE
+  -
+    type: var
+    var_name: L:A310_IDG2_BUTTON
+  -
+    type: var
+    var_name: L:A310_PITCH_TRIM1
+  -
+    type: var
+    var_name: L:A310_PITCH_TRIM2
+  -
+    type: var
+    var_name: L:A310_YAW_DAMPER1
+  -
+    type: var
+    var_name: L:A310_YAW_DAMPER2
+  -
+    type: var
+    var_name: L:A310_AUTOTHROTTLE_MASTER_SWITCH1
+  -
+    type: var
+    var_name: L:__GUARD_ENG_TRIM_STATE
+  -
+    type: var
+    var_name: L:A310_ENG_TRIM
+  -
+    type: var
+    var_name: L:A310_AUTOTHROTTLE_MASTER_SWITCH2
+  -
+    type: var
+    var_name: L:A310_ENG1_ANTI_ICE
+  -
+    type: var
+    var_name: L:A310_ENG2_ANTI_ICE
+  -
+    type: var
+    var_name: L:A310_WING_ANTI_ICE
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_24
+  -
+    type: var
+    var_name: L:A310_BEACON_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_RWY_TURNOFF_L_SWITCH
+  -
+    type: var
+    var_name: L:A310_RWY_TURNOFF_R_SWITCH
+  -
+    type: var
+    var_name: L:A310_NAV_LOGO_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_TAXI_LIGHTS_SWITCH
+  -
+    type: var
+    var_name: L:A310_LANDING_LIGHT_L_SWITCH
+  -
+    type: var
+    var_name: L:A310_LANDING_LIGHT_R_SWITCH
+  -
+    type: var
+    var_name: L:A310_WING_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_IRS3_STATE
+  -
+    type: var
+    var_name: L:A310_CVRD_TEST
+  -
+    type: var
+    var_name: L:A310_APU_SQUIB_TEST
+  -
+    type: var
+    var_name: L:A310_APU_AGENT1_DISCH
+  -
+    type: var
+    var_name: L:A310_APU_LOOP_A_STATE
+  -
+    type: var
+    var_name: L:A310_APU_LOOP_TEST_SWITCH
+  -
+    type: var
+    var_name: L:A310_APU_LOOP_B_STATE
+  -
+    type: var
+    var_name: L:A310_APU_FIRE_LATCH
+  -
+    type: var
+    var_name: L:A310_FIRE_HANDLE_APU
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_18
+  -
+    type: var
+    var_name: L:A310_XFEED_TRANSFER_ON
+  -
+    type: var
+    var_name: L:__GUARD_FUEL_IS0_1_STATE
+  -
+    type: var
+    var_name: L:A310_ISOLATION_VALVE_OUTER_TANK_LEFT
+  -
+    type: var
+    var_name: L:__GUARD_FUEL_IS0_2_STATE
+  -
+    type: var
+    var_name: L:A310_ISOLATION_VALVE_INNER_TANK_LEFT
+  -
+    type: var
+    var_name: L:__GUARD_FUEL_IS0_3_STATE
+  -
+    type: var
+    var_name: L:A310_ISOLATION_VALVE_INNER_TANK_RIGHT
+  -
+    type: var
+    var_name: L:__GUARD_FUEL_IS0_4_STATE
+  -
+    type: var
+    var_name: L:A310_ISOLATION_VALVE_OUTER_TANK_RIGHT
+  -
+    type: var
+    var_name: L:A310_OUTER_TANK1_LEFT
+  -
+    type: var
+    var_name: L:A310_OUTER_TANK2_LEFT
+  -
+    type: var
+    var_name: L:A310_OUTER_TANK1_RIGHT
+  -
+    type: var
+    var_name: L:A310_OUTER_TANK2_RIGHT
+  -
+    type: var
+    var_name: L:A310_INNER_TANK1_LEFT
+  -
+    type: var
+    var_name: L:A310_INNER_TANK2_LEFT
+  -
+    type: var
+    var_name: L:A310_INNER_TANK1_RIGHT
+  -
+    type: var
+    var_name: L:A310_INNER_TANK2_RIGHT
+  -
+    type: var
+    var_name: L:A310_CENTER_TANK1
+  -
+    type: var
+    var_name: L:A310_CENTER_TANK2
+  -
+    type: var
+    var_name: L:A310_ACT_TANK
+  -
+    type: var
+    var_name: L:A310_TRIM_TANK_MODE
+  -
+    type: var
+    var_name: L:A310_TRIM_TANK1
+  -
+    type: var
+    var_name: L:A310_TRIM_TANK2
+  -
+    type: var
+    var_name: L:__GUARD_TRMTK_ISO_STATE
+  -
+    type: var
+    var_name: L:A310_TRIM_TANK_ISOL_VALVE
+  -
+    type: var
+    var_name: L:A310_ENG1_STARTER
+  -
+    type: var
+    var_name: L:A310_ENG_IGNITION_SWITCH
+  -
+    type: var
+    var_name: L:A310_ENG2_STARTER
+  -
+    type: var
+    var_name: L:A310_APU_START_BUTTON
+  -
+    type: var
+    var_name: L:A310_APU_MASTER_SWITCH
+  -
+    type: var
+    var_name: L:A300_APU_FUEL_OVRD
+  -
+    type: var
+    var_name: L:A310_CPT_WIPER_KNOB
+  -
+    type: var
+    var_name: L:A310_FO_WIPER_KNOB
+  -
+    type: var
+    var_name: L:A300DR_COCKPIT_DOOR_STATE
+  -
+    type: var
+    var_name: L:A300DR_VENT_OUTBOARD_VALVE
+  -
+    type: var
+    var_name: L:A310_VENT_GND_OVRD
+  -
+    type: var
+    var_name: L:A310_VENT_GND_CTL
+  -
+    type: var
+    var_name: L:A300DR_VENT_EXTRACT_VALVE
+  -
+    type: var
+    var_name: L:A310_CARGO_VALVE
+  -
+    type: var
+    var_name: L:A310_VENT_GND_OVRD
+  -
+    type: var
+    var_name: L:A310_ENG2_SQUIB_TEST
+  -
+    type: var
+    var_name: L:A300DR_ENGINE2_AGENT1_DISCH
+  -
+    type: var
+    var_name: L:A310_ENG2_LOOP_A_STATE
+  -
+    type: var
+    var_name: L:A310_ENGINE2_LOOP_TEST_SWITCH
+  -
+    type: var
+    var_name: L:A310_ENG2_LOOP_B_STATE
+  -
+    type: var
+    var_name: L:A300DR_ENGINE2_AGENT2_DISCH
+  -
+    type: var
+    var_name: L:A310_ENG2_FIRE_LATCH
+  -
+    type: var
+    var_name: L:A310_FIRE_HANDLE_ENG2
+  -
+    type: var
+    var_name: L:A310_OXYGEN_LOW_PRESSURE_SUPPLY
+  -
+    type: var
+    var_name: L:A300_PROBE_HEAT_CAPT
+  -
+    type: var
+    var_name: L:A300_PROBE_HEAT_STANDBY
+  -
+    type: var
+    var_name: L:A300_PROBE_HEAT_COPILOT
+  -
+    type: var
+    var_name: L:A300_WINDOW_HEAT1
+  -
+    type: var
+    var_name: L:A300_WINDOW_HEAT2
+  -
+    type: var
+    var_name: L:A300_WINDOW_HEAT3
+  -
+    type: var
+    var_name: L:A300_WINDOW_HEAT4
+  -
+    type: var
+    var_name: L:__GUARD_PRESS_OUTFLOW_FWD_STATE
+  -
+    type: var
+    var_name: L:A300_CABIN_OUTFLOW_FORWARD_BUTTON
+  -
+    type: var
+    var_name: L:__GUARD_PRESS_OUTFLOW_AFT_STATE
+  -
+    type: var
+    var_name: L:A300_CABIN_OUTFLOW_AFTER_BUTTON
+  -
+    type: var
+    var_name: L:A310_MAN_VS_CONTROL_SWITCH
+  -
+    type: var
+    var_name: L:A300DR_CABIN_MAN_PRESS_BUTTON
+  -
+    type: var
+    var_name: L:A310_CABIN_AUTO_PRESS_ACTUAL
+  -
+    type: var
+    var_name: L:A310_CABIN_SYS1_REGULATOR
+  -
+    type: var
+    var_name: L:A310_CABIN_SYS2_REGULATOR
+  -
+    type: var
+    var_name: L:A310_CABIN_SYS1
+  -
+    type: var
+    var_name: L:A310_CABIN_SYS2
+  -
+    type: var
+    var_name: L:A310_IRS2_STATE
+  -
+    type: var
+    var_name: L:A310_PACK1_MAN_SWITCH
+  -
+    type: var
+    var_name: L:A310_BLEED_PACK1_MODE
+  -
+    type: var
+    var_name: L:A310_BLEED_PACK2_MODE
+  -
+    type: var
+    var_name: L:A310_PACK2_MAN_SWITCH
+  -
+    type: var
+    var_name: L:A300_ISOLATION_VALVE_LEFT
+  -
+    type: var
+    var_name: L:A300_ISOLATION_VALVE_RIGHT
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_6
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_5
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_4
+  -
+    type: var
+    var_name: L:A310_PRESSURE_SELECTOR_INDICATOR_ACTUAL
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_3
+  -
+    type: var
+    var_name: L:A300_HOT_AIR_SUPPLY_ON
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_2
+  -
+    type: var
+    var_name: L:A310_AIRCOND_LVL_1
+  -
+    type: var
+    var_name: L:A300_PACK1_BUTTON
+  -
+    type: var
+    var_name: L:A300_PACK1_BUTTON
+  -
+    type: var
+    var_name: L:__GUARD_RAM_AIR_STATE
+  -
+    type: var
+    var_name: L:A300_RAM_AIR_ON
+  -
+    type: var
+    var_name: L:A300_PACK2_BUTTON
+  -
+    type: var
+    var_name: L:A310_ECON_FLOW_SELECTED
+  -
+    type: var
+    var_name: L:A310_MAX_COOL
+  -
+    type: var
+    var_name: L:A300_XBLEED
+  -
+    type: var
+    var_name: L:A310_ENG1_BLEED
+  -
+    type: var
+    var_name: L:A300_XBLEED_MODE
+  -
+    type: var
+    var_name: L:A310_ENG2_BLEED
+  -
+    type: var
+    var_name: L:A310_BLEED_ENG1_HP_VALVE
+  -
+    type: var
+    var_name: L:A310_BLEED_ENG2_HP_VALVE
+  -
+    type: var
+    var_name: L:A310_APU_BLEED
+  -
+    type: var
+    var_name: L:A310_EMER_EXIT_SWITCH
+  -
+    type: var
+    var_name: L:A310_ANNLT_SWITCH
+  -
+    type: var
+    var_name: L:A310_STBY_COMPASS_LIGHT_SWITCH
+  -
+    type: var
+    var_name: L:A310_CPT_SUN_VISOR_STATE
+  -
+    type: var
+    var_name: L:A310_FO_SUN_VISOR_STATE
+  -
+    type: var
+    var_name: L:A310_TAKEOFF_TOGGLE
+  -
+    type: var
+    var_name: L:A310_AUTOLAND_LIGHT_TEST
+  -
+    type: var
+    var_name: L:A310_STOP_RUDDER_INPUT_TEST_BUTTON
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_60
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:60
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 60
+    index_reversed: true
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_61
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:61
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 61
+    index_reversed: true
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_12
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:12
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 12
+    index_reversed: true
+  -
+    type: var
+    var_name: L:A310_FDIR_SWITCH_CAPT
+  -
+    type: var
+    var_name: L:A310_FPV_ON
+  -
+    type: var
+    var_name: L:A310_EFIS_SELECTED_NAV_CAPT
+  -
+    type: var
+    var_name: L:A310_DH_SELECTED
+  -
+    type: var
+    var_name: L:A310_FPA_SELECTED
+  -
+    type: var
+    var_name: L:A310_MINIMUMS_PILOT
+  -
+    type: var
+    var_name: L:A310_FPA_SET
+  -
+    type: var
+    var_name: L:A310_MAP_MODE_CAPT_SWITCH
+  -
+    type: var
+    var_name: L:A310_MAP_RANGE_CAPT_SWITCH
+  -
+    type: var
+    var_name: L:A310_SHOW_CONSTRAINTS
+  -
+    type: var
+    var_name: L:A310_SHOW_FIXES
+  -
+    type: var
+    var_name: L:A310_SHOW_VORS
+  -
+    type: var
+    var_name: L:A310_SHOW_NDBS
+  -
+    type: var
+    var_name: L:A310_SHOW_AIRPORTS
+  -
+    type: var
+    var_name: L:A310_AIRSPEED_IS_MACH
+  -
+    type: var
+    var_name: L:A310_AIRSPEED_DIAL
+  -
+    type: var
+    var_name: L:A310_AT_ON
+  -
+    type: var
+    var_name: L:A310_PRESET_SETTING
+  -
+    type: var
+    var_name: L:A310_PRESET_SPEED
+  -
+    type: var
+    var_name: L:A310_PRESET_LIGHT
+  -
+    type: var
+    var_name: L:A310_FCU_SELECTED_SPEED_BUTTON
+  -
+    type: var
+    var_name: L:A310_ALTITUDE_DIAL
+  -
+    type: var
+    var_name: L:A310_FCU_ALTITUDE_PUSH_COMMAND
+  -
+    type: var
+    var_name: L:A310_FCU_ALTITUDE_PULL_COMMAND
+  -
+    type: var
+    var_name: L:A310_HEADING_DIAL
+  -
+    type: var
+    var_name: L:A310_BANK_MODE
+  -
+    type: var
+    var_name: L:A310_PITCH_MODE
+  -
+    type: var
+    var_name: L:A310_PITCH_MODE_ARM
+  -
+    type: var
+    var_name: L:A310_ROLL_MODE
+  -
+    type: var
+    var_name: L:A310_ROLL_MODE_ARM
+  -
+    type: var
+    var_name: L:A310_VVI_DIAL
+  -
+    type: var
+    var_name: L:AP6_BUTTON
+  -
+    type: var
+    var_name: L:AP7_BUTTON
+  -
+    type: var
+    var_name: L:AP9_BUTTON
+  -
+    type: var
+    var_name: L:A310_AP1_BUTTON
+  -
+    type: var
+    var_name: L:A310_AP2_BUTTON
+  -
+    type: var
+    var_name: L:A310_CWS_COMMAND
+  -
+    type: var
+    var_name: L:A310_FO_DH_SELECTED
+  -
+    type: var
+    var_name: L:A310_FO_FPA_SELECTED
+  -
+    type: var
+    var_name: L:A310_MINIMUMS_FO
+  -
+    type: var
+    var_name: L:A310_FPA_SET_FO
+  -
+    type: var
+    var_name: L:A310_MAP_MODE_FO_SWITCH
+  -
+    type: var
+    var_name: L:A310_MAP_RANGE_FO_SWITCH
+  -
+    type: var
+    var_name: L:A310_SHOW_CONSTRAINTS2
+  -
+    type: var
+    var_name: L:A310_SHOW_FIXES2
+  -
+    type: var
+    var_name: L:A310_SHOW_VORS2
+  -
+    type: var
+    var_name: L:A310_SHOW_NDBS2
+  -
+    type: var
+    var_name: L:A310_SHOW_AIRPORTS2
+  -
+    type: var
+    var_name: L:A310_FDIR_SWITCH_FO
+  -
+    type: var
+    var_name: L:A310_FPV2_ON
+  -
+    type: var
+    var_name: L:A310_EFIS_SELECTED_NAV_FO
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_62
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:62
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 62
+    index_reversed: true
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_63
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:63
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 63
+    index_reversed: true
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_13
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:13
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 13
+    index_reversed: true
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_16
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_26
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_25
+  -
+    type: var
+    var_name: L:A310_CAPT_ATT_HDG_COMMAND
+  -
+    type: var
+    var_name: L:A300DR_CAPT_SWITCH_ADC_INST_FO1
+  -
+    type: var
+    var_name: L:A300DR_CAPT_SWITCH_FD_FO1
+  -
+    type: var
+    var_name: L:A310_CAPT_SGU_COMMAND
+  -
+    type: var
+    var_name: L:A300DR_PFD_ND_XFR
+  -
+    type: var
+    var_name: L:A300DR_TERR_MODE
+  -
+    type: var
+    var_name: L:A310_GPWS_FLAP_SWITCH
+  -
+    type: var
+    var_name: L:A310_TERR_ON_CAPT
+  -
+    type: var
+    var_name: L:A310_MASTER_WARNING_ACTIVE
+  -
+    type: var
+    var_name: L:A310_MASTER_CAUTION_ACTIVE
+  -
+    type: var
+    var_name: L:A310_GPWS_PUSH
+  -
+    type: var
+    var_name: L:A310_CPT_ALTIMETER_BUG
+  - 
+    type: NumSet
+    var_name: A:KOHLSMAN SETTING MB:1
+    var_units: Millibars scaler 16
+    var_type: f64
+    event_name: KOHLSMAN_SET
+    cancel_h_events: true
+    event_param: 1
+  -
+    type: var
+    var_name: L:A310_CPT_ALTIMETER_PULL_COMMAND
+  -
+    type: var
+    var_name: L:A310_CPT_ALTIMETER_STD_COMMAND
+  -
+    type: var
+    var_name: L:A300DR_CHRONO_GMT_STATUS
+  -
+    type: var
+    var_name: L:A300DR_CHRONO_START_BUTTON
+  -
+    type: var
+    var_name: L:A310_ET_TOGGLE_BUTTON
+  - 
+    type: NumSet
+    var_name: A:KOHLSMAN SETTING MB:3
+    var_units: Millibars scaler 16
+    var_type: f64
+    event_name: KOHLSMAN_SET
+    cancel_h_events: true
+    event_param: 3
+  -
+    type: var
+    var_name: L:A300DR_BRAKE_SYSTEM
+  -
+    type: var
+    var_name: L:A310_ABRK_HI_COMMAND
+  -
+    type: var
+    var_name: L:A310_ABRK_MED_COMMAND
+  -
+    type: var
+    var_name: L:A310_ABRK_LO_COMMAND
+  -
+    type: var
+    var_name: L:A310_LANDING_ELEVATION
+  -
+    type: var
+    var_name: L:A310_TRP_TOGA_BUTTON
+  -
+    type: var
+    var_name: L:A310_TRP_MCT_BUTTON
+  -
+    type: var
+    var_name: L:A310_TRP_CL_BUTTON
+  -
+    type: var
+    var_name: L:A310_TRP_CR_BUTTON
+  -
+    type: var
+    var_name: L:A310_TRP_AUTO_BUTTON
+  -
+    type: var
+    var_name: L:A310_TRP_MODE
+  -
+    type: var
+    var_name: L:A310_FLEX_TEMPERATURE
+  -
+    type: var
+    var_name: L:A310_GEAR_HANDLE_STATUS
+  -
+    type: var
+    var_name: L:A310_LDG_GEAR_WARNING_TEST
+  -
+    type: var
+    var_name: L:A310_BRAKE_POSITION_DETECTION_SYSTEM
+  -
+    type: var
+    var_name: L:A310_BRAKE_FAN_ON
+  -
+    type: var
+    var_name: L:A310_TERR_ON_FO
+  - 
+    type: NumSet
+    var_name: A:KOHLSMAN SETTING MB:2
+    var_units: Millibars scaler 16
+    var_type: f64
+    event_name: KOHLSMAN_SET
+    cancel_h_events: true
+    event_param: 2
+  -
+    type: var
+    var_name: L:A310_FO_ALTIMETER_PULL_COMMAND
+  -
+    type: var
+    var_name: L:A310_FO_ALTIMETER_STD_COMMAND
+  -
+    type: var
+    var_name: L:A310_FO_ALTIMETER_BUG
+  -
+    type: var
+    var_name: L:A300DR_CHRONO_GMT_STATUS_FO
+  -
+    type: var
+    var_name: L:A300DR_CHRONO_START_BUTTON_FO
+  -
+    type: var
+    var_name: L:A310_ET_TOGGLE_BUTTON_FO
+  -
+    type: var
+    var_name: L:A310_FO_ATT_HDG_COMMAND
+  -
+    type: var
+    var_name: L:A300DR_FO_SWITCH_ADC_INST_FO1
+  -
+    type: var
+    var_name: L:A300DR_FO_SWITCH_FD_FO1
+  -
+    type: var
+    var_name: L:A310_FO_SGU_COMMAND
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_27
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_17
+  -
+    type: LocalVarProxy
+    var_name: L:__CPT_AP_DISCOISPRESSED
+    target: L:A310_AP_DISCONNECT_BUTTON
+  -
+    type: LocalVarProxy
+    var_name: L:__FO_AP_DISCOISPRESSED
+    target: L:A310_AP_DISCONNECT_BUTTON
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_0_KEY
+    target: L:A310_MCDU1_0
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_1_KEY
+    target: L:A310_MCDU1_1
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_2_KEY
+    target: L:A310_MCDU1_2
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_3_KEY
+    target: L:A310_MCDU1_3
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_4_KEY
+    target: L:A310_MCDU1_4
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_5_KEY
+    target: L:A310_MCDU1_5
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_6_KEY
+    target: L:A310_MCDU1_6
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_7_KEY
+    target: L:A310_MCDU1_7
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_8_KEY
+    target: L:A310_MCDU1_8
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_9_KEY
+    target: L:A310_MCDU1_9
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_A_KEY
+    target: L:A310_MCDU1_A
+  -
+    type: var
+    var_name: L:A310_MCDU1_AIRPORT
+  -
+    type: var
+    var_name: L:A310_MCDU1_ATC
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_B_KEY
+    target: L:A310_MCDU1_B
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_C_KEY
+    target: L:A310_MCDU1_C
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_CLR_KEY
+    target: L:A310_MCDU1_CLR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_D_KEY
+    target: L:A310_MCDU1_D
+  -
+    type: var
+    var_name: L:A310_MCDU1_DATA
+  -
+    type: var
+    var_name: L:A310_MCDU1_DECIMAL
+  -
+    type: var
+    var_name: L:A310_MCDU1_DIR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_DIR_TO_KEY
+    target: L:A310_MCDU1_DIR_TO
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_DOT_KEY
+    target: L:A310_MCDU1_DOT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_DOWN_KEY
+    target: L:A310_MCDU1_DOWN
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_E_KEY
+    target: L:A310_MCDU1_E
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_ENGOUT_KEY
+    target: L:A310_MCDU1_ENGOUT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_F_KEY
+    target: L:A310_MCDU1_F
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_FPLAN_KEY
+    target: L:A310_MCDU1_FPLAN
+  -
+    type: var
+    var_name: L:A310_MCDU1_FUEL
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_FUEL_PRED_KEY
+    target: L:A310_MCDU1_FUEL_PRED
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_G_KEY
+    target: L:A310_MCDU1_G
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_H_KEY
+    target: L:A310_MCDU1_H
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_I_KEY
+    target: L:A310_MCDU1_I
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_INIT_KEY
+    target: L:A310_MCDU1_INIT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_J_KEY
+    target: L:A310_MCDU1_J
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_K_KEY
+    target: L:A310_MCDU1_K
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_L_KEY
+    target: L:A310_MCDU1_L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK1L_KEY
+    target: L:A310_MCDU1_LSK1L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK1R_KEY
+    target: L:A310_MCDU1_LSK1R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK2L_KEY
+    target: L:A310_MCDU1_LSK2L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK2R_KEY
+    target: L:A310_MCDU1_LSK2R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK3L_KEY
+    target: L:A310_MCDU1_LSK3L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK3R_KEY
+    target: L:A310_MCDU1_LSK3R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK4L_KEY
+    target: L:A310_MCDU1_LSK4L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK4R_KEY
+    target: L:A310_MCDU1_LSK4R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK5L_KEY
+    target: L:A310_MCDU1_LSK5L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK5R_KEY
+    target: L:A310_MCDU1_LSK5R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK6L_KEY
+    target: L:A310_MCDU1_LSK6L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_LSK6R_KEY
+    target: L:A310_MCDU1_LSK6R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_M_KEY
+    target: L:A310_MCDU1_M
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_MENU_KEY
+    target: L:A310_MCDU1_MENU
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_MINUS_KEY
+    target: L:A310_MCDU1_MINUS
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_MODE_KEY
+    target: L:A310_MCDU1_MODE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_N_KEY
+    target: L:A310_MCDU1_N
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_NEXT_KEY
+    target: L:A310_MCDU1_NEXT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_O_KEY
+    target: L:A310_MCDU1_O
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_P_KEY
+    target: L:A310_MCDU1_P
+  -
+    type: var
+    var_name: L:A310_MCDU1_PERF
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_PLUS_KEY
+    target: L:A310_MCDU1_PLUS
+  -
+    type: var
+    var_name: L:A310_MCDU1_PREV
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_PROG_KEY
+    target: L:A310_MCDU1_PROG
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_Q_KEY
+    target: L:A310_MCDU1_Q
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_R_KEY
+    target: L:A310_MCDU1_R
+  -
+    type: var
+    var_name: L:A310_MCDU1_RADNAV
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_REF_KEY
+    target: L:A310_MCDU1_REF
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_S_KEY
+    target: L:A310_MCDU1_S
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_SEC_KEY
+    target: L:A310_MCDU1_SEC
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_SEC_PLAN_KEY
+    target: L:A310_MCDU1_SEC_PLAN
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_SLASH_KEY
+    target: L:A310_MCDU1_SLASH
+  -
+    type: var
+    var_name: L:A310_MCDU1_SPACE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_T_KEY
+    target: L:A310_MCDU1_T
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_TACT_MODE_KEY
+    target: L:A310_MCDU1_TACT_MODE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_TO_APPR_KEY
+    target: L:A310_MCDU1_TO_APPR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_U_KEY
+    target: L:A310_MCDU1_U
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_UARROW_KEY
+    target: L:A310_MCDU1_UARROW
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_V_KEY
+    target: L:A310_MCDU1_V
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_W_KEY
+    target: L:A310_MCDU1_W
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_X_KEY
+    target: L:A310_MCDU1_X
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_Y_KEY
+    target: L:A310_MCDU1_Y
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU1_Z_KEY
+    target: L:A310_MCDU1_Z
+  -
+    type: var
+    var_name: L:A310_VOR1_FREQUENCY_MHZ
+  -
+    type: var
+    var_name: L:A310_VOR1_FREQUENCY_KHZ
+  -
+    type: NumSet
+    var_name: A:NAV OBS:1
+    var_units: Degrees
+    var_type: i32
+    event_name: VOR1_SET
+    cancel_h_events: true
+    use_calculator: true
+  -
+    type: var
+    var_name: L:A310_ILS_FREQUENCY_MHZ
+  -
+    type: var
+    var_name: L:A310_ILS_FREQUENCY_KHZ
+  -
+    type: var
+    var_name: L:A310_ILS_COURSE
+  -
+    type: var
+    var_name: L:A310_VOR2_FREQUENCY_MHZ
+  -
+    type: var
+    var_name: L:A310_VOR2_FREQUENCY_KHZ
+  -
+    type: NumSet
+    var_name: A:NAV OBS:2
+    var_units: Degrees
+    var_type: i32
+    event_name: VOR2_SET
+    cancel_h_events: true
+    use_calculator: true
+  -
+    type: var
+    var_name: L:A310_GPWS_LANDING_SWITCH
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_0_KEY
+    target: L:A310_MCDU2_0
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_1_KEY
+    target: L:A310_MCDU2_1
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_2_KEY
+    target: L:A310_MCDU2_2
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_3_KEY
+    target: L:A310_MCDU2_3
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_4_KEY
+    target: L:A310_MCDU2_4
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_5_KEY
+    target: L:A310_MCDU2_5
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_6_KEY
+    target: L:A310_MCDU2_6
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_7_KEY
+    target: L:A310_MCDU2_7
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_8_KEY
+    target: L:A310_MCDU2_8
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_9_KEY
+    target: L:A310_MCDU2_9
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_A_KEY
+    target: L:A310_MCDU2_A
+  -
+    type: var
+    var_name: L:A310_MCDU2_AIRPORT
+  -
+    type: var
+    var_name: L:A310_MCDU2_ATC
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_B_KEY
+    target: L:A310_MCDU2_B
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_C_KEY
+    target: L:A310_MCDU2_C
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_CLR_KEY
+    target: L:A310_MCDU2_CLR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_D_KEY
+    target: L:A310_MCDU2_D
+  -
+    type: var
+    var_name: L:A310_MCDU2_DATA
+  -
+    type: var
+    var_name: L:A310_MCDU2_DECIMAL
+  -
+    type: var
+    var_name: L:A310_MCDU2_DIR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_DIR_TO_KEY
+    target: L:A310_MCDU2_DIR_TO
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_DOT_KEY
+    target: L:A310_MCDU2_DOT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_DOWN_KEY
+    target: L:A310_MCDU2_DOWN
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_E_KEY
+    target: L:A310_MCDU2_E
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_ENGOUT_KEY
+    target: L:A310_MCDU2_ENGOUT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_F_KEY
+    target: L:A310_MCDU2_F
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_FPLAN_KEY
+    target: L:A310_MCDU2_FPLAN
+  -
+    type: var
+    var_name: L:A310_MCDU2_FUEL
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_FUEL_PRED_KEY
+    target: L:A310_MCDU2_FUEL_PRED
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_G_KEY
+    target: L:A310_MCDU2_G
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_H_KEY
+    target: L:A310_MCDU2_H
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_I_KEY
+    target: L:A310_MCDU2_I
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_INIT_KEY
+    target: L:A310_MCDU2_INIT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_J_KEY
+    target: L:A310_MCDU2_J
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_K_KEY
+    target: L:A310_MCDU2_K
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_L_KEY
+    target: L:A310_MCDU2_L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK1L_KEY
+    target: L:A310_MCDU2_LSK1L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK1R_KEY
+    target: L:A310_MCDU2_LSK1R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK2L_KEY
+    target: L:A310_MCDU2_LSK2L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK2R_KEY
+    target: L:A310_MCDU2_LSK2R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK3L_KEY
+    target: L:A310_MCDU2_LSK3L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK3R_KEY
+    target: L:A310_MCDU2_LSK3R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK4L_KEY
+    target: L:A310_MCDU2_LSK4L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK4R_KEY
+    target: L:A310_MCDU2_LSK4R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK5L_KEY
+    target: L:A310_MCDU2_LSK5L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK5R_KEY
+    target: L:A310_MCDU2_LSK5R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK6L_KEY
+    target: L:A310_MCDU2_LSK6L
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_LSK6R_KEY
+    target: L:A310_MCDU2_LSK6R
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_M_KEY
+    target: L:A310_MCDU2_M
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_MENU_KEY
+    target: L:A310_MCDU2_MENU
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_MINUS_KEY
+    target: L:A310_MCDU2_MINUS
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_MODE_KEY
+    target: L:A310_MCDU2_MODE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_N_KEY
+    target: L:A310_MCDU2_N
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_NEXT_KEY
+    target: L:A310_MCDU2_NEXT
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_O_KEY
+    target: L:A310_MCDU2_O
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_P_KEY
+    target: L:A310_MCDU2_P
+  -
+    type: var
+    var_name: L:A310_MCDU2_PERF
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_PLUS_KEY
+    target: L:A310_MCDU2_PLUS
+  -
+    type: var
+    var_name: L:A310_MCDU2_PREV
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_PROG_KEY
+    target: L:A310_MCDU2_PROG
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_Q_KEY
+    target: L:A310_MCDU2_Q
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_R_KEY
+    target: L:A310_MCDU2_R
+  -
+    type: var
+    var_name: L:A310_MCDU2_RADNAV
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_REF_KEY
+    target: L:A310_MCDU2_REF
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_S_KEY
+    target: L:A310_MCDU2_S
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_SEC_KEY
+    target: L:A310_MCDU2_SEC
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_SEC_PLAN_KEY
+    target: L:A310_MCDU2_SEC_PLAN
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_SLASH_KEY
+    target: L:A310_MCDU2_SLASH
+  -
+    type: var
+    var_name: L:A310_MCDU2_SPACE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_T_KEY
+    target: L:A310_MCDU2_T
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_TACT_MODE_KEY
+    target: L:A310_MCDU2_TACT_MODE
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_TO_APPR_KEY
+    target: L:A310_MCDU2_TO_APPR
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_U_KEY
+    target: L:A310_MCDU2_U
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_UARROW_KEY
+    target: L:A310_MCDU2_UARROW
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_V_KEY
+    target: L:A310_MCDU2_V
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_W_KEY
+    target: L:A310_MCDU2_W
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_X_KEY
+    target: L:A310_MCDU2_X
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_Y_KEY
+    target: L:A310_MCDU2_Y
+  -
+    type: LocalVarProxy
+    var_name: L:A310_MCDU2_Z_KEY
+    target: L:A310_MCDU2_Z
+  - 
+    type: NumIncrement
+    var_name: L:A310_SPOILERS_ARMED
+    var_units: number
+    var_type: f64
+    up_event_name: SPOILERS_ARM_ON
+    down_event_name: SPOILERS_ARM_OFF
+    increment_by: 1
+    is_user_event: true
+  - 
+    type: NumSet
+    var_name: A:SPOILERS HANDLE POSITION
+    var_units: Position 16k
+    var_type: i32
+    event_name: SPOILERS_SET
+    multiply_by: 5
+    is_user_event: true
+  -
+    type: var
+    var_name: L:A310_ACCU_PRESS_BUTTON
+  - 
+    type: NumSet
+    var_name: A:BRAKE PARKING POSITION
+    var_units: Bool
+    var_type: i32
+    event_name: PARKING_BRAKE_SET
+  -
+    type: var
+    var_name: L:A310_MIXTURE_RATIO1_HANDLE  
+  -
+    type: var
+    var_name: L:A310_MIXTURE_RATIO2_HANDLE
+  -
+    type: var
+    var_name: L:A310_PUSH_EWD_NORM_CANCEL
+  -
+    type: var
+    var_name: L:__EMER_GAURD_STATE
+  -
+    type: var
+    var_name: L:A310_PUSH_EWD_EMER_CANCEL
+  -
+    type: var
+    var_name: L:A310_TAKEOFF_CONFIG_PRESSED
+  - 
+    type: NumIncrement
+    var_name: L:A310_FLAPS_HANDLE_INDEX
+    var_units: number
+    var_type: f64
+    up_event_name: FLAPS_INCR
+    down_event_name: FLAPS_DECR
+    increment_by: 1
+    is_user_event: true
+  -
+    type: var
+    var_name: L:A310_CPT_VHF_TRANSFER_SWITCH
+  -
+    type: var
+    var_name: L:A310_CPT_VHF_SQL_SWITCH
+  -
+    type: var
+    var_name: L:A310_VHF1_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_VHF2_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_VHF3_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_HF1_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_HF2_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_INT_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_PA_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_ADF1_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_ADF1_TRANSFER_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_TONE_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_ANT_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_STBY_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_TCAS_MODE
+  -
+    type: var
+    var_name: L:A310_TCAS_RANGE
+  -
+    type: var
+    var_name: L:A310_TCAS_ALT_SYSTEM
+  -
+    type: var
+    var_name: L:A310_TCAS_MODE_PEDESTAL
+  -
+    type: var
+    var_name: L:A310_TCAS_XPDR
+  -
+    type: var
+    var_name: L:A310_TCAS_TEST_ACTIVE
+  -
+    type: customcalculator
+    get: (L:__TCAS_IDENTISPRESSED)
+    set: 1 (>K:XPNDR_IDENT_TOGGLE)
+    condition:
+      equals:
+        F64: 1.0
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_64
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:64
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 64
+    index_reversed: true
+  -
+    type: var
+    var_name: L:A310_SGU1
+  -
+    type: var
+    var_name: L:A310_SGU2
+  -
+    type: var
+    var_name: L:LIGHTING_POTENTIOMETER_65
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:65
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 65
+    index_reversed: true
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_CLRISPRESSED
+    target: L:PUSH_EWD_CLR
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_STSISPRESSED
+    target: L:PUSH_EWD_STS
+  -
+    type: var
+    var_name: L:PUSH_EWD_RCL
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_ENGISPRESSED
+    target: L:PUSH_ECAM_ENG
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_BLEEDISPRESSED
+    target: L:PUSH_ECAM_BLEED
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_APUISPRESSED
+    target: L:PUSH_ECAM_APU
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_HYDISPRESSED
+    target: L:PUSH_ECAM_HYD
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_CONDISPRESSED
+    target: L:PUSH_ECAM_COND
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_FCTLISPRESSED
+    target: L:PUSH_ECAM_FCTL
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_ACISPRESSED
+    target: L:PUSH_ECAM_ELEC_AC
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_PRESSISPRESSED
+    target: L:PUSH_ECAM_PRESS
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_DOORISPRESSED
+    target: L:PUSH_ECAM_DOOR
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_DCISPRESSED
+    target: L:PUSH_ECAM_ELEC_DC
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_FUELISPRESSED
+    target: L:PUSH_ECAM_FUEL
+  -
+    type: LocalVarProxy
+    var_name: L:__ECAM_WHEELISPRESSED
+    target: L:PUSH_ECAM_WHEEL
+  -
+    type: var
+    var_name: L:A310_RESET_RUDDER_TRIM_COMMAND
+  -
+    type: var
+    var_name: L:A310_CPT_VHF_SQL_SWITCH
+  -
+    type: var
+    var_name: L:A310_VHF1_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_VHF2_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_VHF3_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_HF1_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_HF2_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_INT_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_PA_CAPTAIN
+  -
+    type: var
+    var_name: L:A310_ADF1_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_ADF1_TRANSFER_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_TONE_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_ANT_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF1_STBY_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_FO_VHF_TRANSFER_SWITCH
+  -
+    type: var
+    var_name: L:A310_FO_VHF_SQL_SWITCH
+  -
+    type: var
+    var_name: L:A310_VHF1_FO
+  -
+    type: var
+    var_name: L:A310_VHF2_FO
+  -
+    type: var
+    var_name: L:A310_VHF3_FO
+  -
+    type: var
+    var_name: L:A310_HF1_FO
+  -
+    type: var
+    var_name: L:A310_HF2_FO
+  -
+    type: var
+    var_name: L:A310_INT_FO
+  -
+    type: var
+    var_name: L:A310_PA_FO
+  -
+    type: var
+    var_name: L:A310_ADF2_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_ADF2_TRANSFER_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF2_TONE_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF2_ANT_SWITCH
+  -
+    type: var
+    var_name: L:A310_ADF2_STBY_FREQUENCY
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_3
+  -
+    type: var
+    var_name: L:A310_POTENTIOMETER_4
+  -
+    type: var
+    var_name: L:A310_WXR_SYS
+  -
+    type: var
+    var_name: L:A310_WXR_MODE
+  -
+    type: var
+    var_name: L:A310_WXR_GAIN
+  -
+    type: var
+    var_name: L:A310_WXR_TILT
+  -
+    type: var
+    var_name: L:ELEV_TRIM_RATIO
+  - 
+    type: NumSet
+    var_name: A:RUDDER TRIM PCT
+    var_units: Percent scaler 16k
+    var_type: f64
+    event_name: RUDDER_TRIM_SET_EX1
+    unreliable: true
+  # -
+    # type: NumSet
+    # var_name: A:ELEVATOR TRIM PCT
+    # var_units: Percent scaler 16k
+    # var_type: f64
+    # event_name: ELEVATOR_TRIM_SET
+    # unreliable: true
+  -
+    type: NumSet
+    var_name: A:AILERON TRIM PCT
+    var_units: Percent scaler 16k
+    var_type: f64
+    event_name: AILERON_TRIM_SET_EX1
+    unreliable: true
+Master:
+  -
+    type: NumSet
+    var_name: A:ELEVATOR POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_ELEVATOR_SET
+    interpolate: InvertConstant
+  -
+    type: NumSet
+    var_name: A:AILERON POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_AILERONS_SET
+    interpolate: InvertConstant
+  -
+    type: NumSet
+    var_name: A:RUDDER POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_RUDDER_SET
+    interpolate: InvertConstant
+  -
+    type: NumSet
+    var_name: A:BRAKE LEFT POSITION EX1
+    var_units: Position 32k
+    var_type: i32
+    event_name: AXIS_LEFT_BRAKE_SET
+    add_by: -16384
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:BRAKE RIGHT POSITION EX1
+    var_units: Position 32k
+    var_type: i32
+    event_name: AXIS_RIGHT_BRAKE_SET
+    add_by: -16384
+    unreliable: true
+  -
+    type: var
+    var_name: L:A310_AUTOTHRUST_TLA_1
+  -
+    type: var
+    var_name: L:A310_AUTOTHRUST_TLA_2
+  -
+    type: var
+    var_name: L:A310_REVERSE1_HANDLE_PERCENT
+  -
+    type: var
+    var_name: L:A310_REVERSE2_HANDLE_PERCENT
