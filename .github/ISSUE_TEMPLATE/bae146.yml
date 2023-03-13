@@ -5,10 +5,6 @@ labels: ["bug", "bae146"]
 assignees:
   - theegg52
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report for the Yourcontrols profile for the BAE-146!
   - type: input
     id: ycversion
     attributes:
