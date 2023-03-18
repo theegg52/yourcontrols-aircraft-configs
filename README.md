@@ -12,7 +12,7 @@ Duckworks DC3 Mod - Tested with aircraft version 0.3.7
 IniSimulations - A310 Tested with aircraft version 1.1.6
 
 Other profiles in progress:-   
-PMDG - PMDG 737  
+PMDG - 737  
 JustFlight - Hawk
 
 Please do not message me asking when these will be relased. I work on these in my spare time and these things take time. As soon as they are ready for wider testing they will be uploaded here.
