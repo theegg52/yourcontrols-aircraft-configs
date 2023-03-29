@@ -20,5 +20,5 @@ Please do not message me asking when these will be relased. I work on these in m
 Important PMDG Notes!!!  
 Some knobs are synced by the movement of the knob not the data it controls, such as the Baro, Flt Alt and Land Alt knobs. turn these slowly to prevent them from going out of sync.  
 Currently I have been unable to get the elevator trim to sync reliably. This can cause issue when switching controls. My advice for now is only switch controls in level flight, the aircraft with either climb or descend a little but i've found the autopilot recovers quite quickly.  
-Ensure both aircraft have the same equipment options before connecting.
+Ensure both aircraft have the same equipment options before connecting.  
 The profile was built and tested using the 700. it should work for the 600/800/900 as well minus any additional switches those aircraft have. I have not done any testing with the cargo or bbj variants.
