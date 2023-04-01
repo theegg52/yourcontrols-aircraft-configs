@@ -14,6 +14,7 @@ PMDG - 737-700 - Tested with aircraft version 3.0.64
 
 Other profiles in progress:-     
 JustFlight - Hawk
+Redwing - L1049 Super Connie
 
 Please do not message me asking when these will be relased. I work on these in my spare time and these things take time. As soon as they are ready for wider testing they will be uploaded here.
 
