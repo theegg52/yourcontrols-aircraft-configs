@@ -3085,25 +3085,31 @@ shared:
     multiply_by: -0.03
     add_by: 99304
     is_user_event: true
+    
+  - # Gear Up
+    type: customcalculator
+    get: (L:switch_455_73X) 0 ==
+    set: 1 (>K:GEAR_UP)
+    condition:
+      equals:
+        F64: 1.0 
+        
+  - # Gear Down
+    type: customcalculator
+    get: (L:switch_455_73X) 60 ==
+    set: 1 (>K:GEAR_DOWN)
+    condition:
+      equals:
+        F64: 1.0
 
-  -  # Gear Lever Up/Down
-    type: NumIncrement
-    var_name: A:GEAR HANDLE POSITION
-    var_units: number
-    var_type: f64
-    up_event_name: GEAR_UP
-    down_event_name: GEAR_DOWN
-    increment_by: 1
-    is_user_event: true 
+  - # Gear Off
+    type: customcalculator
+    get: (L:switch_455_73X) 30 ==
+    set: 45501 (>K:ROTOR_BRAKE')
+    condition:
+      equals:
+        F64: 1.0
 
-  -  # Gear Lever Off broken
-    type: NumSet
-    var_name: L:GEARLEVER_UPTOOFF
-    var_units: number
-    var_type: f64
-    event_name: '#74183'
-    multiply_by: 536870912
-    is_user_event: true
 
   -  # FO Clock Chrono Button
     type: NumSet
