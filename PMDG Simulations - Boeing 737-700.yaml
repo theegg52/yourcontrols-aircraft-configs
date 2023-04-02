@@ -4876,7 +4876,33 @@ shared:
     event_name: '#70343'
     multiply_by: 0.01
     is_user_event: true
-    
+ 
+  -  # Stab Trim Elec Switch Yoke
+    type: NumIncrement
+    # var_name: L:switch_2029_73x
+    var_name: L:switch_678_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 202901
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 202902
+    increment_by: 5
+    is_user_event: true  
+
+  -  # Stab Trim Elec Switch Wheel
+    type: NumIncrement
+    # var_name: L:switch_2029_73x
+    var_name: L:switch_678_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 67801
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 67802
+    increment_by: 5
+    is_user_event: true   
+
   -  # FO Yoke Checklist Knob
     type: NumIncrement
     var_name: L:switch_7522_73x
