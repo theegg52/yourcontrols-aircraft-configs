@@ -1,0 +1,6947 @@
+include:
+  - definitions/modules/fuel.yaml
+  - definitions/modules/physics.yaml
+  - definitions/modules/transponder.yaml
+  - definitions/modules/trim.yaml
+  
+master:  
+  - # Ailerons
+    type: NumSet
+    var_name: L:yokes_L_R_capt
+    var_type: f64
+    event_name: AXIS_AILERONS_SET
+    multiply_by: -16384
+    add_by: 16384
+    use_calculator: true
+    unreliable: true
+    
+  - # Elevators
+    type: NumSet
+    var_name: L:yokes_Fore_Aft_capt
+    var_type: f64
+    event_name: AXIS_ELEVATOR_SET
+    multiply_by: -16384
+    add_by: 16384
+    use_calculator: true
+    unreliable: true
+
+  - # Rudder
+    type: NumSet
+    var_name: L:NGXRudderPedals
+    var_type: f64
+    event_name: AXIS_RUDDER_SET
+    multiply_by: -327.68
+    add_by: 16384
+    use_calculator: true
+    unreliable: true
+    
+  - # Left Toe Brake
+    type: NumSet
+    var_name: L:7X7X_FootBrakeLeft
+    var_type: f64
+    event_name: AXIS_LEFT_BRAKE_SET
+    multiply_by: 163.84
+    add_by: -16384
+    use_calculator: true
+    unreliable: true
+    
+  - # Right Toe Brake
+    type: NumSet
+    var_name: L:7X7X_FootBrakeRight
+    var_type: f64
+    event_name: AXIS_RIGHT_BRAKE_SET
+    multiply_by: 163.84
+    add_by: -16384
+    use_calculator: true
+    unreliable: true
+    
+  - # Throttle 1
+    type: NumSet
+    var_name: L:switch_683_73X
+    var_type: f64
+    event_name: AXIS_THROTTLE1_SET
+    multiply_by: -65.51
+    add_by: 16371
+    use_calculator: true
+    unreliable: true
+    
+  - # Throttle 1 Reverser
+    type: NumSet
+    var_name: L:switch_680_73X
+    var_type: f64
+    event_name: AXIS_THROTTLE1_SET
+    multiply_by: -292.589
+    use_calculator: true
+    unreliable: true
+    
+  - # Throttle 2
+    type: NumSet
+    var_name: L:switch_686_73X
+    var_type: f64
+    event_name: AXIS_THROTTLE2_SET
+    multiply_by: -65.51
+    add_by: 16371
+    use_calculator: true
+    unreliable: true
+    
+  - # Throttle 2 Reverser
+    type: NumSet
+    var_name: L:switch_681_73X
+    var_type: f64
+    event_name: AXIS_THROTTLE2_SET
+    multiply_by: -292.589
+    use_calculator: true
+    unreliable: true
+
+shared:
+  -  # LE Devices Test Button
+    type: NumSet
+    var_name: L:switch_224_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69856'
+    multiply_by: 0.01
+    is_user_event: true    
+
+  -  # IRS Display Selector Switch
+    type: NumSet
+    var_name: L:switch_229_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69861'
+    multiply_by: 0.1
+    is_user_event: true    
+
+  -  # IRS Display Brightness Knob
+    type: NumSet
+    var_name: L:switch_230_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69862'
+    is_user_event: true 
+    
+  -  # IRS System Display Selector Switch
+    type: NumSet
+    var_name: L:switch_231_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69863'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # IRS NUM1 Key
+    type: NumSet
+    var_name: L:switch_232_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69864'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # IRS NUM2 Key
+    type: NumSet
+    var_name: L:switch_233_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69865'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # IRS NUM3 Key
+    type: NumSet
+    var_name: L:switch_234_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69866'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # IRS NUM4 Key
+    type: NumSet
+    var_name: L:switch_235_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69867'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # IRS NUM5 Key
+    type: NumSet
+    var_name: L:switch_236_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69868'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # IRS NUM6 Key
+    type: NumSet
+    var_name: L:switch_237_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69869'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # IRS NUM7 Key
+    type: NumSet
+    var_name: L:switch_238_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69870'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # IRS NUM8 Key
+    type: NumSet
+    var_name: L:switch_239_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69871'
+    multiply_by: 0.01
+    is_user_event: true  
+
+  -  # IRS NUM9 Key
+    type: NumSet
+    var_name: L:switch_240_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69872'
+    multiply_by: 0.01
+    is_user_event: true     
+    
+  -  # IRS ENT Key
+    type: NumSet
+    var_name: L:switch_241_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69873'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # IRS NUM0 Key
+    type: NumSet
+    var_name: L:switch_243_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69875'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # IRS CLR Key
+    type: NumSet
+    var_name: L:switch_244_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69876'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # IRS Mode Selector Left Switch
+    type: NumSet
+    var_name: L:switch_255_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69887'
+    multiply_by: 0.1
+    is_user_event: true 
+    
+  -  # IRS Mode Selector Right Switch
+    type: NumSet
+    var_name: L:switch_256_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69888'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # Service Interphone Switch
+    type: NumSet
+    var_name: L:switch_257_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69889'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # Dome White Switch
+    type: NumSet
+    var_name: L:switch_258_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69890'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # ACP VHF1 Button
+    type: NumSet
+    var_name: L:switch_291_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29104
+    is_user_event: true     
+
+  -  # ACP VHF2 Button
+    type: NumSet
+    var_name: L:switch_292_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29204
+    is_user_event: true 
+
+  -  # ACP VHF3 Button
+    type: NumSet
+    var_name: L:switch_293_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29304
+    is_user_event: true    
+    
+  -  # ACP HF1 Button
+    type: NumSet
+    var_name: L:switch_294_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29404
+    is_user_event: true   
+
+  -  # ACP HF2 Button
+    type: NumSet
+    var_name: L:switch_295_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29504
+    is_user_event: true 
+    
+  -  # ACP FLT Button
+    type: NumSet
+    var_name: L:switch_296_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29604
+    is_user_event: true   
+
+  -  # ACP SVC Button
+    type: NumSet
+    var_name: L:switch_297_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 29704
+    is_user_event: true 
+
+  -  # ACP PA Button
+    type: NumSet
+    var_name: L:switch_873_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 87304
+    is_user_event: true
+    
+  -  # VHF1 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_286_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69918'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # VHF2 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_287_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69919'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # VHF3 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_874_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70506'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # HF1 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_875_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70507'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # HF2 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_876_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70508'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FLT Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_288_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69920'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # SVC Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_289_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69921'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # PA Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_290_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69922'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # NAV1 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_280_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69912'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # NAV2 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_281_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69913'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # ADF1 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_282_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69914'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # ADF2 Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_283_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69915'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # MKR Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_284_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69916'
+    multiply_by: 0.01
+    is_user_event: true   
+
+  -  # SVC Receive KnobSwitch
+    type: NumSet
+    var_name: L:switch_285_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69917'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # PTT Switch
+    type: NumSet
+    var_name: L:switch_276_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69908'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Mask Boom Switch
+    type: NumSet
+    var_name: L:switch_277_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69909'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Filter Switch
+    type: NumSet
+    var_name: L:switch_278_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69910'
+    multiply_by: 0.1
+    is_user_event: true  
+
+  -  # Alt Norm Switch
+    type: NumSet
+    var_name: L:switch_279_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69911'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # EEC1 Switch Guard
+    type: NumSet
+    var_name: L:switch_267_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69899'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # EEC1 Switch
+    type: NumSet
+    var_name: L:switch_268_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69900'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # EEC2 Switch Guard
+    type: NumSet
+    var_name: L:switch_270_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69902'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # EEC2 Switch
+    type: NumSet
+    var_name: L:switch_271_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69903'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Pass Oxygen Switch Guard
+    type: NumSet
+    var_name: L:switch_265_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69897'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Pass Oxygen Switch
+    type: NumSet
+    var_name: L:switch_264_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69896'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Flight Recorder Test Switch Guard
+    type: NumSet
+    var_name: L:switch_299_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69931'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Flight Recorder Test Switch
+    type: NumSet
+    var_name: L:switch_298_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69930'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Mach Overspeed Warning Test 1 Button
+    type: NumSet
+    var_name: L:switch_301_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 30104
+    is_user_event: true
+    
+  -  # Mach Overspeed Warning Test 2 Button
+    type: NumSet
+    var_name: L:switch_302_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 30204
+    is_user_event: true
+    
+  -  # Stall Warning Test 1 Button
+    type: NumSet
+    var_name: L:switch_303_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 30304
+    is_user_event: true
+    
+  -  # Stall Warning Test 2 Button
+    type: NumSet
+    var_name: L:switch_304_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 30404
+    is_user_event: true
+    
+  -  # FLT Control A Switch Guard
+    type: NumSet
+    var_name: L:switch_79_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69711'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # FLT Control A Switch
+    type: NumSet
+    var_name: L:switch_78_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69710'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # FLT Control B Switch Guard
+    type: NumSet
+    var_name: L:switch_81_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69713'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # FLT Control B Switch
+    type: NumSet
+    var_name: L:switch_80_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69712'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Spoiler A Switch Guard
+    type: NumSet
+    var_name: L:switch_66_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69698'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Spoiler A Switch
+    type: NumSet
+    var_name: L:switch_65_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69697'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Spoiler B Switch Guard
+    type: NumSet
+    var_name: L:switch_68_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69700'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Spoiler B Switch
+    type: NumSet
+    var_name: L:switch_67_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69699'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Yaw Damper Switch
+    type: NumSet
+    var_name: L:switch_63_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69695'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Alternate Flaps Master Switch Guard
+    type: NumSet
+    var_name: L:switch_74_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69706'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Alternate Flaps Master Switch
+    type: NumSet
+    var_name: L:switch_73_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69705'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Alternate Flaps Up Down Switch
+    type: NumSet
+    var_name: L:switch_75_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69707'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # VHF NAV Transfer Switch
+    type: NumSet
+    var_name: L:switch_62_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69694'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # IRS Transfer Switch
+    type: NumSet
+    var_name: L:switch_61_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69693'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # FMC Source Select Switch
+    type: NumSet
+    var_name: L:switch_60_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69692'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Display Source Selector Switch
+    type: NumSet
+    var_name: L:switch_58_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69690'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # Control Panel Select Switch
+    type: NumSet
+    var_name: L:switch_59_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69691'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # Crossfeed Selector Switch
+    type: NumSet
+    var_name: L:switch_49_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69681'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Fuel Pump Center Left Switch
+    type: NumSet
+    var_name: L:switch_45_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69677'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Fuel Pump Center Right Switch
+    type: NumSet
+    var_name: L:switch_46_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69678'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Fuel Pump Left Aft Switch
+    type: NumSet
+    var_name: L:switch_37_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69669'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Fuel Pump Left Fwd Switch
+    type: NumSet
+    var_name: L:switch_38_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69670'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Fuel Pump Right Aft Switch
+    type: NumSet
+    var_name: L:switch_40_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69672'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Fuel Pump Right Fwd Switch
+    type: NumSet
+    var_name: L:switch_39_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69671'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Elec Maint Button
+    type: NumSet
+    var_name: L:switch_93_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69725'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # DC Source Switch
+    type: NumSet
+    var_name: L:switch_03_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69635'
+    multiply_by: 0.1
+    is_user_event: true  
+
+  -  # BAT Switch Guard
+    type: NumSet
+    var_name: L:switch_02_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69634'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # BAT Switch
+    type: NumSet
+    var_name: L:switch_01_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69633'
+    multiply_by: 0.01
+    is_user_event: true    
+    
+  -  # AC Source Switch
+    type: NumSet
+    var_name: L:switch_04_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69636'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Galley Switch
+    type: NumSet
+    var_name: L:switch_974_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70606'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # Standby Power Switch Guard
+    type: NumSet
+    var_name: L:switch_11_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69643'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Standby Power Switch
+    type: NumSet
+    var_name: L:switch_10_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69642'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Gen Drive Disc Left Switch Guard
+    type: NumSet
+    var_name: L:switch_13_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69645'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Gen Drive Disc Left Switch
+    type: NumSet
+    var_name: L:switch_12_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69644'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Gen Drive Disc Right Switch Guard
+    type: NumSet
+    var_name: L:switch_15_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69647'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Gen Drive Disc Right Switch
+    type: NumSet
+    var_name: L:switch_14_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69646'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Ground Power Switch
+    type: NumSet
+    var_name: L:switch_17_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.01
+    add_by: 1702
+    is_user_event: true
+
+  -  # Bus Trans Switch Guard
+    type: NumSet
+    var_name: L:switch_19_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69651'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Bus Trans Switch
+    type: NumSet
+    var_name: L:switch_18_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69650'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Gen Left Switch
+    type: NumSet
+    var_name: L:switch_27_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.06
+    add_by: 2707
+    is_user_event: true
+    
+  -  # APU Gen Left Switch
+    type: NumSet
+    var_name: L:switch_28_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.06
+    add_by: 2807
+    is_user_event: true
+    
+  -  # APU Gen Right Switch
+    type: NumSet
+    var_name: L:switch_29_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.06
+    add_by: 2907
+    is_user_event: true
+
+  -  # Gen Right Switch
+    type: NumSet
+    var_name: L:switch_30_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.06
+    add_by: 3007
+    is_user_event: true
+    
+  -  # Left Wiper Switch
+    type: NumSet
+    var_name: L:switch_36_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69668'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Circuit Breaker Light Brightness Knob
+    type: NumSet
+    var_name: L:switch_94_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69726'
+    is_user_event: true
+
+  -  # Panel Light Brightness Knob
+    type: NumSet
+    var_name: L:switch_95_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69727'
+    is_user_event: true
+    
+  -  # Equipment Cooling Supply Switch
+    type: NumSet
+    var_name: L:switch_96_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69728'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Equipment Cooling Exhaust Switch
+    type: NumSet
+    var_name: L:switch_97_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69729'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Emer Exit Lights Switch Guard
+    type: NumSet
+    var_name: L:switch_101_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69733'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Emer Exit Light Switch
+    type: NumSet
+    var_name: L:switch_100_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69732'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Chime Switch
+    type: NumSet
+    var_name: L:switch_103_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69735'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Fasten Belts Switch
+    type: NumSet
+    var_name: L:switch_104_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69736'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Attend Button
+    type: NumSet
+    var_name: L:switch_105_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69737'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # Ground Call Button
+    type: NumSet
+    var_name: L:switch_106_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69738'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  -  # Right Wiper Switch
+    type: NumSet
+    var_name: L:switch_109_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69741'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Window Heat Left Side Switch
+    type: NumSet
+    var_name: L:switch_135_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69767'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Window Heat Left Fwd Switch
+    type: NumSet
+    var_name: L:switch_136_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69768'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Window Heat Test Switch
+    type: NumSet
+    var_name: L:switch_137_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69769'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Window Heat Right Fwd Switch
+    type: NumSet
+    var_name: L:switch_138_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69770'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Window Heat Right Side Switch
+    type: NumSet
+    var_name: L:switch_139_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69771'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Probe Heat A Switch
+    type: NumSet
+    var_name: L:switch_140_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69772'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Probe Heat B Switch
+    type: NumSet
+    var_name: L:switch_141_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69773'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Wing Anti Ice Switch
+    type: NumSet
+    var_name: L:switch_156_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69788'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Eng Anti Ice Left Switch
+    type: NumSet
+    var_name: L:switch_157_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69789'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Eng Anti Ice Right Switch
+    type: NumSet
+    var_name: L:switch_158_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69790'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Hyd Pump A Eng 1 Switch
+    type: NumSet
+    var_name: L:switch_165_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69797'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Hyd Pump A Elec 2 Switch
+    type: NumSet
+    var_name: L:switch_167_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69799'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Hyd Pump B Elec 1 Switch
+    type: NumSet
+    var_name: L:switch_168_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69800'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Hyd Pump B Eng 2 Switch
+    type: NumSet
+    var_name: L:switch_166_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69798'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CVR Test Button
+    type: NumSet
+    var_name: L:switch_178_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69810'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # CVR Erase Button
+    type: NumSet
+    var_name: L:switch_180_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69812'
+    multiply_by: 0.01
+    is_user_event: true    
+    
+  -  # Alt Horn Cutout Button
+    type: NumSet
+    var_name: L:switch_183_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69815'
+    multiply_by: 0.01
+    is_user_event: true  
+    
+  -  # Air Temp Source Selector Switch
+    type: NumSet
+    var_name: L:switch_187_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69819'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Cont Cabin Temp Selector Knob
+    type: NumSet
+    var_name: L:switch_191_73x
+    var_units: degrees
+    var_type: f64
+    event_name: '#69823'
+    is_user_event: true
+    
+  -  # Pass Cabin Temp Selector Knob
+    type: NumSet
+    var_name: L:switch_192_73x
+    var_units: degrees
+    var_type: f64
+    event_name: '#69824'
+    is_user_event: true
+
+  -  # Recirc Fan Switch L
+    type: NumSet
+    var_name: L:switch_872_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70504'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Recirc Fan Switch
+    type: NumSet
+    var_name: L:switch_196_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69828'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Wing Body Overheat Test Button
+    type: NumSet
+    var_name: L:switch_199_73x
+    var_units: number
+    var_type: f64
+    event_name: '#84833'
+    multiply_by: 0.01
+    is_user_event: true    
+
+  -  # Aircon Pack Left Switch
+    type: NumSet
+    var_name: L:switch_200_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69832'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Isolation Valve Switch
+    type: NumSet
+    var_name: L:switch_202_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69834'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Aircon Pack Right Switch
+    type: NumSet
+    var_name: L:switch_201_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69833'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Pack Bleed Trip Reset Button
+    type: NumSet
+    var_name: L:switch_209_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69841'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Engine Bleed Air Switch 1 Switch
+    type: NumSet
+    var_name: L:switch_210_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69842'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # APU Bleed Air Switch Switch
+    type: NumSet
+    var_name: L:switch_211_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69843'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Engine Bleed Air Switch 2 Switch
+    type: NumSet
+    var_name: L:switch_212_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69844'
+    multiply_by: 0.01
+    is_user_event: true 
+    
+  - # Flt Alt Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_218_73X)
+    set: 21807 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 21807
+        
+  - # Flt Alt Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_218_73X)
+    set: 21807 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 21802
+        
+  - # Flt Alt Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_218_73X)
+    set: 21808 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 21808
+        
+  - # Flt Alt Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_218_73X)
+    set: 21808 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 21801
+        
+  - # Land Alt Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_220_73X)
+    set: 22007 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 22007
+        
+  - # Land Alt Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_220_73X)
+    set: 22007 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 22002
+        
+  - # Land Alt Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_220_73X)
+    set: 22008 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 22008
+        
+  - # Land Alt Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_220_73X)
+    set: 22008 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 22001
+       
+  -  # Outflow Valve Selector Switch
+    type: NumSet
+    var_name: L:switch_222_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69854'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Pressurization Mode Selector Switch
+    type: NumSet
+    var_name: L:switch_223_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69855'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Retractable Landing Light Left Switch
+    type: NumSet
+    var_name: L:switch_111_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69743'
+    multiply_by: 0.02
+    is_user_event: true  
+
+  -  # Retractable Landing Light Right Switch
+    type: NumSet
+    var_name: L:switch_112_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69744'
+    multiply_by: 0.02
+    is_user_event: true   
+
+  -  # Fixed Landing Light Left Switch
+    type: NumSet
+    var_name: L:switch_113_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69745'
+    multiply_by: 0.02
+    is_user_event: true  
+
+  -  # Fixed Landing Light Right Switch
+    type: NumSet
+    var_name: L:switch_114_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69746'
+    multiply_by: 0.02
+    is_user_event: true  
+
+  -  # Runway Turnoff Light Left Switch
+    type: NumSet
+    var_name: L:switch_115_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69747'
+    multiply_by: 0.01
+    is_user_event: true  
+
+  -  # Runway Turnoff Light Right Switch
+    type: NumSet
+    var_name: L:switch_116_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69748'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Taxi Light Switch
+    type: NumSet
+    var_name: L:switch_117_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69749'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # APU Start Switch
+    type: NumSet
+    var_name: L:switch_118_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69750'
+    multiply_by: 0.02
+    add_by: 0.3
+    is_user_event: true
+    
+  -  # Left Engine Start Switch
+    type: NumSet
+    var_name: L:switch_119_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69751'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Starter Select Switch
+    type: NumSet
+    var_name: L:switch_120_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69752'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # Right Engine Start Switch
+    type: NumSet
+    var_name: L:switch_121_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69753'
+    multiply_by: 0.1
+    is_user_event: true 
+
+  -  # Logo Light Switch
+    type: NumSet
+    var_name: L:switch_122_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69754'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # Pos/Strobe Light Switch
+    type: NumSet
+    var_name: L:switch_123_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69755'
+    multiply_by: 0.02
+    is_user_event: true 
+
+  -  # Anti Col Light Switch
+    type: NumSet
+    var_name: L:switch_124_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69756'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # Wing Light Switch
+    type: NumSet
+    var_name: L:switch_125_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69757'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # Wheel Well Light Switch
+    type: NumSet
+    var_name: L:switch_126_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69758'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # Compass Light Switch
+    type: NumSet
+    var_name: L:switch_982_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70614'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # Left Clock Button
+    type: NumSet
+    var_name: L:switch_890_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 89004
+    is_user_event: true     
+    
+  -  # Left Fire Warn Button
+    type: NumSet
+    var_name: L:switch_347_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 34704
+    is_user_event: true 
+    
+  -  # Left Master Caution Button
+    type: NumSet
+    var_name: L:switch_348_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 34804
+    is_user_event: true 
+    
+  -  # Left Annunciator Panel Button
+    type: NumSet
+    var_name: L:switch_349_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 34904
+    is_user_event: true
+
+  -  # CPT EFIS Mins Ref Selector Switch
+    type: NumSet
+    var_name: L:switch_356_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69988'
+    multiply_by: 0.01
+    is_user_event: true  
+
+  - # CPT EFIS Mins Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_355_73X)
+    set: 35507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 35507
+        
+  - # CPT EFIS Mins Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_355_73X)
+    set: 35507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 35502
+        
+  - # CPT EFIS Mins Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_355_73X)
+    set: 35508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 35508
+        
+  - # CPT EFIS Mins Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_355_73X)
+    set: 35508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 35501
+
+  -  # CPT EFIS Mins Reset Button
+    type: NumSet
+    var_name: L:switch_357_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 35704
+    is_user_event: true
+    
+  -  # CPT EFIS FPV Button
+    type: NumSet
+    var_name: L:switch_363_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36304
+    is_user_event: true
+    
+  -  # CPT EFIS MTRS Button
+    type: NumSet
+    var_name: L:switch_364_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36404
+    is_user_event: true
+    
+  -  # CPT EFIS Baro Ref Selector Switch
+    type: NumSet
+    var_name: L:switch_366_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69998'
+    multiply_by: 0.01
+    is_user_event: true  
+    
+  - # CPT EFIS Baro Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_365_73X)
+    set: 36507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 36507
+        
+  - # CPT EFIS Baro Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_365_73X)
+    set: 36507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 36502
+        
+  - # CPT EFIS Baro Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_365_73X)
+    set: 36508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 36508
+        
+  - # CPT EFIS Baro Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_365_73X)
+    set: 36508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 36501 
+
+  -  # CPT EFIS Baro STD Button
+    type: NumSet
+    var_name: L:switch_367_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36704
+    is_user_event: true
+    
+  -  # CPT EFIS VOR1/ADF1 Selector Switch
+    type: NumSet
+    var_name: L:switch_358_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69990'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # CPT EFIS Mode Selector Switch
+    type: NumSet
+    var_name: L:switch_359_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69991'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # CPT EFIS CTR Button
+    type: NumSet
+    var_name: L:switch_360_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36004
+    is_user_event: true 
+
+  -  # CPT EFIS Range Selector Switch
+    type: NumSet
+    var_name: L:switch_361_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69993'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # CPT EFIS TFC Button
+    type: NumSet
+    var_name: L:switch_362_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36204
+    is_user_event: true 
+
+  -  # CPT EFIS VOR2/ADF2 Selector Switch
+    type: NumSet
+    var_name: L:switch_368_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70000'
+    multiply_by: 0.02
+    is_user_event: true 
+
+  -  # CPT EFIS WXR Button
+    type: NumSet
+    var_name: L:switch_369_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 36904
+    is_user_event: true  
+
+  -  # CPT EFIS STA Button
+    type: NumSet
+    var_name: L:switch_370_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37004
+    is_user_event: true 
+
+  -  # CPT EFIS WPT Button
+    type: NumSet
+    var_name: L:switch_371_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37104
+    is_user_event: true
+
+  -  # CPT EFIS ARPT Button
+    type: NumSet
+    var_name: L:switch_372_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37204
+    is_user_event: true
+
+  -  # CPT EFIS DATA Button
+    type: NumSet
+    var_name: L:switch_373_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37304
+    is_user_event: true
+
+  -  # CPT EFIS POS Button
+    type: NumSet
+    var_name: L:switch_374_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37404
+    is_user_event: true 
+
+  -  # CPT EFIS TERR Button
+    type: NumSet
+    var_name: L:switch_375_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 37504
+    is_user_event: true
+
+  -  # MCP Course Left Value
+    type: NumSet
+    var_name: L:ngx_crswindowl
+    var_units: number
+    var_type: f64
+    event_name: '#84132'
+    is_user_event: true   
+
+  -  # MCP Course Left Knob Animation
+    type: var
+    var_name: L:switch_384_73x
+    
+  -  # MCP IAS Value
+    type: NumSet
+    var_name: L:ngx_spdwindow
+    var_units: number
+    var_type: f64
+    event_name: '#84134'
+    is_user_event: true   
+
+  -  # MCP Speed Knob Animation
+    type: var
+    var_name: L:switch_376_73x
+
+  -  # MCP A/T Arm Switch
+    type: NumSet
+    var_name: L:switch_380_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70012'
+    multiply_by: 0.01
+    is_user_event: true 
+
+  -  # MCP VNAV Button
+    type: NumSet
+    var_name: L:switch_386_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 38604
+    is_user_event: true 
+
+  -  # MCP HDG Value
+    type: NumSet
+    var_name: L:ngx_hdgwindow
+    var_units: number
+    var_type: f64
+    event_name: '#84136'
+    is_user_event: true   
+
+  -  # MCP HDG Knob Animation
+    type: var
+    var_name: L:switch_390_73x
+
+  -  # MCP LNAV Button
+    type: NumSet
+    var_name: L:switch_397_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39704
+    is_user_event: true
+
+  -  # MCP ALT Value
+    type: NumSet
+    var_name: L:ngx_altwindow
+    var_units: number
+    var_type: f64
+    event_name: '#84137'
+    is_user_event: true 
+
+  -  # MCP ALT Knob Animation
+    type: var
+    var_name: L:switch_400_73x  
+
+  -  # V/S Wheel - Sets V/S Value
+    type: NumIncrement
+    var_name: L:switch_401_73x
+    var_units: number
+    var_type: f64
+    up_event_name: AP_VS_VAR_DEC
+    down_event_name: AP_VS_VAR_INC
+    increment_by: 1
+    is_user_event: true  
+
+  -  # MCP CMD A Button
+    type: NumSet
+    var_name: L:switch_402_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 40204
+    is_user_event: true 
+
+  -  # MCP CMD B Button
+    type: NumSet
+    var_name: L:switch_403_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 40304
+    is_user_event: true
+
+  -  # MCP Course Right Value
+    type: NumSet
+    var_name: L:ngx_crswindowr
+    var_units: number
+    var_type: f64
+    event_name: '#84133'
+    is_user_event: true   
+
+  -  # MCP Course Right Knob Animation
+    type: var
+    var_name: L:switch_409_73x
+
+  -  # MCP C/O Button
+    type: NumSet
+    var_name: L:switch_383_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 38304
+    is_user_event: true 
+
+  -  # MCP SPD INTV Button
+    type: NumSet
+    var_name: L:switch_387_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 38704
+    is_user_event: true 
+
+  -  # MCP Bank Angle Selector Switch
+    type: NumSet
+    var_name: L:switch_389_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70021'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # MCP VORLOC Button
+    type: NumSet
+    var_name: L:switch_396_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39604
+    is_user_event: true 
+
+  -  # MCP ALT INTV Button
+    type: NumSet
+    var_name: L:switch_885_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 88504
+    is_user_event: true
+
+  -  # MCP CWS A Button
+    type: NumSet
+    var_name: L:switch_404_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 40404
+    is_user_event: true 
+
+  -  # MCP CWS B Button
+    type: NumSet
+    var_name: L:switch_405_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 40504
+    is_user_event: true  
+
+  -  # MCP TOGA Clickspot
+    type: NumSet
+    var_name: L:switch_684_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 68404
+    is_user_event: true 
+
+  -  # MCP F/D Left Switch
+    type: NumSet
+    var_name: L:switch_378_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70010'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # MCP N1 Button
+    type: NumSet
+    var_name: L:switch_381_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 38104
+    is_user_event: true 
+
+  -  # MCP Speed Button
+    type: NumSet
+    var_name: L:switch_382_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 38204
+    is_user_event: true   
+
+  -  # MCP LVL CHG Button
+    type: NumSet
+    var_name: L:switch_391_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39104
+    is_user_event: true 
+
+  -  # MCP HDG SEL Button
+    type: NumSet
+    var_name: L:switch_392_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39204
+    is_user_event: true  
+
+  -  # MCP APP Button
+    type: NumSet
+    var_name: L:switch_393_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39304
+    is_user_event: true
+
+  -  # MCP ALT HLD Button
+    type: NumSet
+    var_name: L:switch_394_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39404
+    is_user_event: true    
+    
+  -  # MCP V/S Button
+    type: NumSet
+    var_name: L:switch_395_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 39504
+    is_user_event: true
+    
+  -  # MCP Disengage Bar
+    type: NumSet
+    var_name: L:switch_406_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70038'
+    multiply_by: -0.01
+    is_user_event: true
+    
+  -  # MCP F/D Right Switch
+    type: NumSet
+    var_name: L:switch_407_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70039'
+    multiply_by: -0.01
+    is_user_event: true
+    
+  -  # FO EFIS Mins Ref Selector Switch
+    type: NumSet
+    var_name: L:switch_412_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70044'
+    multiply_by: 0.01
+    is_user_event: true  
+
+  - # FO EFIS Mins Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_411_73X)
+    set: 41107 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 41107
+        
+  - # FO EFIS Mins Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_411_73X)
+    set: 41107 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 41102
+        
+  - # FO EFIS Mins Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_411_73X)
+    set: 41108 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 41108
+        
+  - # FO EFIS Mins Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_411_73X)
+    set: 41108 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 41101
+
+  -  # FO EFIS Mins Reset Button
+    type: NumSet
+    var_name: L:switch_413_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 41304
+    is_user_event: true
+    
+  -  # FO EFIS FPV Button
+    type: NumSet
+    var_name: L:switch_419_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 41904
+    is_user_event: true
+    
+  -  # FO EFIS MTRS Button
+    type: NumSet
+    var_name: L:switch_420_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42004
+    is_user_event: true
+    
+  -  # FO EFIS Baro Ref Selector Switch
+    type: NumSet
+    var_name: L:switch_422_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70054'
+    multiply_by: 0.01
+    is_user_event: true  
+    
+  - # FO EFIS Baro Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_421_73X)
+    set: 42107 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 42107
+        
+  - # FO EFIS Baro Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_421_73X)
+    set: 42107 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 42102
+        
+  - # FO EFIS Baro Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_421_73X)
+    set: 42108 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 42108
+        
+  - # FO EFIS Baro Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_421_73X)
+    set: 42108 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 42101
+
+  -  # FO EFIS Baro STD Button
+    type: NumSet
+    var_name: L:switch_423_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42304
+    is_user_event: true
+    
+  -  # FO EFIS VOR1/ADF1 Selector Switch
+    type: NumSet
+    var_name: L:switch_414_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70046'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # FO EFIS Mode Selector Switch
+    type: NumSet
+    var_name: L:switch_415_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70047'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # FO EFIS CTR Button
+    type: NumSet
+    var_name: L:switch_416_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 41604
+    is_user_event: true 
+
+  -  # FO EFIS Range Selector Switch
+    type: NumSet
+    var_name: L:switch_417_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70049'
+    multiply_by: 0.1
+    is_user_event: true
+
+  -  # FO EFIS TFC Button
+    type: NumSet
+    var_name: L:switch_418_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 41804
+    is_user_event: true 
+
+  -  # FO EFIS VOR2/ADF2 Selector Switch
+    type: NumSet
+    var_name: L:switch_424_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70056'
+    multiply_by: 0.02
+    is_user_event: true 
+
+  -  # FO EFIS WXR Button
+    type: NumSet
+    var_name: L:switch_425_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42504
+    is_user_event: true  
+
+  -  # FO EFIS STA Button
+    type: NumSet
+    var_name: L:switch_426_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42604
+    is_user_event: true 
+
+  -  # FO EFIS WPT Button
+    type: NumSet
+    var_name: L:switch_427_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42704
+    is_user_event: true
+
+  -  # FO EFIS ARPT Button
+    type: NumSet
+    var_name: L:switch_428_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42804
+    is_user_event: true
+
+  -  # FO EFIS DATA Button
+    type: NumSet
+    var_name: L:switch_429_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 42904
+    is_user_event: true
+
+  -  # FO EFIS POS Button
+    type: NumSet
+    var_name: L:switch_430_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 43004
+    is_user_event: true 
+
+  -  # FO EFIS TERR Button
+    type: NumSet
+    var_name: L:switch_431_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 43104
+    is_user_event: true
+    
+  -  # Right Annunciator Panel Button
+    type: NumSet
+    var_name: L:switch_437_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 43704
+    is_user_event: true
+    
+  -  # Right Master Caution Button
+    type: NumSet
+    var_name: L:switch_438_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 43804
+    is_user_event: true 
+
+  -  # Right Fire Warn Button
+    type: NumSet
+    var_name: L:switch_439_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 43904
+    is_user_event: true 
+    
+  -  # Right Clock Button
+    type: NumSet
+    var_name: L:switch_893_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 89304
+    is_user_event: true
+
+  -  # Cpt Below G/S Inhibit Button
+    type: NumSet
+    var_name: L:switch_327_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 32704
+    is_user_event: true    
+    
+  -  # Cpt Main Panel DU Selector Switch
+    type: NumSet
+    var_name: L:switch_335_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69967'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Cpt Lower DU Selector Switch
+    type: NumSet
+    var_name: L:switch_336_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69968'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # Cpt A/P Annunciator Button
+    type: NumSet
+    var_name: L:switch_339_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 33904
+    is_user_event: true 
+    
+  -  # Cpt A/T Annunciator Button
+    type: NumSet
+    var_name: L:switch_340_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 34004
+    is_user_event: true 
+    
+  -  # Cpt FMC Annunciator Button
+    type: NumSet
+    var_name: L:switch_341_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 34104
+    is_user_event: true 
+    
+  -  # Cpt Annunciator Panel Test Switch
+    type: NumSet
+    var_name: L:switch_342_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69974'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # Cpt Light Test Switch
+    type: NumSet
+    var_name: L:switch_346_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69978'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # Stby Attitude Indicator Mode Switch
+    type: NumSet
+    var_name: L:switch_474_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70106'
+    multiply_by: 0.1
+    is_user_event: true 
+    
+  -  # Stby Attitude Cage Knob
+    type: NumSet
+    var_name: L:switch_476_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 47604
+    is_user_event: true
+    
+  -  # N1 Set Mode Knob
+    type: NumSet
+    var_name: L:switch_466_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70098'
+    multiply_by: 0.1
+    is_user_event: true
+
+  - # N1 Set Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_467_73X)
+    set: 46707 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46707
+        
+  - # N1 Set Knob Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_467_73X)
+    set: 46707 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46702
+        
+  - # N1 Set Knob Baro Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_467_73X)
+    set: 46708 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46708
+        
+  - # N1 Set Knob Baro Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_467_73X)
+    set: 46708 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46701
+
+  -  # Speed Ref Mode Knob
+    type: NumSet
+    var_name: L:switch_464_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70096'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  - # Spd Ref Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_465_73X)
+    set: 46507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46507
+        
+  - # Spd Ref Knob Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_465_73X)
+    set: 46507 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46502
+        
+  - # Spd Ref Knob Baro Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_465_73X)
+    set: 46508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46508
+        
+  - # Spd Ref Knob Baro Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_465_73X)
+    set: 46508 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 46501
+
+  -  # Fuel Flow Switch
+    type: NumSet
+    var_name: L:switch_468_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70100'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # MFD Eng Button
+    type: NumSet
+    var_name: L:switch_463_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 46304
+    is_user_event: true
+    
+  -  # MFD Sys Button
+    type: NumSet
+    var_name: L:switch_462_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 46204
+    is_user_event: true
+    
+  -  # Autobrake Selector Knob
+    type: NumSet
+    var_name: L:switch_460_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70092'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # FO A/P Annunciator Button
+    type: NumSet
+    var_name: L:switch_445_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 44504
+    is_user_event: true 
+    
+  -  # FO A/T Annunciator Button
+    type: NumSet
+    var_name: L:switch_444_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 44404
+    is_user_event: true 
+    
+  -  # FO FMC Annunciator Button
+    type: NumSet
+    var_name: L:switch_443_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 44304
+    is_user_event: true 
+    
+  -  # FO Annunciator Panel Test Switch
+    type: NumSet
+    var_name: L:switch_442_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70074'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # FO Below G/S Inhibit Button
+    type: NumSet
+    var_name: L:switch_446_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 44604
+    is_user_event: true 
+    
+  -  # FO Lower DU Selector Switch
+    type: NumSet
+    var_name: L:switch_441_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70073'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # FO Main Panel DU Selector Switch
+    type: NumSet
+    var_name: L:switch_440_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70072'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # CPT Clock Chrono Button
+    type: NumSet
+    var_name: L:switch_314_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 31404
+    is_user_event: true
+    
+  -  # CPT Clock Date/Time Button
+    type: NumSet
+    var_name: L:switch_315_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 31504
+    is_user_event: true
+    
+  -  # CPT Clock Set Button
+    type: NumSet
+    var_name: L:switch_316_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 31604
+    is_user_event: true
+    
+  -  # CPT Clock + Button
+    type: NumSet
+    var_name: L:switch_317_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 31704
+    is_user_event: true
+    
+  -  # CPT Clock - Button
+    type: NumSet
+    var_name: L:switch_318_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 31804
+    is_user_event: true
+    
+  -  # CPT Clock Reset Button
+    type: NumSet
+    var_name: L:switch_320_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 32004
+    is_user_event: true
+    
+  -  # CPT Clock ET Button
+    type: NumSet
+    var_name: L:switch_321_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 32104
+    is_user_event: true
+
+  -  # Nose Wheel Steering Switch Guard
+    type: NumSet
+    var_name: L:switch_326_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69958'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Nose Wheel Steering Switch
+    type: NumSet
+    var_name: L:switch_325_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69957'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Analog ADI Mode Knob
+    type: NumSet
+    var_name: L:switch_474_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70106'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Analog ADI Cage Knob
+    type: NumSet
+    var_name: L:switch_476_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 47604
+    is_user_event: true
+    
+  -  # Analog RMI Left Selector Knob
+    type: NumSet
+    var_name: L:switch_497_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70129'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Analog RMI Right Selector Knob
+    type: NumSet
+    var_name: L:switch_498_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70130'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # ISFD App Button
+    type: NumSet
+    var_name: L:switch_987_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 98704
+    is_user_event: true
+
+  -  # ISFD HP/IN Button
+    type: NumSet
+    var_name: L:switch_986_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 98604
+    is_user_event: true
+    
+  -  # ISFD + Button
+    type: NumSet
+    var_name: L:switch_988_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 98804
+    is_user_event: true
+    
+  -  # ISFD - Button
+    type: NumSet
+    var_name: L:switch_989_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 98904
+    is_user_event: true
+    
+  -  # ISFD ATT RST Button
+    type: NumSet
+    var_name: L:switch_990_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 99004
+    is_user_event: true
+    
+  -  # ISFD Baro Push Button
+    type: NumSet
+    var_name: L:switch_993_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 99304
+    is_user_event: true
+    
+  - # Gear Up
+    type: customcalculator
+    get: (L:switch_455_73X) 0 ==
+    set: 1 (>K:GEAR_UP)
+    condition:
+      equals:
+        F64: 1.0 
+        
+  - # Gear Down
+    type: customcalculator
+    get: (L:switch_455_73X) 60 ==
+    set: 1 (>K:GEAR_DOWN)
+    condition:
+      equals:
+        F64: 1.0
+
+  - # Gear Off
+    type: customcalculator
+    get: (L:switch_455_73X) 30 ==
+    set: 45501 (>K:ROTOR_BRAKE')
+    condition:
+      equals:
+        F64: 1.0
+
+
+  -  # FO Clock Chrono Button
+    type: NumSet
+    var_name: L:switch_523_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52304
+    is_user_event: true
+    
+  -  # FO Clock Date/Time Button
+    type: NumSet
+    var_name: L:switch_524_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52404
+    is_user_event: true
+    
+  -  # FO Clock Set Button
+    type: NumSet
+    var_name: L:switch_525_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52504
+    is_user_event: true
+    
+  -  # FO Clock + Button
+    type: NumSet
+    var_name: L:switch_526_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52604
+    is_user_event: true
+    
+  -  # FO Clock - Button
+    type: NumSet
+    var_name: L:switch_527_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52704
+    is_user_event: true
+    
+  -  # FO Clock Reset Button
+    type: NumSet
+    var_name: L:switch_529_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 52904
+    is_user_event: true
+    
+  -  # FO Clock ET Button
+    type: NumSet
+    var_name: L:switch_530_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53004
+    is_user_event: true
+
+  -  # CPT Main Panel Brightness Knob
+    type: NumSet
+    var_name: L:switch_328_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69960'
+    is_user_event: true
+
+  -  # CPT Upper DU Brightness Knob
+    type: NumSet
+    var_name: L:switch_334_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69966'
+    is_user_event: true 
+
+  -  # CPT Outbd DU Brightness Knob
+    type: NumSet
+    var_name: L:switch_329_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69961'
+    is_user_event: true 
+
+  -  # CPT Indb DU Brightness Outer Knob
+    type: NumSet
+    var_name: L:switch_330_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69962'
+    is_user_event: true
+
+  -  # CPT Indb DU Brightness Inner Knob
+    type: NumSet
+    var_name: L:switch_331_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69963'
+    is_user_event: true
+
+  -  # CPT Lower DU Brightness Outer Knob
+    type: NumSet
+    var_name: L:switch_332_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69964'
+    is_user_event: true
+
+  -  # CPT Lower DU Brightness Inner Knob
+    type: NumSet
+    var_name: L:switch_333_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69965'
+    is_user_event: true  
+
+  -  # CPT Background Brightness Knob
+    type: NumSet
+    var_name: L:switch_337_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69969'
+    is_user_event: true  
+
+  -  # CPT AFDS Flood Brightness Knob
+    type: NumSet
+    var_name: L:switch_338_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69970'
+    is_user_event: true    
+    
+  -  # FMS Left LS1 Key
+    type: NumSet
+    var_name: L:switch_534_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53404
+    is_user_event: true
+
+  -  # FMS Left LS2 Key
+    type: NumSet
+    var_name: L:switch_535_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53504
+    is_user_event: true
+    
+  -  # FMS Left LS3 Key
+    type: NumSet
+    var_name: L:switch_536_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53604
+    is_user_event: true
+    
+  -  # FMS Left LS4 Key
+    type: NumSet
+    var_name: L:switch_537_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53704
+    is_user_event: true
+    
+  -  # FMS Left LS5 Key
+    type: NumSet
+    var_name: L:switch_538_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53804
+    is_user_event: true
+    
+  -  # FMS Left LS6 Key
+    type: NumSet
+    var_name: L:switch_539_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 53904
+    is_user_event: true
+    
+  -  # FMS Left LS7 Key
+    type: NumSet
+    var_name: L:switch_540_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54004
+    is_user_event: true
+    
+  -  # FMS Left LS8 Key
+    type: NumSet
+    var_name: L:switch_541_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54104
+    is_user_event: true
+    
+  -  # FMS Left LS9 Key
+    type: NumSet
+    var_name: L:switch_542_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54204
+    is_user_event: true
+    
+  -  # FMS Left LS10 Key
+    type: NumSet
+    var_name: L:switch_543_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54304
+    is_user_event: true
+    
+  -  # FMS Left LS11 Key
+    type: NumSet
+    var_name: L:switch_544_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54404
+    is_user_event: true
+    
+  -  # FMS Left LS12 Key
+    type: NumSet
+    var_name: L:switch_545_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54504
+    is_user_event: true
+    
+  -  # FMS Left Init Ref Key
+    type: NumSet
+    var_name: L:switch_546_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54604
+    is_user_event: true
+    
+  -  # FMS Left RTE Key
+    type: NumSet
+    var_name: L:switch_547_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54704
+    is_user_event: true
+    
+  -  # FMS Left CLB Key
+    type: NumSet
+    var_name: L:switch_548_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54804
+    is_user_event: true
+    
+  -  # FMS Left CRZ Key
+    type: NumSet
+    var_name: L:switch_549_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 54904
+    is_user_event: true
+    
+  -  # FMS Left DES Key
+    type: NumSet
+    var_name: L:switch_550_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55004
+    is_user_event: true
+
+  -  # FMS Left MENU Key
+    type: NumSet
+    var_name: L:switch_551_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55104
+    is_user_event: true
+
+  -  # FMS Left LEGS Key
+    type: NumSet
+    var_name: L:switch_552_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55204
+    is_user_event: true
+
+  -  # FMS Left DEP ARR Key
+    type: NumSet
+    var_name: L:switch_553_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55304
+    is_user_event: true
+    
+  -  # FMS Left HOLD Key
+    type: NumSet
+    var_name: L:switch_554_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55404
+    is_user_event: true
+    
+  -  # FMS Left PROG Key
+    type: NumSet
+    var_name: L:switch_555_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55504
+    is_user_event: true
+    
+  -  # FMS Left EXEC Key
+    type: NumSet
+    var_name: L:switch_556_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55604
+    is_user_event: true
+    
+  -  # FMS Left N1 LIMIT Key
+    type: NumSet
+    var_name: L:switch_557_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55704
+    is_user_event: true
+    
+  -  # FMS Left FIX Key
+    type: NumSet
+    var_name: L:switch_558_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55804
+    is_user_event: true
+    
+  -  # FMS Left PREV PAGE Key
+    type: NumSet
+    var_name: L:switch_559_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 55904
+    is_user_event: true
+    
+  -  # FMS Left NEXT PAGE Key
+    type: NumSet
+    var_name: L:switch_560_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56004
+    is_user_event: true
+    
+  -  # FMS Left NUM1 Key
+    type: NumSet
+    var_name: L:switch_561_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56104
+    is_user_event: true 
+    
+  -  # FMS Left NUM2 Key
+    type: NumSet
+    var_name: L:switch_562_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56204
+    is_user_event: true
+   
+  -  # FMS Left NUM3 Key
+    type: NumSet
+    var_name: L:switch_563_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56304
+    is_user_event: true
+    
+  -  # FMS Left NUM4 Key
+    type: NumSet
+    var_name: L:switch_564_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56404
+    is_user_event: true
+
+  -  # FMS Left NUM5 Key
+    type: NumSet
+    var_name: L:switch_565_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56504
+    is_user_event: true
+    
+  -  # FMS Left NUM6 Key
+    type: NumSet
+    var_name: L:switch_566_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56604
+    is_user_event: true
+    
+  -  # FMS Left NUM7 Key
+    type: NumSet
+    var_name: L:switch_567_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56704
+    is_user_event: true
+    
+  -  # FMS Left NUM8 Key
+    type: NumSet
+    var_name: L:switch_568_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56804
+    is_user_event: true
+    
+  -  # FMS Left NUM9 Key
+    type: NumSet
+    var_name: L:switch_569_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 56904
+    is_user_event: true
+    
+  -  # FMS Left NUM DECIMAL Key
+    type: NumSet
+    var_name: L:switch_570_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57004
+    is_user_event: true
+    
+  -  # FMS Left NUM0 Key
+    type: NumSet
+    var_name: L:switch_571_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57104
+    is_user_event: true
+    
+  -  # FMS Left NUM +- Key
+    type: NumSet
+    var_name: L:switch_572_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57204
+    is_user_event: true
+    
+  -  # FMS Left A Key
+    type: NumSet
+    var_name: L:switch_573_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57304
+    is_user_event: true
+    
+  -  # FMS Left B Key
+    type: NumSet
+    var_name: L:switch_574_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57404
+    is_user_event: true
+    
+  -  # FMS Left C Key
+    type: NumSet
+    var_name: L:switch_575_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57504
+    is_user_event: true
+
+  -  # FMS Left D Key
+    type: NumSet
+    var_name: L:switch_576_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57604
+    is_user_event: true
+    
+  -  # FMS Left E Key
+    type: NumSet
+    var_name: L:switch_577_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57704
+    is_user_event: true
+    
+  -  # FMS Left F Key
+    type: NumSet
+    var_name: L:switch_578_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57804
+    is_user_event: true
+    
+  -  # FMS Left G Key
+    type: NumSet
+    var_name: L:switch_579_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 57904
+    is_user_event: true
+    
+  -  # FMS Left H Key
+    type: NumSet
+    var_name: L:switch_580_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58004
+    is_user_event: true
+    
+  -  # FMS Left I Key
+    type: NumSet
+    var_name: L:switch_581_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58104
+    is_user_event: true
+    
+  -  # FMS Left J Key
+    type: NumSet
+    var_name: L:switch_582_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58204
+    is_user_event: true
+    
+  -  # FMS Left K Key
+    type: NumSet
+    var_name: L:switch_583_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58304
+    is_user_event: true
+    
+  -  # FMS Left L Key
+    type: NumSet
+    var_name: L:switch_584_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58404
+    is_user_event: true
+    
+  -  # FMS Left M Key
+    type: NumSet
+    var_name: L:switch_585_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58504
+    is_user_event: true
+    
+  -  # FMS Left N Key
+    type: NumSet
+    var_name: L:switch_586_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58604
+    is_user_event: true
+    
+  -  # FMS Left O Key
+    type: NumSet
+    var_name: L:switch_587_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58704
+    is_user_event: true
+    
+  -  # FMS Left P Key
+    type: NumSet
+    var_name: L:switch_588_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58804
+    is_user_event: true
+    
+  -  # FMS Left Q Key
+    type: NumSet
+    var_name: L:switch_589_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 58904
+    is_user_event: true
+    
+  -  # FMS Left R Key
+    type: NumSet
+    var_name: L:switch_590_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59004
+    is_user_event: true
+    
+  -  # FMS Left S Key
+    type: NumSet
+    var_name: L:switch_591_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59104
+    is_user_event: true
+    
+  -  # FMS Left T Key
+    type: NumSet
+    var_name: L:switch_592_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59204
+    is_user_event: true
+    
+  -  # FMS Left U Key
+    type: NumSet
+    var_name: L:switch_593_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59304
+    is_user_event: true
+    
+  -  # FMS Left V Key
+    type: NumSet
+    var_name: L:switch_594_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59404
+    is_user_event: true
+    
+  -  # FMS Left W Key
+    type: NumSet
+    var_name: L:switch_595_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59504
+    is_user_event: true
+    
+  -  # FMS Left X Key
+    type: NumSet
+    var_name: L:switch_596_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59604
+    is_user_event: true
+    
+  -  # FMS Left Y Key
+    type: NumSet
+    var_name: L:switch_597_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59704
+    is_user_event: true
+    
+  -  # FMS Left Z Key
+    type: NumSet
+    var_name: L:switch_598_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59804
+    is_user_event: true
+    
+  -  # FMS Left SP Key
+    type: NumSet
+    var_name: L:switch_599_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 59904
+    is_user_event: true
+    
+  -  # FMS Left DEL Key
+    type: NumSet
+    var_name: L:switch_600_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60004
+    is_user_event: true
+    
+  -  # FMS Left SLASH Key
+    type: NumSet
+    var_name: L:switch_601_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60104
+    is_user_event: true
+    
+  -  # FMS Left CLR Key
+    type: NumSet
+    var_name: L:switch_602_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60204
+    is_user_event: true
+    
+  -  # FMS LEFT Brightness
+    type: NumSet
+    var_name: L:switch_605_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70237'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # FMS Right LS1 Key
+    type: NumSet
+    var_name: L:switch_606_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60604
+    is_user_event: true
+
+  -  # FMS Right LS2 Key
+    type: NumSet
+    var_name: L:switch_607_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60704
+    is_user_event: true
+    
+  -  # FMS Right LS3 Key
+    type: NumSet
+    var_name: L:switch_608_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60804
+    is_user_event: true
+    
+  -  # FMS Right LS4 Key
+    type: NumSet
+    var_name: L:switch_609_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 60904
+    is_user_event: true
+    
+  -  # FMS Right LS5 Key
+    type: NumSet
+    var_name: L:switch_610_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61004
+    is_user_event: true
+    
+  -  # FMS Right LS6 Key
+    type: NumSet
+    var_name: L:switch_611_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61104
+    is_user_event: true
+    
+  -  # FMS Right LS7 Key
+    type: NumSet
+    var_name: L:switch_612_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61204
+    is_user_event: true
+    
+  -  # FMS Right LS8 Key
+    type: NumSet
+    var_name: L:switch_613_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61304
+    is_user_event: true
+    
+  -  # FMS Right LS9 Key
+    type: NumSet
+    var_name: L:switch_614_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61404
+    is_user_event: true
+    
+  -  # FMS Right LS10 Key
+    type: NumSet
+    var_name: L:switch_615_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61504
+    is_user_event: true
+    
+  -  # FMS Right LS11 Key
+    type: NumSet
+    var_name: L:switch_616_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61604
+    is_user_event: true
+    
+  -  # FMS Right LS12 Key
+    type: NumSet
+    var_name: L:switch_617_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61704
+    is_user_event: true
+    
+  -  # FMS Right Init Ref Key
+    type: NumSet
+    var_name: L:switch_618_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61804
+    is_user_event: true
+    
+  -  # FMS Right RTE Key
+    type: NumSet
+    var_name: L:switch_619_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 61904
+    is_user_event: true
+    
+  -  # FMS Right CLB Key
+    type: NumSet
+    var_name: L:switch_620_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62004
+    is_user_event: true
+    
+  -  # FMS Right CRZ Key
+    type: NumSet
+    var_name: L:switch_621_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62104
+    is_user_event: true
+    
+  -  # FMS Right DES Key
+    type: NumSet
+    var_name: L:switch_622_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62204
+    is_user_event: true
+
+  -  # FMS Right MENU Key
+    type: NumSet
+    var_name: L:switch_623_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62304
+    is_user_event: true
+
+  -  # FMS Right LEGS Key
+    type: NumSet
+    var_name: L:switch_624_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62404
+    is_user_event: true
+
+  -  # FMS Right DEP ARR Key
+    type: NumSet
+    var_name: L:switch_625_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62504
+    is_user_event: true
+    
+  -  # FMS Right HOLD Key
+    type: NumSet
+    var_name: L:switch_626_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62604
+    is_user_event: true
+    
+  -  # FMS Right PROG Key
+    type: NumSet
+    var_name: L:switch_627_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62704
+    is_user_event: true
+    
+  -  # FMS Right EXEC Key
+    type: NumSet
+    var_name: L:switch_628_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62804
+    is_user_event: true
+    
+  -  # FMS Right N1 LIMIT Key
+    type: NumSet
+    var_name: L:switch_629_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 62904
+    is_user_event: true
+    
+  -  # FMS Right FIX Key
+    type: NumSet
+    var_name: L:switch_630_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63004
+    is_user_event: true
+    
+  -  # FMS Right PREV PAGE Key
+    type: NumSet
+    var_name: L:switch_631_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63104
+    is_user_event: true
+    
+  -  # FMS Right NEXT PAGE Key
+    type: NumSet
+    var_name: L:switch_632_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63204
+    is_user_event: true
+    
+  -  # FMS Right NUM1 Key
+    type: NumSet
+    var_name: L:switch_633_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63304
+    is_user_event: true 
+    
+  -  # FMS Right NUM2 Key
+    type: NumSet
+    var_name: L:switch_634_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63404
+    is_user_event: true
+   
+  -  # FMS Right NUM3 Key
+    type: NumSet
+    var_name: L:switch_635_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63504
+    is_user_event: true
+    
+  -  # FMS Right NUM4 Key
+    type: NumSet
+    var_name: L:switch_636_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63604
+    is_user_event: true
+
+  -  # FMS Right NUM5 Key
+    type: NumSet
+    var_name: L:switch_637_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63704
+    is_user_event: true
+    
+  -  # FMS Right NUM6 Key
+    type: NumSet
+    var_name: L:switch_638_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63804
+    is_user_event: true
+    
+  -  # FMS Right NUM7 Key
+    type: NumSet
+    var_name: L:switch_639_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 63904
+    is_user_event: true
+    
+  -  # FMS Right NUM8 Key
+    type: NumSet
+    var_name: L:switch_640_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64004
+    is_user_event: true
+    
+  -  # FMS Right NUM9 Key
+    type: NumSet
+    var_name: L:switch_641_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64104
+    is_user_event: true
+    
+  -  # FMS Right NUM DECIMAL Key
+    type: NumSet
+    var_name: L:switch_642_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64204
+    is_user_event: true
+    
+  -  # FMS Right NUM0 Key
+    type: NumSet
+    var_name: L:switch_643_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64304
+    is_user_event: true
+    
+  -  # FMS Right NUM +- Key
+    type: NumSet
+    var_name: L:switch_644_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64404
+    is_user_event: true
+    
+  -  # FMS Right A Key
+    type: NumSet
+    var_name: L:switch_645_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64504
+    is_user_event: true
+    
+  -  # FMS Right B Key
+    type: NumSet
+    var_name: L:switch_646_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64604
+    is_user_event: true
+    
+  -  # FMS Right C Key
+    type: NumSet
+    var_name: L:switch_647_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64704
+    is_user_event: true
+
+  -  # FMS Rigt D Key
+    type: NumSet
+    var_name: L:switch_648_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64804
+    is_user_event: true
+    
+  -  # FMS Right E Key
+    type: NumSet
+    var_name: L:switch_649_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 64904
+    is_user_event: true
+    
+  -  # FMS Right F Key
+    type: NumSet
+    var_name: L:switch_650_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65004
+    is_user_event: true
+    
+  -  # FMS Right G Key
+    type: NumSet
+    var_name: L:switch_651_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65104
+    is_user_event: true
+   
+  -  # FMS Right H Key
+    type: NumSet
+    var_name: L:switch_652_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65204
+    is_user_event: true
+    
+  -  # FMS Right I Key
+    type: NumSet
+    var_name: L:switch_653_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65304
+    is_user_event: true
+    
+  -  # FMS Right J Key
+    type: NumSet
+    var_name: L:switch_654_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65404
+    is_user_event: true
+    
+  -  # FMS Right K Key
+    type: NumSet
+    var_name: L:switch_655_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65504
+    is_user_event: true
+    
+  -  # FMS Right L Key
+    type: NumSet
+    var_name: L:switch_656_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65604
+    is_user_event: true
+    
+  -  # FMS Right M Key
+    type: NumSet
+    var_name: L:switch_657_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65704
+    is_user_event: true
+    
+  -  # FMS Right N Key
+    type: NumSet
+    var_name: L:switch_658_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65804
+    is_user_event: true
+    
+  -  # FMS Right O Key
+    type: NumSet
+    var_name: L:switch_659_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 65904
+    is_user_event: true
+    
+  -  # FMS Right P Key
+    type: NumSet
+    var_name: L:switch_660_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66004
+    is_user_event: true
+    
+  -  # FMS Right Q Key
+    type: NumSet
+    var_name: L:switch_661_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66104
+    is_user_event: true
+    
+  -  # FMS Right R Key
+    type: NumSet
+    var_name: L:switch_662_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66204
+    is_user_event: true
+    
+  -  # FMS Right S Key
+    type: NumSet
+    var_name: L:switch_663_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66304
+    is_user_event: true
+    
+  -  # FMS Right T Key
+    type: NumSet
+    var_name: L:switch_664_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66404
+    is_user_event: true
+    
+  -  # FMS Right U Key
+    type: NumSet
+    var_name: L:switch_665_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66504
+    is_user_event: true
+    
+  -  # FMS Right V Key
+    type: NumSet
+    var_name: L:switch_666_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66604
+    is_user_event: true
+    
+  -  # FMS Right W Key
+    type: NumSet
+    var_name: L:switch_667_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66704
+    is_user_event: true
+    
+  -  # FMS Right X Key
+    type: NumSet
+    var_name: L:switch_668_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66804
+    is_user_event: true
+    
+  -  # FMS Right Y Key
+    type: NumSet
+    var_name: L:switch_669_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 66904
+    is_user_event: true
+    
+  -  # FMS Right Z Key
+    type: NumSet
+    var_name: L:switch_670_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 67004
+    is_user_event: true
+    
+  -  # FMS Right SP Key
+    type: NumSet
+    var_name: L:switch_671_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 67104
+    is_user_event: true
+    
+  -  # FMS Right DEL Key
+    type: NumSet
+    var_name: L:switch_672_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 67204
+    is_user_event: true
+    
+  -  # FMS Right SLASH Key
+    type: NumSet
+    var_name: L:switch_673_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 67304
+    is_user_event: true
+    
+  -  # FMS Right CLR Key
+    type: NumSet
+    var_name: L:switch_674_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 67404
+    is_user_event: true
+    
+  -  # FMS Right Brightness
+    type: NumSet
+    var_name: L:switch_677_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70309'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # GPWS Sys Test Button
+    type: NumSet
+    var_name: L:switch_500_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 50004
+    is_user_event: true
+    
+  -  # GPWS Flap Inhibit Switch Guard
+    type: NumSet
+    var_name: L:switch_502_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70134'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # GPWS Flap Inhibit Switch
+    type: NumSet
+    var_name: L:switch_501_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70133'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # GPWS Gear Inhibit Switch Guard
+    type: NumSet
+    var_name: L:switch_504_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70136'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # GPWS Gear Inhibit Switch
+    type: NumSet
+    var_name: L:switch_503_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70135'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # GPWS Terr Inhibit Switch Guard
+    type: NumSet
+    var_name: L:switch_506_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70138'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # GPWS Terr Inhibit Switch
+    type: NumSet
+    var_name: L:switch_505_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70137'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO Main Panel Brightness Knob
+    type: NumSet
+    var_name: L:switch_510_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70142'
+    is_user_event: true
+
+  -  # FO Outbd DU Brightness Knob
+    type: NumSet
+    var_name: L:switch_509_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70141'
+    is_user_event: true 
+
+  -  # FO Indb DU Brightness Outer Knob
+    type: NumSet
+    var_name: L:switch_507_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70139'
+    is_user_event: true
+
+  -  # FO Indb DU Brightness Inner Knob
+    type: NumSet
+    var_name: L:switch_508_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70140'
+    is_user_event: true
+    
+  -  # CPT Map Light Pull
+    type: NumSet
+    var_name: L:switch_895_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.01
+    add_by: 89502
+    is_user_event: true
+    
+  -  # CPT Map Light Brightness
+    type: NumIncrement
+    var_name: L:switch_323_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 32307
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 32308
+    increment_by: 4
+    is_user_event: true 
+    
+  -  # CPT Chart Light Brightness
+    type: NumIncrement
+    var_name: L:switch_319_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 31907
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 31908
+    increment_by: 4
+    is_user_event: true
+
+  -  # CPT 02 Test Button
+    type: NumSet
+    var_name: L:switch_983_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 98304
+    is_user_event: true  
+
+  -  # CPT Yoke AP Disc Button
+    type: NumSet
+    var_name: L:switch_1004_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 100404
+    is_user_event: true    
+
+  -  # CPT Yoke Checklist Knob
+    type: NumIncrement
+    var_name: L:switch_7521_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 752108
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 752107
+    increment_by: 5
+    is_user_event: true
+    
+  -  # Park Brake
+    type: NumSet
+    var_name: L:switch_693_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.01
+    add_by: 69302
+    is_user_event: true
+    
+  -  # Left Engine Start Switch
+    type: NumSet
+    var_name: L:switch_688_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70320'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Right Engine Start Switch
+    type: NumSet
+    var_name: L:switch_689_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70321'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Stab Trim Elec Switch Guard
+    type: NumSet
+    var_name: L:switch_710_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70342'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Stab Trim Elec Switch
+    type: NumSet
+    var_name: L:switch_709_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70341'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Stab Trim AP Switch Guard
+    type: NumSet
+    var_name: L:switch_712_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70344'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Stab Trim AP Switch
+    type: NumSet
+    var_name: L:switch_711_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70343'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO Yoke Checklist Knob
+    type: NumIncrement
+    var_name: L:switch_7522_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 752208
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 752207
+    increment_by: 5
+    is_user_event: true
+
+  -  # FO Yoke AP Disc Button
+    type: NumSet
+    var_name: L:switch_1005_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 100504
+    is_user_event: true 
+
+  -  # FO Map Light Pull
+    type: NumSet
+    var_name: L:switch_896_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.01
+    add_by: 89602
+    is_user_event: true
+
+  -  # FO Map Light Brightness
+    type: NumIncrement
+    var_name: L:switch_324_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 32407
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 32408
+    increment_by: 4
+    is_user_event: true 
+    
+  -  # FO Chart Light Brightness
+    type: NumIncrement
+    var_name: L:switch_322_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 32207
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 32208
+    increment_by: 4
+    is_user_event: true
+
+  -  # FO 02 Test Button
+    type: NumSet
+    var_name: L:switch_9832_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 983204
+    is_user_event: true   
+
+  -  # OVHT Det 1 Switch
+    type: NumSet
+    var_name: L:switch_694_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70326'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # Fire Det Test Switch
+    type: NumSet
+    var_name: L:switch_696_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70328'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  -  # Eng 1 Fire Handle Unlock
+    type: NumSet
+    var_name: L:switch_976_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 97604
+    is_user_event: true 
+
+  - # Eng 1 Fire Handle Pull Up
+    type: customcalculator
+    get: (L:switch_697_73X) 10 ==
+    set: 697101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 1 Fire Handle Push Down
+    type: customcalculator
+    get: (L:switch_697_73X) 0 ==
+    set: 697101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 1 Fire Handle Discharge L
+    type: customcalculator
+    get: (L:switch_697_73X) 20 ==
+    set: 69701 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 1 Fire Handle Discharge R
+    type: customcalculator
+    get: (L:switch_697_73X) 40 ==
+    set: 69702 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0          
+
+  -  # Fire Warn Bell Cutout
+    type: NumSet
+    var_name: L:switch_704_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 70404
+    is_user_event: true 
+    
+  -  # APU Fire Handle Unlock
+    type: NumSet
+    var_name: L:switch_977_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 97704
+    is_user_event: true 
+    
+  - # APU Fire Handle Pull Up
+    type: customcalculator
+    get: (L:switch_698_73X) 10 ==
+    set: 698101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # APU Fire Handle Push Down
+    type: customcalculator
+    get: (L:switch_698_73X) 0 ==
+    set: 698101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # APU Fire Handle Discharge L
+    type: customcalculator
+    get: (L:switch_698_73X) 20 ==
+    set: 69801 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # APU Fire Handle Discharge R
+    type: customcalculator
+    get: (L:switch_698_73X) 40 ==
+    set: 69802 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0
+        
+  -  # OVHT Det 2 Switch
+    type: NumSet
+    var_name: L:switch_705_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70337'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Eng 2 Fire Handle Unlock
+    type: NumSet
+    var_name: L:switch_978_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 97804
+    is_user_event: true 
+
+  - # Eng 2 Fire Handle Pull Up
+    type: customcalculator
+    get: (L:switch_699_73X) 10 ==
+    set: 699101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 2 Fire Handle Push Down
+    type: customcalculator
+    get: (L:switch_699_73X) 0 ==
+    set: 699101 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 2 Fire Handle Discharge L
+    type: customcalculator
+    get: (L:switch_699_73X) 20 ==
+    set: 69901 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  - # Eng 2 Fire Handle Discharge R
+    type: customcalculator
+    get: (L:switch_699_73X) 40 ==
+    set: 69902 (>K:ROTOR_BRAKE)
+    condition:
+      equals:
+        F64: 1.0 
+
+  -  # Squib Test Switch
+    type: NumSet
+    var_name: L:switch_715_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70347'
+    multiply_by: 0.02
+    is_user_event: true 
+    
+  - # COM1 Active Frequency
+    type: NumSet
+    var_name: A:COM ACTIVE FREQUENCY:1
+    var_units: Hz
+    var_type: i32
+    event_name: COM_RADIO_SET_HZ
+    cancel_h_events: true
+    
+  - # COM1 Stby Frequency
+    type: NumSet
+    var_name: A:COM STANDBY FREQUENCY:1
+    var_units: Hz
+    var_type: i32
+    event_name: COM_STBY_RADIO_SET_HZ
+    cancel_h_events: true
+
+  -  # CPT Radio Panel Pwr Button
+    type: NumSet
+    var_name: L:switch_903_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90304
+    is_user_event: true  
+
+  -  # Cpt Radio Panel HF Sense Knob
+    type: NumSet
+    var_name: L:switch_724_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70356'
+    multiply_by: 3.6
+    is_user_event: true
+
+  -  # CPT Radio Panel Freq Switch Anim Only
+    type: var
+    var_name: L:switch_721_73X 
+    
+  -  # CPT Radio VHF1 Button
+    type: NumSet
+    var_name: L:switch_904_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90404
+    is_user_event: true 
+    
+  -  # CPT Radio VHF2 Button
+    type: NumSet
+    var_name: L:switch_906_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90604
+    is_user_event: true 
+    
+  -  # CPT Radio VHF3 Button
+    type: NumSet
+    var_name: L:switch_908_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90804
+    is_user_event: true 
+   
+  -  # CPT Radio HF1 Button
+    type: NumSet
+    var_name: L:switch_910_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 91004
+    is_user_event: true
+
+  -  # CPT Radio AM Button
+    type: NumSet
+    var_name: L:switch_912_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 91204
+    is_user_event: true 
+
+  -  # CPT Radio HF2 Button
+    type: NumSet
+    var_name: L:switch_914_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 91404
+    is_user_event: true  
+
+  -  # CPT Radio Test Button
+    type: NumSet
+    var_name: L:switch_725_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 72504
+    is_user_event: true
+
+  -  # Cargo Fire Det Fwd Switch
+    type: NumSet
+    var_name: L:switch_760_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70392'
+    multiply_by: 0.02
+    is_user_event: true 
+
+  -  # Cargo Fire Det Aft Switch
+    type: NumSet
+    var_name: L:switch_761_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70393'
+    multiply_by: 0.02
+    is_user_event: true     
+
+  -  # Cargo Fire Test Button
+    type: NumSet
+    var_name: L:switch_769_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 76904
+    is_user_event: true 
+
+  -  # Cargo Fire Arm Fwd Switch
+    type: NumSet
+    var_name: L:switch_763_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70395'
+    multiply_by: 0.01
+    is_user_event: true    
+    
+  -  # Cargo Fire Arm Aft Switch
+    type: NumSet
+    var_name: L:switch_765_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70397'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Cargo Fire Disc Switch Guard
+    type: NumSet
+    var_name: L:switch_768_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70400'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Cargo Fire Disc Switch
+    type: NumSet
+    var_name: L:switch_767_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70401'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  - # COM2 Active Frequency
+    type: NumSet
+    var_name: A:COM ACTIVE FREQUENCY:2
+    var_units: Hz
+    var_type: i32
+    event_name: COM2_RADIO_SET_HZ
+    cancel_h_events: true
+    
+  - # COM2 Stby Frequency
+    type: NumSet
+    var_name: A:COM STANDBY FREQUENCY:2
+    var_units: Hz
+    var_type: i32
+    event_name: COM2_STBY_RADIO_SET_HZ
+    cancel_h_events: true
+    
+  -  # FO Radio Panel Pwr Button
+    type: NumSet
+    var_name: L:switch_924_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 92404
+    is_user_event: true  
+
+  -  # FO Radio Panel HF Sense Knob
+    type: NumSet
+    var_name: L:switch_840_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70472'
+    multiply_by: 3.6
+    is_user_event: true
+    
+  -  # FO Radio Panel Freq Switch Anim Only
+    type: var
+    var_name: L:switch_837_73X 
+    
+  -  # FO Radio VHF1 Button
+    type: NumSet
+    var_name: L:switch_925_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 92504
+    is_user_event: true 
+    
+  -  # FO Radio VHF2 Button
+    type: NumSet
+    var_name: L:switch_927_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 92704
+    is_user_event: true 
+    
+  -  # FO Radio VHF3 Button
+    type: NumSet
+    var_name: L:switch_929_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 92904
+    is_user_event: true 
+   
+  -  # FO Radio HF1 Button
+    type: NumSet
+    var_name: L:switch_931_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 93104
+    is_user_event: true
+
+  -  # FO Radio AM Button
+    type: NumSet
+    var_name: L:switch_933_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 93304
+    is_user_event: true 
+
+  -  # FO Radio HF2 Button
+    type: NumSet
+    var_name: L:switch_935_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 93504
+    is_user_event: true  
+
+  -  # FO Radio Test Button
+    type: NumSet
+    var_name: L:switch_841_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 84104
+    is_user_event: true
+    
+  - # NAV 1 Active 
+    type: NumSet
+    var_name: A:NAV ACTIVE FREQUENCY:1
+    var_units: Hz
+    var_type: i32
+    event_name: NAV1_RADIO_SET_HZ
+    cancel_h_events: true
+    condition:
+      var:
+        var_name: L:NAV_MMR_Swap
+        var_units: F64
+        var_type: bool
+      equals:
+        F64: 0.00
+        
+  - # NAV 1 Standby
+    type: NumSet
+    var_name: A:NAV STANDBY FREQUENCY:1
+    var_units: Hz
+    var_type: i32
+    event_name: NAV1_STBY_SET_HZ
+    cancel_h_events: true
+    condition:
+      var:
+        var_name: L:NAV_MMR_Swap
+        var_units: F64
+        var_type: bool
+      equals:
+        F64: 0.00
+        
+  -  # CPT NAV Radio Panel Freq Switch Anim Only
+    type: var
+    var_name: L:switch_729_73X 
+
+  -  # CPT MMR Swap Button
+    type: NumSet
+    var_name: L:switch_7210_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721004
+    is_user_event: true
+    
+  -  # CPT MMR Test Button
+    type: NumSet
+    var_name: L:switch_7211_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721104
+    is_user_event: true
+    
+  -  # CPT MMR Mode Down Button
+    type: NumSet
+    var_name: L:switch_7212_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721204
+    is_user_event: true
+    
+  -  # CPT MMR Mode Up Button
+    type: NumSet
+    var_name: L:switch_7213_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721304
+    is_user_event: true
+    
+  -  # CPT MMR 1 Button
+    type: NumSet
+    var_name: L:switch_7214_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721404
+    is_user_event: true
+    
+  -  # CPT MMR 2 Button
+    type: NumSet
+    var_name: L:switch_7215_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721504
+    is_user_event: true
+    
+  -  # CPT MMR 3 Button
+    type: NumSet
+    var_name: L:switch_7216_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721604
+    is_user_event: true
+    
+  -  # CPT MMR 4 Button
+    type: NumSet
+    var_name: L:switch_7217_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721704
+    is_user_event: true
+    
+  -  # CPT MMR 5 Button
+    type: NumSet
+    var_name: L:switch_7218_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721804
+    is_user_event: true
+
+  -  # CPT MMR 6 Button
+    type: NumSet
+    var_name: L:switch_7219_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 721904
+    is_user_event: true
+    
+  -  # CPT MMR 7 Button
+    type: NumSet
+    var_name: L:switch_7220_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722004
+    is_user_event: true
+    
+  -  # CPT MMR 8 Button
+    type: NumSet
+    var_name: L:switch_7221_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722104
+    is_user_event: true
+    
+  -  # CPT MMR 9 Button
+    type: NumSet
+    var_name: L:switch_7222_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722204
+    is_user_event: true
+    
+  -  # CPT MMR 0 Button
+    type: NumSet
+    var_name: L:switch_7223_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722304
+    is_user_event: true
+    
+  -  # CPT MMR CLR Button
+    type: NumSet
+    var_name: L:switch_7224_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722404
+    is_user_event: true
+    
+  -  # WXR Panel Left TFR Button
+    type: NumSet
+    var_name: L:switch_790_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70422'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Left WX Button
+    type: NumSet
+    var_name: L:switch_791_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70423'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Left WX+T Button
+    type: NumSet
+    var_name: L:switch_916_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70548'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Left MAP Button
+    type: NumSet
+    var_name: L:switch_792_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70424'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Left GC Button
+    type: NumSet
+    var_name: L:switch_793_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70425'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Left Gain Knob
+    type: NumSet
+    var_name: L:switch_923_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70555'
+    is_user_event: true
+    
+  -  # WXR Panel Left Tilt Knob
+    type: NumSet
+    var_name: L:switch_794_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70426'
+    is_user_event: true
+    
+  -  # WXR Panel Auto Button
+    type: NumSet
+    var_name: L:switch_917_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70549'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Test Button
+    type: NumSet
+    var_name: L:switch_918_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70550'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Right Gain Knob
+    type: NumSet
+    var_name: L:switch_922_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70554'
+    is_user_event: true
+    
+  -  # WXR Panel Right Tilt Knob
+    type: NumSet
+    var_name: L:switch_795_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70427'
+    is_user_event: true
+    
+  -  # WXR Panel Right TFR Button
+    type: NumSet
+    var_name: L:switch_919_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70551'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Right WX Button
+    type: NumSet
+    var_name: L:switch_796_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70428'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Right WX+T Button
+    type: NumSet
+    var_name: L:switch_920_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70552'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Right MAP Button
+    type: NumSet
+    var_name: L:switch_797_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70429'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # WXR Panel Right GC Button
+    type: NumSet
+    var_name: L:switch_921_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70553'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  - # NAV 2 Active 
+    type: NumSet
+    var_name: A:NAV ACTIVE FREQUENCY:2
+    var_units: Hz
+    var_type: i32
+    event_name: NAV2_RADIO_SET_HZ
+    cancel_h_events: true
+    condition:
+      var:
+        var_name: L:NAV_MMR_Swap
+        var_units: F64
+        var_type: bool
+      equals:
+        F64: 0.00
+        
+  - # NAV 2 Standby
+    type: NumSet
+    var_name: A:NAV STANDBY FREQUENCY:2
+    var_units: Hz
+    var_type: i32
+    event_name: NAV2_STBY_SET_HZ
+    cancel_h_events: true
+    condition:
+      var:
+        var_name: L:NAV_MMR_Swap
+        var_units: F64
+        var_type: bool
+      equals:
+        F64: 0.00
+        
+  -  # FO NAV Radio Panel Freq Switch Anim Only
+    type: var
+    var_name: L:switch_845_73X 
+    
+  -  # FO MMR Swap Button
+    type: NumSet
+    var_name: L:switch_7225_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722504
+    is_user_event: true
+    
+  -  # FO MMR Test Button
+    type: NumSet
+    var_name: L:switch_7226_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722604
+    is_user_event: true
+    
+  -  # FO MMR Mode Down Button
+    type: NumSet
+    var_name: L:switch_7227_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722704
+    is_user_event: true
+    
+  -  # FO MMR Mode Up Button
+    type: NumSet
+    var_name: L:switch_7228_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722804
+    is_user_event: true
+    
+  -  # FO MMR 1 Button
+    type: NumSet
+    var_name: L:switch_7229_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 722904
+    is_user_event: true
+    
+  -  # FO MMR 2 Button
+    type: NumSet
+    var_name: L:switch_7230_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723004
+    is_user_event: true
+    
+  -  # FO MMR 3 Button
+    type: NumSet
+    var_name: L:switch_7231_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723104
+    is_user_event: true
+    
+  -  # FO MMR 4 Button
+    type: NumSet
+    var_name: L:switch_7232_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723204
+    is_user_event: true
+    
+  -  # FO MMR 5 Button
+    type: NumSet
+    var_name: L:switch_7233_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723304
+    is_user_event: true
+
+  -  # FO MMR 6 Button
+    type: NumSet
+    var_name: L:switch_7234_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723404
+    is_user_event: true
+    
+  -  # FO MMR 7 Button
+    type: NumSet
+    var_name: L:switch_7235_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723504
+    is_user_event: true
+    
+  -  # FO MMR 8 Button
+    type: NumSet
+    var_name: L:switch_7236_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723604
+    is_user_event: true
+    
+  -  # FO MMR 9 Button
+    type: NumSet
+    var_name: L:switch_7237_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723704
+    is_user_event: true
+    
+  -  # FO MMR 0 Button
+    type: NumSet
+    var_name: L:switch_7238_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723804
+    is_user_event: true
+    
+  -  # FO MMR CLR Button
+    type: NumSet
+    var_name: L:switch_7239_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 723904
+    is_user_event: true
+    
+  -  # CPT ACP VHF1 Mic Sel
+    type: NumSet
+    var_name: L:switch_734_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 73404
+    is_user_event: true
+    
+  -  # CPT ACP VHF2 Mic Sel
+    type: NumSet
+    var_name: L:switch_735_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 73504
+    is_user_event: true
+    
+  -  # CPT ACP VHF3 Mic Sel
+    type: NumSet
+    var_name: L:switch_877_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 87704
+    is_user_event: true
+    
+  -  # CPT ACP HF1 Mic Sel
+    type: NumSet
+    var_name: L:switch_878_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 87804
+    is_user_event: true
+    
+  -  # CPT ACP HF2 Mic Sel
+    type: NumSet
+    var_name: L:switch_879_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 87904
+    is_user_event: true
+    
+  -  # CPT ACP FLT Mic Sel
+    type: NumSet
+    var_name: L:switch_736_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 73604
+    is_user_event: true
+    
+  -  # CPT ACP SVC Mic Sel
+    type: NumSet
+    var_name: L:switch_737_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 73704
+    is_user_event: true
+    
+  -  # CPT ACP PA Mic Sel
+    type: NumSet
+    var_name: L:switch_738_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 73804
+    is_user_event: true
+    
+  -  # CPT ACP VHF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_739_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70371'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP VHF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_740_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70372'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # CPT ACP VHF3 Monitor Select
+    type: NumSet
+    var_name: L:switch_741_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70373'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # CPT ACP HF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_742_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70374'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP HF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_880_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70512'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP FLT Monitor Select
+    type: NumSet
+    var_name: L:switch_743_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70375'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP SVC Monitor Select
+    type: NumSet
+    var_name: L:switch_744_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70376'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP PA Monitor Select
+    type: NumSet
+    var_name: L:switch_745_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70377'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP NAV1 Monitor Select
+    type: NumSet
+    var_name: L:switch_746_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70378'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP NAV2 Monitor Select
+    type: NumSet
+    var_name: L:switch_747_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70379'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP ADF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_748_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70380'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP ADF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_749_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70381'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP MKR Monitor Select
+    type: NumSet
+    var_name: L:switch_750_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70382'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP SPKR Monitor Select
+    type: NumSet
+    var_name: L:switch_751_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70383'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP R/T I/C Switch
+    type: NumSet
+    var_name: L:switch_752_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70384'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # CPT ACP Mask Boom Switch
+    type: NumSet
+    var_name: L:switch_753_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70385'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT ACP Filter Switch
+    type: NumSet
+    var_name: L:switch_754_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70386'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # CPT ACP Alt Norm Switch
+    type: NumSet
+    var_name: L:switch_755_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70387'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # HGS Mode Button
+    type: NumSet
+    var_name: L:switch_770_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77004
+    is_user_event: true
+    
+  -  # HGS Stby Button
+    type: NumSet
+    var_name: L:switch_771_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77104
+    is_user_event: true
+    
+  -  # HGS Rwy Button
+    type: NumSet
+    var_name: L:switch_772_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77204
+    is_user_event: true
+    
+  -  # HGS G/S Button
+    type: NumSet
+    var_name: L:switch_773_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77304
+    is_user_event: true
+    
+  -  # HGS Clr Button
+    type: NumSet
+    var_name: L:switch_775_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77504
+    is_user_event: true
+    
+  -  # HGS Brt+ Button
+    type: NumSet
+    var_name: L:switch_776_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77604
+    is_user_event: true
+    
+  -  # HGS Dim- Button
+    type: NumSet
+    var_name: L:switch_777_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77704
+    is_user_event: true
+    
+  -  # HGS 1 Button
+    type: NumSet
+    var_name: L:switch_778_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77804
+    is_user_event: true
+    
+  -  # HGS 2 Button
+    type: NumSet
+    var_name: L:switch_779_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 77904
+    is_user_event: true
+    
+  -  # HGS 3 Button
+    type: NumSet
+    var_name: L:switch_780_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78004
+    is_user_event: true
+    
+  -  # HGS 4 Button
+    type: NumSet
+    var_name: L:switch_781_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78104
+    is_user_event: true
+    
+  -  # HGS 5 Button
+    type: NumSet
+    var_name: L:switch_782_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78204
+    is_user_event: true
+    
+  -  # HGS 6 Button
+    type: NumSet
+    var_name: L:switch_783_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78304
+    is_user_event: true
+    
+  -  # HGS 7 Button
+    type: NumSet
+    var_name: L:switch_784_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78404
+    is_user_event: true
+    
+  -  # HGS 8 Button
+    type: NumSet
+    var_name: L:switch_785_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78504
+    is_user_event: true
+    
+  -  # HGS 9 Button
+    type: NumSet
+    var_name: L:switch_786_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78604
+    is_user_event: true
+    
+  -  # HGS Enter Button
+    type: NumSet
+    var_name: L:switch_787_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78704
+    is_user_event: true
+    
+  -  # HGS 0 Button
+    type: NumSet
+    var_name: L:switch_788_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78804
+    is_user_event: true
+    
+  -  # HGS Test Button
+    type: NumSet
+    var_name: L:switch_789_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 78904
+    is_user_event: true
+    
+  -  # FO ACP VHF1 Mic Sel
+    type: NumSet
+    var_name: L:switch_850_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 85004
+    is_user_event: true
+    
+  -  # FO ACP VHF2 Mic Sel
+    type: NumSet
+    var_name: L:switch_851_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 85104
+    is_user_event: true
+    
+  -  # FO ACP VHF3 Mic Sel
+    type: NumSet
+    var_name: L:switch_881_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 88104
+    is_user_event: true
+    
+  -  # FO ACP HF1 Mic Sel
+    type: NumSet
+    var_name: L:switch_882_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 88204
+    is_user_event: true
+    
+  -  # FO ACP HF2 Mic Sel
+    type: NumSet
+    var_name: L:switch_883_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 88304
+    is_user_event: true
+    
+  -  # FO ACP FLT Mic Sel
+    type: NumSet
+    var_name: L:switch_852_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 85204
+    is_user_event: true
+    
+  -  # FO ACP SVC Mic Sel
+    type: NumSet
+    var_name: L:switch_853_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 85304
+    is_user_event: true
+    
+  -  # FO ACP PA Mic Sel
+    type: NumSet
+    var_name: L:switch_854_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 85404
+    is_user_event: true
+    
+  -  # FO ACP VHF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_855_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70487'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP VHF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_856_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70488'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # FO ACP VHF3 Monitor Select
+    type: NumSet
+    var_name: L:switch_857_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70489'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # FO ACP HF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_858_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70490'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP HF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_884_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70516'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP FLT Monitor Select
+    type: NumSet
+    var_name: L:switch_859_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70491'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP SVC Monitor Select
+    type: NumSet
+    var_name: L:switch_860_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70492'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP PA Monitor Select
+    type: NumSet
+    var_name: L:switch_861_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70493'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP NAV1 Monitor Select
+    type: NumSet
+    var_name: L:switch_862_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70494'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP NAV2 Monitor Select
+    type: NumSet
+    var_name: L:switch_863_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70495'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP ADF1 Monitor Select
+    type: NumSet
+    var_name: L:switch_864_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70496'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP ADF2 Monitor Select
+    type: NumSet
+    var_name: L:switch_865_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70497'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP MKR Monitor Select
+    type: NumSet
+    var_name: L:switch_866_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70498'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP SPKR Monitor Select
+    type: NumSet
+    var_name: L:switch_867_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70499'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP R/T I/C Switch
+    type: NumSet
+    var_name: L:switch_868_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70500'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # FO ACP Mask Boom Switch
+    type: NumSet
+    var_name: L:switch_869_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70501'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO ACP Filter Switch
+    type: NumSet
+    var_name: L:switch_870_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70502'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # FO ACP Alt Norm Switch
+    type: NumSet
+    var_name: L:switch_871_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70503'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # ADF Radio Panel Freq Button
+    type: NumSet
+    var_name: L:switch_827_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 82704
+    is_user_event: true
+    
+  -  # ADF ADF ANT Switch
+    type: NumSet
+    var_name: L:switch_818_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70450'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # ADF Tone Switch
+    type: NumSet
+    var_name: L:switch_820_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70452'
+    multiply_by: 0.01
+    is_user_event: true
+
+  - # ADF Inner Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_822_73X)
+    set: 82207 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82207
+        
+  - # ADF Inner Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_822_73X)
+    set: 82207 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82202
+        
+  - # ADF Inner Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_822_73X)
+    set: 82208 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82208
+        
+  - # ADF Inner Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_822_73X)
+    set: 82208 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82201
+        
+  - # ADF Middle Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_823_73X)
+    set: 82307 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82307
+        
+  - # ADF Middle Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_823_73X)
+    set: 82307 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82302
+        
+  - # ADF Middle Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_823_73X)
+    set: 82308 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82308
+        
+  - # ADF Middle Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_823_73X)
+    set: 82308 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82301
+        
+  - # ADF Outer Knob Increase Value Scroll
+    type: customcalculator
+    get: (L:switch_824_73X)
+    set: 82407 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82407
+        
+  - # ADF Outer Knob Increase Value Click
+    type: customcalculator
+    get: (L:switch_824_73X)
+    set: 82407 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82402
+        
+  - # ADF Outer Knob Decrease Value Scroll
+    type: customcalculator
+    get: (L:switch_824_73X)
+    set: 82408 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82408
+        
+  - # ADF Outer Knob Decrease Value Click
+    type: customcalculator
+    get: (L:switch_824_73X)
+    set: 82408 (>K:ROTOR_BRAKE)
+    condition:
+      var:
+        var_name: L:switchID
+        var_units: F64
+        var_type: f64
+      equals:
+        F64: 82401
+        
+  -  # Transponder XPNDR Switch
+    type: NumSet
+    var_name: L:switch_798_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70430'
+    multiply_by: 0.01
+    is_user_event: true
+
+  -  # Transponder Mode Switch
+    type: NumSet
+    var_name: L:switch_800_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70432'
+    multiply_by: 0.1
+    is_user_event: true
+    
+  -  # Transponder Test Button
+    type: NumSet
+    var_name: L:switch_801_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 80104
+    is_user_event: true
+
+  -  # Transponder Alt Source Switch
+    type: NumSet
+    var_name: L:switch_803_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70435'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Transponder Ident Button
+    type: NumSet
+    var_name: L:switch_806_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 80604
+    is_user_event: true
+    
+  -  # Flood Brightness Knob
+    type: NumIncrement
+    var_name: L:switch_756_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 75607
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 75608
+    increment_by: 9
+    is_user_event: true
+    
+  -  # Panel Brightness Knob
+    type: NumIncrement
+    var_name: L:switch_757_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 75707
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 75708
+    increment_by: 9
+    is_user_event: true
+    
+  -  # Aileron Trim
+    type: NumSet
+    var_name: L:switch_810_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70442'
+    multiply_by: 0.02
+    is_user_event: true
+    
+  -  # Rudder Trim
+    type: NumSet
+    var_name: L:switch_811_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70443'
+    multiply_by: 0.02
+    is_user_event: true
+
+  -  # Stab Trim Elec Switch Yoke
+    type: NumIncrement
+    # var_name: L:switch_2029_73x
+    var_name: L:switch_678_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 202901
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 202902
+    increment_by: 5
+    is_user_event: true
+
+  -  # Stab Trim Elec Switch Wheel
+    type: NumIncrement
+    # var_name: L:switch_2029_73x
+    var_name: L:switch_678_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 67801
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 67802
+    increment_by: 5
+    is_user_event: true
+
+  -  # Stab Trim Ovrd Switch Cover
+    type: NumSet
+    var_name: L:switch_831_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70463'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Stab Trim Ovrd Switch 
+    type: NumSet
+    var_name: L:switch_830_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70462'
+    multiply_by: 0.01
+    is_user_event: true
+        
+  -  # Speedbrake Lever
+    type: NumSet
+    var_name: L:switch_679_73x
+    var_units: number
+    var_type: f64
+    event_name: AXIS_SPOILER_SET
+    multiply_by: 76.415
+    add_by: -14183
+    is_user_event: true
+
+  -  # Flap Lever
+    type: NumSet
+    var_name: L:switch_714_73x
+    var_units: number
+    var_type: f64
+    event_name: AXIS_FLAPS_SET
+    multiply_by: 358.4125
+    add_by: -14337
+    is_user_event: true
+    
+  -  # MCP Course Left Knob Animation
+    type: var
+    var_name: L:switch_4021_73X
+
+  -  # Hud Release Switch
+    type: NumSet
+    var_name: L:switch_979_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70611'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # CPT Visor Stowed
+    type: var
+    var_name: L:visors_stow_unstow_L
+    
+  -  # CPT Visor Position
+    type: var
+    var_name: L:visor_L_drag_h
+    
+  -  # Nav Radio Panel Type for CC Check
+    type: var
+    var_name: L:NAV_MMR_Swap
+    
+  -  # SwitchId for CC Check
+    type: var
+    var_name: L:switchID
+
+  -  # B for Baro
+    type: Event
+    event_name: BAROMETRIC
