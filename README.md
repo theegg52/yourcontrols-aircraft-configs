@@ -11,6 +11,7 @@ JustFlight Bae-146 - Tested with aircraft version 1.0.2
 Duckworks DC3 Mod - Tested with aircraft version 0.3.7  
 IniSimulations - A310 Tested with aircraft version 1.1.6  
 PMDG - 737-700 - Tested with aircraft version 3.0.64
+PMDG - 737-800 - Tested with aircraft version 3.0.64
 
 Other profiles in progress:-     
 JustFlight - Hawk  
