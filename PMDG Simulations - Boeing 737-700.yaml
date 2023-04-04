@@ -7,20 +7,36 @@ include:
 master:  
   - # Ailerons
     type: NumSet
-    var_name: L:yokes_L_R_capt
+    var_name: L:NGXLeftAileron
     var_type: f64
     event_name: AXIS_AILERONS_SET
-    multiply_by: -16384
-    add_by: 16384
+    multiply_by: 327.68
+    add_by: -16384
     use_calculator: true
     unreliable: true
+    condition:
+      greater_than:
+        F64: 49.999
+        
+  - # Ailerons
+    type: NumSet
+    var_name: L:NGXRightAileron
+    var_type: f64
+    event_name: AXIS_AILERONS_SET
+    multiply_by: 327.68
+    add_by: -16384
+    use_calculator: true
+    unreliable: true
+    condition:
+      less_than:
+        F64: 50.000
     
   - # Elevators
     type: NumSet
-    var_name: L:yokes_Fore_Aft_capt
+    var_name: L:NGXElevator
     var_type: f64
     event_name: AXIS_ELEVATOR_SET
-    multiply_by: -16384
+    multiply_by: -327.68
     add_by: 16384
     use_calculator: true
     unreliable: true
@@ -2987,6 +3003,36 @@ shared:
     var_type: f64
     event_name: '#69957'
     multiply_by: 0.01
+    is_user_event: true
+    
+  -  # BBJ Aux Fuel Panel Test Button
+    type: NumSet
+    var_name: L:switch_2030_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 203004
+    is_user_event: true
+    
+  -  # BBJ Aux Fuel Panel Alert Button
+    type: NumSet
+    var_name: L:switch_2032_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 203204
+    is_user_event: true
+    
+  -  # BBJ Aux Fuel Panel Maint Button
+    type: NumSet
+    var_name: L:switch_2034_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 203404
     is_user_event: true
 
   -  # Analog ADI Mode Knob
@@ -6883,6 +6929,65 @@ shared:
     event_name: '#70462'
     multiply_by: 0.01
     is_user_event: true
+    
+  -  # BDSF Main Smoke Detector Test Button
+    type: NumSet
+    var_name: L:switch_905_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90504
+    is_user_event: true
+    
+  -  # BDSF Main Smoke Detector Depress Button Cover
+    type: NumSet
+    var_name: L:switch_911_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70543'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # BDSF Main Smoke Detector Depress Button
+    type: NumSet
+    var_name: L:switch_909_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90904
+    is_user_event: true
+    
+  -  # BDSF Main Smoke Detector Bell Cut Out Button
+    type: NumSet
+    var_name: L:switch_907_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 90704
+    is_user_event: true
+    
+  -  # BDSF Lav Smoke Detector Test Button
+    type: NumSet
+    var_name: L:switch_913_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 91304
+    is_user_event: true
+    
+  -  # BDSF Lav Smoke Detector Bell Cut Out Button
+    type: NumSet
+    var_name: L:switch_915_73x
+    var_units: number
+    var_type: f64
+    event_name: ROTOR_BRAKE
+    multiply_by: -0.03
+    add_by: 91504
+    is_user_event: true
         
   -  # Speedbrake Lever
     type: NumSet
@@ -6925,6 +7030,151 @@ shared:
     type: var
     var_name: L:visor_L_drag_h
     
+  -  # CPT Forward Window Shade
+    type: var
+    var_name: L:shade_LF
+    
+  -  # CPT Rear Window Shade
+    type: var
+    var_name: L:shade_LR
+    
+  -  # CPT Grimes Light H Movement
+    type: var
+    var_name: L:maplight_L_drag_h
+    
+  -  # CPT Grimes Light V Movement
+    type: var
+    var_name: L:maplight_L_drag_v
+    
+  -  # CPT ChartLight Light H Movement
+    type: var
+    var_name: L:chartlight_L_drag_h
+    
+  -  # CPT ChartLight Light V Movement
+    type: var
+    var_name: L:chartlight_L_drag_v
+
+  -  # CPT Grimes Light Brightness
+    type: NumIncrement
+    var_name: L:switch_2015_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 201507
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 201508
+    increment_by: 4
+    is_user_event: true
+    
+  - # CPT Armrest Left
+    type: NumSet
+    var_name: L:switch_1006_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70638'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  - # CPT Armrest Right
+    type: NumSet
+    var_name: L:switch_1007_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70639'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # FO Visor Stowed
+    type: var
+    var_name: L:visors_stow_unstow_R
+    
+  -  # FO Visor Position
+    type: var
+    var_name: L:visor_R_drag_h
+    
+  -  # FO Forward Window Shade
+    type: var
+    var_name: L:shade_RF
+    
+  -  # FO Rear Window Shade
+    type: var
+    var_name: L:shade_RR
+    
+  -  # FO Grimes Light H Movement
+    type: var
+    var_name: L:maplight_R_drag_h
+    
+  -  # FO Grimes Light V Movement
+    type: var
+    var_name: L:maplight_R_drag_v
+    
+  -  # FO ChartLight Light H Movement
+    type: var
+    var_name: L:chartlight_R_drag_h
+    
+  -  # FO ChartLight Light V Movement
+    type: var
+    var_name: L:chartlight_R_drag_v
+
+  -  # FO Grimes Light Brightness
+    type: NumIncrement
+    var_name: L:switch_2016_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 201607
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 201608
+    increment_by: 4
+    is_user_event: true
+    
+  - # FO Armrest Left
+    type: NumSet
+    var_name: L:switch_1008_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70640'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  - # FO Armrest Right
+    type: NumSet
+    var_name: L:switch_1009_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70641'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  - # Jumpseat
+    type: NumSet
+    var_name: L:switch_2001_73x
+    var_units: number
+    var_type: f64
+    event_name: '#71633'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Obs Grimes Light H Movement
+    type: var
+    var_name: L:maplight_O_drag_h
+    
+  -  # Obs Grimes Light V Movement
+    type: var
+    var_name: L:maplight_O_drag_v
+
+  -  # Obs Grimes Light Brightness
+    type: NumIncrement
+    var_name: L:switch_2017_73x
+    var_units: number
+    var_type: f64
+    up_event_name: ROTOR_BRAKE
+    up_event_param: 201707
+    down_event_name: ROTOR_BRAKE
+    down_event_param: 201708
+    increment_by: 4
+    is_user_event: true 
+    
   -  # Nav Radio Panel Type for CC Check
     type: var
     var_name: L:NAV_MMR_Swap
@@ -6935,4 +7185,4 @@ shared:
 
   -  # B for Baro
     type: Event
-    event_name: BAROMETRIC
+    event_name: BAROMETRIC   
