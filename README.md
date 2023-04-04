@@ -10,8 +10,10 @@ The first profiles available are listed below All of these can be downloaded fro
 JustFlight Bae-146 - Tested with aircraft version 1.0.2  
 Duckworks DC3 Mod - Tested with aircraft version 0.3.7  
 IniSimulations - A310 Tested with aircraft version 1.1.6  
+PMDG - 737-600 - Tested with aircraft version 3.0.65  
 PMDG - 737-700 - Tested with aircraft version 3.0.65  
-PMDG - 737-800 - Tested with aircraft version 3.0.64 - Thanks to BrunerChris for the dedicated file for the 800
+PMDG - 737-800 - Tested with aircraft version 3.0.65 - Thanks to BrunerChris for the dedicated file for the 800
+PMDG - 737-900 - Tested with aircraft version 3.0.65  
 
 Other profiles in progress:-     
 JustFlight - Hawk  
