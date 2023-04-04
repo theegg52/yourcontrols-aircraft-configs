@@ -1294,8 +1294,8 @@ shared:
     var_type: f64
     event_name: '#69815'
     multiply_by: 0.01
-    is_user_event: true
-
+    is_user_event: true  
+    
   -  # Voice Recorder Switch
     type: NumSet
     var_name: L:switch_2981_73x
@@ -1303,8 +1303,8 @@ shared:
     var_type: f64
     event_name: '#72613'
     multiply_by: 0.01
-    is_user_event: true    
-    
+    is_user_event: true
+
   -  # Air Temp Source Selector Switch
     type: NumSet
     var_name: L:switch_187_73x
@@ -3014,36 +3014,6 @@ shared:
     var_type: f64
     event_name: '#69957'
     multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Test Button
-    type: NumSet
-    var_name: L:switch_2030_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203004
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Alert Button
-    type: NumSet
-    var_name: L:switch_2032_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203204
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Maint Button
-    type: NumSet
-    var_name: L:switch_2034_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203404
     is_user_event: true
 
   -  # Analog ADI Mode Knob
@@ -6939,65 +6909,6 @@ shared:
     var_type: f64
     event_name: '#70462'
     multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Test Button
-    type: NumSet
-    var_name: L:switch_905_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90504
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Depress Button Cover
-    type: NumSet
-    var_name: L:switch_911_73x
-    var_units: number
-    var_type: f64
-    event_name: '#70543'
-    multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Depress Button
-    type: NumSet
-    var_name: L:switch_909_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90904
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Bell Cut Out Button
-    type: NumSet
-    var_name: L:switch_907_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90704
-    is_user_event: true
-    
-  -  # BDSF Lav Smoke Detector Test Button
-    type: NumSet
-    var_name: L:switch_913_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 91304
-    is_user_event: true
-    
-  -  # BDSF Lav Smoke Detector Bell Cut Out Button
-    type: NumSet
-    var_name: L:switch_915_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 91504
     is_user_event: true
 
   -  # Speedbrake Lever

@@ -32,7 +32,7 @@ master:
     condition:
       less_than:
         F64: 50.000
-    
+        
   - # Elevators
     type: NumSet
     var_name: L:NGXElevator
@@ -584,6 +584,42 @@ shared:
     var_units: number
     var_type: f64
     event_name: '#69896'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # 900ER Aux Fuel Fwd Bleed Air Switch
+    type: NumSet
+    var_name: L:switch_2013_73x
+    var_units: number
+    var_type: f64
+    event_name: '#71645'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # 900ER Aux Fuel Fwd Bleed Air Switch
+    type: NumSet
+    var_name: L:switch_2014_73x
+    var_units: number
+    var_type: f64
+    event_name: '#71646'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # 900ER Aux Fuel Gnd Transfer Switch Cover
+    type: NumSet
+    var_name: L:switch_2018_73x
+    var_units: number
+    var_type: f64
+    event_name: '#71650'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # 900ER Aux Fuel Gnd Transfer Switch
+    type: NumSet
+    var_name: L:switch_2019_73x
+    var_units: number
+    var_type: f64
+    event_name: '#71651'
     multiply_by: 0.01
     is_user_event: true
     
@@ -1307,27 +1343,53 @@ shared:
     
   -  # Air Temp Source Selector Switch
     type: NumSet
-    var_name: L:switch_187_73x
+    var_name: L:switch_313_73x
     var_units: number
     var_type: f64
-    event_name: '#69819'
+    event_name: '#69945'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Trim Air Switch
+    type: NumSet
+    var_name: L:switch_311_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69943'
     multiply_by: 0.01
     is_user_event: true
     
   -  # Cont Cabin Temp Selector Knob
     type: NumSet
-    var_name: L:switch_191_73x
+    var_name: L:switch_305_73x
     var_units: degrees
     var_type: f64
-    event_name: '#69823'
+    event_name: '#69937'
     is_user_event: true
     
-  -  # Pass Cabin Temp Selector Knob
+  -  # Fwd Cabin Temp Selector Knob
     type: NumSet
-    var_name: L:switch_192_73x
+    var_name: L:switch_306_73x
     var_units: degrees
     var_type: f64
-    event_name: '#69824'
+    event_name: '#69938'
+    is_user_event: true
+    
+  -  # Aft Cabin Temp Selector Knob
+    type: NumSet
+    var_name: L:switch_307_73x
+    var_units: degrees
+    var_type: f64
+    event_name: '#69939'
+    is_user_event: true
+
+  -  # Recirc Fan Switch L
+    type: NumSet
+    var_name: L:switch_872_73x
+    var_units: number
+    var_type: f64
+    event_name: '#70504'
+    multiply_by: 0.01
     is_user_event: true
 
   -  # Recirc Fan Switch
@@ -3014,36 +3076,6 @@ shared:
     var_type: f64
     event_name: '#69957'
     multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Test Button
-    type: NumSet
-    var_name: L:switch_2030_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203004
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Alert Button
-    type: NumSet
-    var_name: L:switch_2032_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203204
-    is_user_event: true
-    
-  -  # BBJ Aux Fuel Panel Maint Button
-    type: NumSet
-    var_name: L:switch_2034_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 203404
     is_user_event: true
 
   -  # Analog ADI Mode Knob
@@ -6939,65 +6971,6 @@ shared:
     var_type: f64
     event_name: '#70462'
     multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Test Button
-    type: NumSet
-    var_name: L:switch_905_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90504
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Depress Button Cover
-    type: NumSet
-    var_name: L:switch_911_73x
-    var_units: number
-    var_type: f64
-    event_name: '#70543'
-    multiply_by: 0.01
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Depress Button
-    type: NumSet
-    var_name: L:switch_909_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90904
-    is_user_event: true
-    
-  -  # BDSF Main Smoke Detector Bell Cut Out Button
-    type: NumSet
-    var_name: L:switch_907_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 90704
-    is_user_event: true
-    
-  -  # BDSF Lav Smoke Detector Test Button
-    type: NumSet
-    var_name: L:switch_913_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 91304
-    is_user_event: true
-    
-  -  # BDSF Lav Smoke Detector Bell Cut Out Button
-    type: NumSet
-    var_name: L:switch_915_73x
-    var_units: number
-    var_type: f64
-    event_name: ROTOR_BRAKE
-    multiply_by: -0.03
-    add_by: 91504
     is_user_event: true
 
   -  # Speedbrake Lever

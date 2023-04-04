@@ -1,3 +1,5 @@
+# 0.0.5
+
 include:
   - definitions/modules/fuel.yaml
   - definitions/modules/physics.yaml
@@ -30,6 +32,7 @@ master:
     condition:
       less_than:
         F64: 50.000
+        
   - # Elevators
     type: NumSet
     var_name: L:NGXElevator
@@ -1291,31 +1294,57 @@ shared:
     var_type: f64
     event_name: '#69815'
     multiply_by: 0.01
-    is_user_event: true  
+    is_user_event: true
+
+  -  # Voice Recorder Switch
+    type: NumSet
+    var_name: L:switch_2981_73x
+    var_units: number
+    var_type: f64
+    event_name: '#72613'
+    multiply_by: 0.01
+    is_user_event: true    
     
   -  # Air Temp Source Selector Switch
     type: NumSet
-    var_name: L:switch_187_73x
+    var_name: L:switch_313_73x
     var_units: number
     var_type: f64
-    event_name: '#69819'
+    event_name: '#69945'
+    multiply_by: 0.01
+    is_user_event: true
+    
+  -  # Trim Air Switch
+    type: NumSet
+    var_name: L:switch_311_73x
+    var_units: number
+    var_type: f64
+    event_name: '#69943'
     multiply_by: 0.01
     is_user_event: true
     
   -  # Cont Cabin Temp Selector Knob
     type: NumSet
-    var_name: L:switch_191_73x
+    var_name: L:switch_305_73x
     var_units: degrees
     var_type: f64
-    event_name: '#69823'
+    event_name: '#69937'
     is_user_event: true
     
-  -  # Pass Cabin Temp Selector Knob
+  -  # Fwd Cabin Temp Selector Knob
     type: NumSet
-    var_name: L:switch_192_73x
+    var_name: L:switch_306_73x
     var_units: degrees
     var_type: f64
-    event_name: '#69824'
+    event_name: '#69938'
+    is_user_event: true
+    
+  -  # Aft Cabin Temp Selector Knob
+    type: NumSet
+    var_name: L:switch_307_73x
+    var_units: degrees
+    var_type: f64
+    event_name: '#69939'
     is_user_event: true
 
   -  # Recirc Fan Switch L
